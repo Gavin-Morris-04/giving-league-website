@@ -1,26 +1,439 @@
 @import "tailwindcss";
 
+/* ──────────────────────────────────────────────────────────────────────────
+   Design tokens — "The Line". Source of truth: DESIGN.md
+   ────────────────────────────────────────────────────────────────────────── */
+@theme {
+  --color-ink: #182628;
+  --color-ink-muted: #4a5857;
+  --color-ivory: #f8f6f0;
+  --color-sand: #efebe1;
+  --color-paper: #ffffff;
+  --color-hairline: #d9d3c4;
+  --color-hairline-strong: #b9b2a1;
+  --color-navy: #122a3a;
+  --color-navy-deep: #0c1e2a;
+  --color-navy-muted: #a9b7be;
+  --color-navy-line: #2a4354;
+  --color-forest: #24584c;
+  --color-forest-deep: #1b4439;
+  --color-forest-tint: #e3ebe5;
+  --color-gold: #d5a653;
+  --color-gold-bright: #e3bc73;
+  --color-gold-ink: #7a5b1a;
+  --color-gold-tint: #f4e9d2;
+  --color-error: #a3321f;
+  --color-error-tint: #f7e4df;
+
+  --font-display: var(--font-bricolage), ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-figtree), ui-sans-serif, system-ui, sans-serif;
+  --font-event: var(--font-big-shoulders), ui-sans-serif, system-ui, sans-serif;
+
+  --radius-sm: 4px;
+  --radius-md: 8px;
+
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+
+  --breakpoint-xs: 26rem;
+}
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --gutter: 1.25rem;
+  --section-y: clamp(4rem, 8vw, 8.5rem);
+  --header-h: 4.5rem;
+  color-scheme: light;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
+@media (min-width: 48rem) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --gutter: 2rem;
+  }
+}
+@media (min-width: 64rem) {
+  :root {
+    --gutter: 3rem;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* ── Base ─────────────────────────────────────────────────────────────── */
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+    scroll-padding-top: calc(var(--header-h) + 1rem);
+    scrollbar-color: var(--color-hairline-strong) var(--color-ivory);
+  }
+
+  body {
+    -webkit-tap-highlight-color: transparent;
+    background: var(--color-ivory);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    font-size: 1.0625rem;
+    line-height: 1.6;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    caret-color: var(--color-forest);
+  }
+
+  ::selection {
+    background: var(--color-gold);
+    color: var(--color-navy);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display);
+    font-weight: 600;
+    text-wrap: balance;
+    font-variation-settings: "wdth" 92;
+    letter-spacing: -0.02em;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  a {
+    text-underline-offset: 0.2em;
+    text-decoration-thickness: 1px;
+  }
+
+  :focus-visible {
+    outline: 3px solid var(--color-forest);
+    outline-offset: 2px;
+    border-radius: 2px;
+  }
+
+  .on-dark :focus-visible,
+  .on-dark:focus-visible {
+    outline-color: var(--color-gold);
+  }
+
+  input,
+  select,
+  textarea,
+  button {
+    font: inherit;
+  }
+
+  summary {
+    cursor: pointer;
+  }
+
+  [hidden] {
+    display: none !important;
+  }
+}
+
+/* ── Type scale ───────────────────────────────────────────────────────── */
+@utility text-display-xl {
+  font-family: var(--font-display);
+  font-size: clamp(2.75rem, 1.6rem + 5.2vw, 6rem);
+  line-height: 0.95;
+  letter-spacing: -0.035em;
+  font-weight: 600;
+  font-variation-settings: "wdth" 90, "opsz" 96;
+}
+@utility text-display-lg {
+  font-family: var(--font-display);
+  font-size: clamp(2.25rem, 1.5rem + 3.4vw, 4.25rem);
+  line-height: 1;
+  letter-spacing: -0.03em;
+  font-weight: 600;
+  font-variation-settings: "wdth" 90, "opsz" 96;
+}
+@utility text-h2 {
+  font-family: var(--font-display);
+  font-size: clamp(1.875rem, 1.35rem + 2.2vw, 3.25rem);
+  line-height: 1.05;
+  letter-spacing: -0.025em;
+  font-weight: 600;
+  font-variation-settings: "wdth" 92, "opsz" 72;
+}
+@utility text-h3 {
+  font-family: var(--font-display);
+  font-size: clamp(1.25rem, 1.1rem + 0.6vw, 1.625rem);
+  line-height: 1.2;
+  letter-spacing: -0.015em;
+  font-weight: 600;
+  font-variation-settings: "wdth" 94, "opsz" 32;
+}
+@utility text-lead {
+  font-size: clamp(1.125rem, 1.05rem + 0.35vw, 1.375rem);
+  line-height: 1.5;
+}
+@utility text-label {
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  line-height: 1.2;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+@utility text-event {
+  font-family: var(--font-event);
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
+  line-height: 0.9;
+}
+
+@utility measure {
+  max-width: 68ch;
+}
+
+@utility container-line {
+  width: 100%;
+  max-width: calc(80rem + var(--gutter) * 2);
+  margin-inline: auto;
+  /* iPhone landscape: keep content clear of the notch and rounded corners */
+  padding-left: max(var(--gutter), env(safe-area-inset-left));
+  padding-right: max(var(--gutter), env(safe-area-inset-right));
+}
+
+@utility section-y {
+  padding-block: var(--section-y);
+}
+
+@utility tabular {
+  font-variant-numeric: tabular-nums;
+}
+
+/* ── Components ───────────────────────────────────────────────────────── */
+@layer components {
+  .skip-link {
+    position: absolute;
+    left: 1rem;
+    top: -4rem;
+    z-index: 100;
+    background: var(--color-navy);
+    color: var(--color-ivory);
+    padding: 0.75rem 1rem;
+    border-radius: var(--radius-sm);
+    font-weight: 600;
+    transition: top 160ms var(--ease-out-expo);
+  }
+  .skip-link:focus {
+    top: 1rem;
+  }
+
+  /* Link with drawn underline */
+  .link {
+    color: var(--color-forest);
+    text-decoration-line: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.2em;
+    transition: text-decoration-thickness 160ms, color 160ms;
+  }
+  .link:hover {
+    text-decoration-thickness: 2px;
+    color: var(--color-forest-deep);
+  }
+  .on-dark .link {
+    color: var(--color-gold-bright);
+  }
+
+  /* Linked card lift */
+  .card-lift {
+    transition:
+      transform 240ms var(--ease-out-expo),
+      box-shadow 240ms var(--ease-out-expo),
+      border-color 240ms;
+  }
+  .card-lift:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px -12px rgb(18 42 58 / 0.25);
+    border-color: var(--color-hairline-strong);
+  }
+
+  /* Photo zoom inside its frame */
+  .photo-zoom img {
+    transition: transform 700ms var(--ease-out-expo);
+  }
+  .photo-zoom:hover img {
+    transform: scale(1.03);
+  }
+
+  /* The line — horizontal dashed rail used behind station dots */
+  .rail {
+    background-image: linear-gradient(to right, currentColor 50%, transparent 0);
+    background-size: 10px 2px;
+    background-repeat: repeat-x;
+    background-position: left center;
+  }
+
+  /* Form controls */
+  .field {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    min-height: 3rem;
+    /* iOS Safari zooms the page when a focused field is under 16px */
+    font-size: max(16px, 1em);
+    padding: 0.625rem 0.875rem;
+    background: var(--color-paper);
+    border: 1px solid var(--color-hairline-strong);
+    border-radius: var(--radius-sm);
+    color: var(--color-ink);
+    transition:
+      border-color 160ms,
+      box-shadow 160ms;
+  }
+  .field::placeholder {
+    color: var(--color-ink-muted);
+  }
+  .field:hover {
+    border-color: var(--color-ink-muted);
+  }
+  .field:focus {
+    outline: none;
+    border-color: var(--color-forest);
+    box-shadow: 0 0 0 3px rgb(36 88 76 / 0.22);
+  }
+  .field[aria-invalid="true"] {
+    border-color: var(--color-error);
+  }
+  .field[aria-invalid="true"]:focus {
+    box-shadow: 0 0 0 3px rgb(163 50 31 / 0.2);
+  }
+  select.field {
+    appearance: none;
+    padding-right: 2.5rem;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='none' stroke='%23182628' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m4 6 4 4 4-4'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 0.875rem center;
+  }
+  textarea.field {
+    min-height: 8rem;
+    resize: vertical;
+  }
+
+  .check {
+    appearance: none;
+    width: 1.25rem;
+    height: 1.25rem;
+    flex: none;
+    border: 1.5px solid var(--color-ink-muted);
+    border-radius: 3px;
+    background: var(--color-paper);
+    display: inline-grid;
+    place-content: center;
+    transition:
+      background 160ms,
+      border-color 160ms;
+  }
+  .check:checked {
+    background: var(--color-forest);
+    border-color: var(--color-forest);
+  }
+  .check:checked::after {
+    content: "";
+    width: 0.65rem;
+    height: 0.35rem;
+    border-left: 2px solid white;
+    border-bottom: 2px solid white;
+    transform: translateY(-1px) rotate(-45deg);
+  }
+  .check[type="radio"] {
+    border-radius: 999px;
+  }
+  .check[type="radio"]:checked::after {
+    width: 0.5rem;
+    height: 0.5rem;
+    border: 0;
+    border-radius: 999px;
+    background: white;
+    transform: none;
+  }
+
+  /* Prose for legal pages */
+  .prose-legal h2 {
+    font-size: 1.5rem;
+    line-height: 1.2;
+    margin-top: 2.5rem;
+    margin-bottom: 0.75rem;
+  }
+  .prose-legal h3 {
+    font-size: 1.15rem;
+    margin-top: 1.75rem;
+    margin-bottom: 0.5rem;
+  }
+  .prose-legal p,
+  .prose-legal ul {
+    margin-bottom: 1rem;
+  }
+  .prose-legal ul {
+    list-style: disc;
+    padding-left: 1.25rem;
+  }
+  .prose-legal li {
+    margin-bottom: 0.35rem;
+  }
+}
+
+/* Forms placed on dark grounds */
+.on-dark .text-ink-muted {
+  color: var(--color-navy-muted);
+}
+.on-dark .field {
+  border-color: transparent;
+}
+.on-dark .field:focus {
+  border-color: var(--color-gold);
+  box-shadow: 0 0 0 3px rgb(213 166 83 / 0.35);
+}
+
+/* Light cards placed inside dark sections restore the light-ground rules */
+.on-dark .on-light .text-ink-muted {
+  color: var(--color-ink-muted);
+}
+.on-dark .on-light .field {
+  border-color: var(--color-hairline-strong);
+}
+.on-dark .on-light .field:focus {
+  border-color: var(--color-forest);
+  box-shadow: 0 0 0 3px rgb(36 88 76 / 0.22);
+}
+.on-dark .on-light :focus-visible {
+  outline-color: var(--color-forest);
+}
+.on-dark .on-light .link {
+  color: var(--color-forest);
+}
+
+/* iOS: the open mobile menu scrolls on its own without dragging the page behind it */
+#mobile-menu {
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
+  padding-bottom: env(safe-area-inset-bottom);
+}
+html.menu-open,
+html.menu-open body {
+  overflow: hidden;
+}
+footer {
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+/* Parallax: Rellax writes transforms; give its layers room so edges never show. */
+[data-rellax] {
+  will-change: transform;
+}
+
+/* ── Reduced motion ───────────────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 1ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 1ms !important;
+    scroll-behavior: auto !important;
+  }
+  [data-rellax] {
+    transform: none !important;
+  }
 }
