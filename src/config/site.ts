@@ -43,7 +43,10 @@ export const site = {
    * PROVISIONAL production URL. Used for canonical URLs, sitemap and Open Graph.
    * Set NEXT_PUBLIC_SITE_URL in the environment to override.
    */
-  url: process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000",
+  url:
+    process.env.NEXT_PUBLIC_SITE_URL ??
+    // Vercel sets this automatically to the project's production domain.
+    (process.env.VERCEL_PROJECT_PRODUCTION_URL ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}` : "http://localhost:3000"),
 
   /**
    * Contact channels. `null` means "not set up yet": the UI shows the contact form instead of inventing an
