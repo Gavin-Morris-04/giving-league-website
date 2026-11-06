@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowLeft, CalendarDays, CheckCircle2, Clock, Globe2, MapPin, School, Users } from "lucide-react";
+import { ListingDateBadge } from "@/components/directory/ListingDateBadge";
 import { OpportunityCard } from "@/components/directory/OpportunityCard";
 import { ButtonLink } from "@/components/ui/Button";
 import { Badge, ExternalLink, VerifiedLine } from "@/components/ui/primitives";
@@ -45,7 +46,11 @@ export default async function OpportunityPage({ params }: Props) {
     { icon: Globe2, label: "Service area", value: o.serviceArea },
     { icon: Clock, label: "Time commitment", value: o.timeCommitment },
     { icon: Users, label: "Who can volunteer", value: labels.group[o.groupEligibility] + (o.groupNotes ? ` — ${o.groupNotes}` : "") },
-    { icon: CalendarDays, label: "Schedule", value: labels.frequency[o.frequency] },
+    {
+      icon: CalendarDays,
+      label: "Schedule",
+      value: o.kind === "event" && o.startDate ? formatDateRange(o.startDate, o.endDate) : labels.frequency[o.frequency],
+    },
     { icon: CheckCircle2, label: "Minimum age", value: o.minimumAge ? `${o.minimumAge}+ (see requirements)` : "Not stated — check with the organization" },
   ];
 
@@ -60,7 +65,7 @@ export default async function OpportunityPage({ params }: Props) {
             </Link>
             <div className="mt-6 flex flex-wrap gap-2">
               {o.kind === "event" && o.startDate ? (
-                <Badge tone="gold">Dated event · {formatDateRange(o.startDate, o.endDate)}</Badge>
+                <ListingDateBadge o={o} label="page" />
               ) : (
                 <Badge tone="forest">{labels.kind.resource}</Badge>
               )}
@@ -88,6 +93,29 @@ export default async function OpportunityPage({ params }: Props) {
           <div className="lg:col-span-7">
             <h2 className="text-h3 text-navy">About this opportunity</h2>
             <p className="mt-4 measure text-[1.0625rem]">{o.description}</p>
+
+            {o.roles?.length ? (
+              <>
+                <h2 className="text-h3 mt-12 text-navy">Shifts and roles</h2>
+                <p className="mt-3 text-[0.9375rem] text-ink-muted">
+                  Each role has its own sign-up page and its own age rule, as {orgLabel} posts them.
+                </p>
+                <ul className="mt-5 divide-y divide-hairline rounded-md border border-hairline bg-paper">
+                  {o.roles.map((r) => (
+                    <li key={r.signupUrl} className="flex flex-col gap-2 p-4 sm:flex-row sm:items-start sm:justify-between sm:gap-6 sm:p-5">
+                      <div>
+                        <p className="font-semibold text-navy">{r.name}</p>
+                        <p className="mt-1 text-[0.9375rem] text-ink-muted">{r.when}</p>
+                        <p className="mt-1 text-[0.875rem] font-semibold text-gold-ink">{r.ages}</p>
+                      </div>
+                      <ExternalLink href={r.signupUrl} className="shrink-0 text-[0.9375rem] font-semibold">
+                        Sign up<span className="sr-only"> for {r.name}</span>
+                      </ExternalLink>
+                    </li>
+                  ))}
+                </ul>
+              </>
+            ) : null}
 
             <h2 className="text-h3 mt-12 text-navy">Requirements</h2>
             <ul className="mt-4 space-y-3">

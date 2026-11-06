@@ -1,9 +1,10 @@
 import Link from "next/link";
 import { ArrowUpRight, CalendarDays, MapPin, ShieldCheck, Users } from "lucide-react";
+import { ListingDateBadge } from "@/components/directory/ListingDateBadge";
 import { Badge } from "@/components/ui/primitives";
 import { causes, cities } from "@/data/reference/geography";
 import { eligibilityLabel, guardianLabel, labels } from "@/lib/directory";
-import { cx, formatDateRange, formatShortDate } from "@/lib/format";
+import { cx, formatShortDate } from "@/lib/format";
 import type { Opportunity } from "@/lib/types";
 
 export function OpportunityCard({
@@ -38,10 +39,7 @@ export function OpportunityCard({
     >
       <div className="flex flex-wrap items-center gap-2">
         {o.kind === "event" && o.startDate ? (
-          <Badge tone="gold">
-            <span className="sr-only">Dated event: </span>
-            {formatDateRange(o.startDate, o.endDate)}
-          </Badge>
+          <ListingDateBadge o={o} />
         ) : (
           <Badge tone="forest">{labels.kind.resource}</Badge>
         )}

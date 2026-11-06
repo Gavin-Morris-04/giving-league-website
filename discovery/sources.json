@@ -32,7 +32,9 @@
       "kind": "event",
       "url": "https://keeplouisianabeautiful.org/feed/",
       "default_city": "statewide",
-      "only_if_matches": "clean ?up|love the boot|volunteer|sweep|litter"
+      "only_if_matches": "clean ?up|love the boot|volunteer|sweep|litter",
+      "exclude_title_matches": "\\b(announc\\w*|awards?|recipients?|citations?|accepting bids|bids?|the role of|tons of|results|recap|thank(s| you)|hosts?\\b.*\\bmeetings?|press release|partners? with|celebrat\\w*|annual report|newsletter)\\b",
+      "max_age_days": 60
     },
     {
       "id": "gbrfb-news",
@@ -41,7 +43,9 @@
       "kind": "event",
       "url": "https://brfoodbank.org/feed/",
       "default_city": "baton-rouge",
-      "only_if_matches": "volunteer|food drive|drive|event"
+      "only_if_matches": "volunteer|food drive|drive|event",
+      "exclude_title_matches": "\\b(announc\\w*|awards?|recipients?|citations?|accepting bids|bids?|the role of|tons of|results|recap|thank(s| you)|hosts?\\b.*\\bmeetings?|press release|partners? with|celebrat\\w*|annual report|newsletter)\\b",
+      "max_age_days": 60
     },
     {
       "id": "second-harvest-news",
@@ -50,7 +54,9 @@
       "kind": "event",
       "url": "https://no-hunger.org/feed/",
       "default_city": "new-orleans",
-      "only_if_matches": "volunteer|food drive|drive|event"
+      "only_if_matches": "volunteer|food drive|drive|event",
+      "exclude_title_matches": "\\b(announc\\w*|awards?|recipients?|citations?|accepting bids|bids?|the role of|tons of|results|recap|thank(s| you)|hosts?\\b.*\\bmeetings?|press release|partners? with|celebrat\\w*|annual report|newsletter)\\b",
+      "max_age_days": 60
     }
   ]
 }

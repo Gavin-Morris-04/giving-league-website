@@ -17,6 +17,7 @@ Run locally:  node --experimental-strip-types scripts/export-snapshot.ts && pyth
 from __future__ import annotations
 
 import datetime as dt
+import email.utils
 import hashlib
 import html
 import json
@@ -33,6 +34,8 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 SNAPSHOT = ROOT / "discovery" / ".cache" / "snapshot.json"
 SOURCES = ROOT / "discovery" / "sources.json"
+REVIEWED = ROOT / "discovery" / "reviewed.json"
+PREVIOUS = ROOT / "discovery" / ".cache" / "previous-report.json"
 REPORT_JSON = ROOT / "src" / "data" / "discovery" / "report.json"
 REPORT_MD = ROOT / "discovery" / "REPORT.md"
 
@@ -140,13 +143,49 @@ def high_school_suggestion(rules: dict) -> str:
     return "needs_review"
 
 
-def associate_city(text: str, default_city: str, snapshot: dict) -> tuple[str, str | None]:
-    lowered = text.lower()
-    for area in snapshot["serviceAreas"]:
-        names = [area["name"], *area.get("surrounding", [])]
-        for name in names:
-            if re.search(rf"\b{re.escape(name.lower())}\b", lowered):
-                return area["cityKey"], name
+# Place names that are also everyday words, surnames, street names or cities in other states ("Central City" is a
+# New Orleans neighborhood; "Independence Day"; "Lafayette Square"; "Monroe Street"). They only count when written
+# as a Louisiana place ("Central, LA", "City of Central"), or when nothing better matches in a statewide feed.
+AMBIGUOUS_PLACES = {
+    "central", "independence", "albany", "springfield", "scott", "iowa", "walker", "baker", "calhoun", "arcadia",
+    "sulphur", "zachary", "gonzales", "broussard", "bastrop", "lafayette", "monroe", "hammond", "kenner", "marrero",
+}
+_STREET_SUFFIX = r"(?:st\.?|street|ave\.?|avenue|blvd\.?|boulevard|rd\.?|road|dr\.?|drive|square|sq\.?|hall|park|elementary|middle|high|parish|city|cemetery|plaza|hwy|highway)\b"
+
+
+def _place_strength(name: str, lowered: str, ambiguous_ok: bool) -> int:
+    """3 = written as a Louisiana place; 2 = plain mention; 1 = plain mention of an ambiguous name; 0 = no match."""
+    n = re.escape(name.lower())
+    if re.search(rf"\b{n},?\s+(?:la\b\.?|louisiana\b)|\bcity of {n}\b|\b{n},?\s+la\s+7\d{{4}}", lowered):
+        return 3
+    plain = list(re.finditer(rf"\b{n}\b", lowered))
+    if not plain:
+        return 0
+    if name.lower() not in AMBIGUOUS_PLACES:
+        return 2
+    # "Lafayette Square", "Monroe Street", "Central City" are places named after the word, not the town.
+    as_town = [m for m in plain if not re.match(rf"\s+{_STREET_SUFFIX}", lowered[m.end():])]
+    return 1 if as_town and ambiguous_ok else 0
+
+
+def associate_city(text: str, default_city: str, snapshot: dict, location: str = "") -> tuple[str, str | None]:
+    """Pick the service area an item belongs to. The feed's own location field wins; then the strongest mention in
+    the text; ties go to the organization's home area. Anything uncertain falls back to that home area."""
+    for blob, ambiguous_ok in ((location, True), (text, default_city == "statewide")):
+        lowered = blob.lower()
+        if not lowered.strip():
+            continue
+        best: list[tuple[int, str, str]] = []
+        for area in snapshot["serviceAreas"]:
+            for name in [area["name"], *area.get("surrounding", [])]:
+                s = _place_strength(name, lowered, ambiguous_ok)
+                if s:
+                    best.append((s, area["cityKey"], name))
+        if best:
+            top = max(s for s, _, _ in best)
+            winners = [(k, n) for s, k, n in best if s == top]
+            home = [(k, n) for k, n in winners if k == default_city]
+            return (home or winners)[0]
     return default_city, None
 
 
@@ -181,24 +220,90 @@ def parse_rss(text: str) -> list[dict]:
     out = []
     for item in root.iter("item"):
         get = lambda tag: (item.findtext(tag) or "").strip()  # noqa: E731
-        out.append({"title": get("title"), "url": get("link"), "description": page_text(get("description")), "location": "", "start": None, "end": None, "status": ""})
+        published = None
+        try:
+            published = email.utils.parsedate_to_datetime(get("pubDate")).date().isoformat() if get("pubDate") else None
+        except (TypeError, ValueError):
+            published = None
+        out.append({
+            "title": get("title"), "url": get("link"), "description": page_text(get("description")), "location": "",
+            "start": None, "end": None, "status": "", "published": published,
+        })
     return out
 
 
+def keep_item(src: dict, it: dict, today: str) -> bool:
+    """Source-level filters that keep news feeds from proposing press releases, recaps and old posts."""
+    blob = " ".join([it["title"], it["description"], it["location"]])
+    if src.get("only_if_matches") and not re.search(src["only_if_matches"], blob, re.I):
+        return False
+    if src.get("exclude_title_matches") and re.search(src["exclude_title_matches"], it["title"], re.I):
+        return False
+    if src.get("max_age_days") and it.get("published"):
+        cutoff = (dt.date.fromisoformat(today) - dt.timedelta(days=int(src["max_age_days"]))).isoformat()
+        if it["published"] < cutoff:
+            return False
+    if it["end"] and it["end"] < today:
+        return False  # already over: never propose past dates
+    return True
+
+
 # ── Main ──────────────────────────────────────────────────────────────────────
-def check_page(url: str, recorded_min_age: int | None, prev: dict | None) -> dict:
+def normalize_url(url: str) -> str:
+    """Compare links regardless of http/https, www. and a trailing slash."""
+    return re.sub(r"^https?://(www\.)?", "", url.strip()).rstrip("/").lower()
+
+
+def louisiana_today() -> str:
+    """Today's date in Louisiana (the runner's clock is UTC)."""
+    try:
+        from zoneinfo import ZoneInfo
+
+        return dt.datetime.now(ZoneInfo("America/Chicago")).date().isoformat()
+    except Exception:  # no tz database available: Central Standard Time is close enough for a date
+        return (dt.datetime.now(dt.timezone.utc) - dt.timedelta(hours=6)).date().isoformat()
+
+
+def is_reviewed(reviewed: list[dict], listing: str, flag: dict) -> bool:
+    """A flag a person already looked at and dismissed (discovery/reviewed.json). It comes back as soon as the
+    evidence changes — e.g. a different cancellation notice, or a different age on the page."""
+    for r in reviewed:
+        if r.get("listing") != listing or r.get("type") != flag["type"]:
+            continue
+        if r.get("evidence_contains") and r["evidence_contains"].lower() not in flag.get("evidence", "").lower():
+            continue
+        if "found_minimum_age" in r and r["found_minimum_age"] != flag.get("found_minimum_age"):
+            continue
+        return True
+    return False
+
+
+def check_page(url: str, recorded_min_age: int | None, prev: dict | None, listing: str = "", reviewed: list[dict] | None = None) -> dict:
+    reviewed = reviewed or []
     r = fetch(url)
     failures = (prev or {}).get("consecutive_failures", 0)
     failures = failures + 1 if r["status"] in ("broken", "unreachable") else 0
-    result = {"url": url, "status": r["status"], "code": r["code"], "consecutive_failures": failures, "flags": []}
+    result = {"url": url, "status": r["status"], "code": r["code"], "consecutive_failures": failures, "flags": [], "reviewed_flags": 0}
+
+    def add(flag: dict) -> None:
+        if is_reviewed(reviewed, listing, flag):
+            result["reviewed_flags"] += 1
+        else:
+            result["flags"].append(flag)
+
     if r["status"] == "ok":
         text = page_text(r["text"])
-        if CANCEL_RE.search(text):
-            m = CANCEL_RE.search(text)
-            result["flags"].append({"type": "possible_cancellation", "evidence": text[max(0, m.start() - 100) : m.end() + 100]})
+        # Look at every cancellation-style notice, not just the first: an old, already-reviewed notice on the page
+        # must not hide a new one further down.
+        for m in list(CANCEL_RE.finditer(text))[:10]:
+            flag = {"type": "possible_cancellation", "evidence": text[max(0, m.start() - 100) : m.end() + 100]}
+            if not is_reviewed(reviewed, listing, flag):
+                result["flags"].append(flag)
+                break
+            result["reviewed_flags"] += 1
         rules = extract_age_rules(text)
         if rules["minimum_age"] is not None and rules["minimum_age"] != recorded_min_age:
-            result["flags"].append({"type": "age_rule_differs", "found_minimum_age": rules["minimum_age"], "recorded_minimum_age": recorded_min_age, "evidence": rules["snippet"]})
+            add({"type": "age_rule_differs", "found_minimum_age": rules["minimum_age"], "recorded_minimum_age": recorded_min_age, "evidence": rules["snippet"]})
     if failures >= 2:
         result["flags"].append({"type": "broken_link", "evidence": f"{r['status']} ({r['code']}) on {failures} consecutive daily checks"})
     return result
@@ -210,37 +315,43 @@ def main() -> int:
         return 2
     snapshot = json.loads(SNAPSHOT.read_text())
     sources = json.loads(SOURCES.read_text())["feeds"]
-    previous = json.loads(REPORT_JSON.read_text()) if REPORT_JSON.exists() else {}
+    reviewed = json.loads(REVIEWED.read_text()).get("flags", []) if REVIEWED.exists() else []
+    # Continuity: while a review PR is open, the workflow saves that branch's report here so link-failure counts keep
+    # adding up day to day even before anyone merges.
+    prev_path = PREVIOUS if PREVIOUS.exists() else REPORT_JSON
+    previous = json.loads(prev_path.read_text()) if prev_path.exists() else {}
     prev_checks = previous.get("listings", {})
-    today = dt.date.today().isoformat()
+    today = louisiana_today()
 
     listings: dict[str, dict] = {}
-    known_urls = set()
+    known_urls: set[str] = set()
     for o in snapshot["opportunities"]:
-        known_urls.update([o["signupUrl"].rstrip("/"), o["infoUrl"].rstrip("/")])
-        res = check_page(o["signupUrl"], o["minimumAge"], prev_checks.get(f"opportunity:{o['slug']}"))
-        listings[f"opportunity:{o['slug']}"] = res
+        key = f"opportunity:{o['slug']}"
+        known_urls.update(normalize_url(u) for u in [o["signupUrl"], o["infoUrl"], *o.get("roleUrls", [])])
+        res = check_page(o["signupUrl"], o["minimumAge"], prev_checks.get(key), key, reviewed)
+        last_day = o.get("endDate") or o.get("startDate")
+        if o.get("kind") == "event" and last_day and last_day < today:
+            res["flags"].append({"type": "dated_listing_ended", "evidence": f"Last date was {last_day}. Remove this listing or update it with the organizer's new dates."})
+        listings[key] = res
     for e in snapshot["events"]:
-        known_urls.update([e["registrationUrl"].rstrip("/"), e["infoUrl"].rstrip("/")])
-        res = check_page(e["registrationUrl"], None, prev_checks.get(f"event:{e['slug']}"))
-        listings[f"event:{e['slug']}"] = res
+        key = f"event:{e['slug']}"
+        known_urls.update(normalize_url(u) for u in [e["registrationUrl"], e["infoUrl"]])
+        listings[key] = check_page(e["registrationUrl"], None, prev_checks.get(key), key, reviewed)
 
     candidates = []
     source_status = []
     for src in sources:
         r = fetch(src["url"])
         items = (parse_ical if src["type"] == "ical" else parse_rss)(r["text"]) if r["status"] == "ok" else []
-        pattern = re.compile(src["only_if_matches"], re.I) if src.get("only_if_matches") else None
         kept = 0
         for it in items:
-            if not it["title"] or not it["url"] or it["url"].rstrip("/") in known_urls:
+            if not it["title"] or not it["url"] or normalize_url(it["url"]) in known_urls:
                 continue
-            blob = " ".join([it["title"], it["description"], it["location"]])
-            if pattern and not pattern.search(blob):
+            if not keep_item(src, it, today):
                 continue
-            if it["end"] and it["end"] < today:
-                continue  # already over: never propose past dates
-            city, matched = associate_city(blob, src["default_city"], snapshot)
+            blob = " ".join([it["title"], it["description"]])
+            city, matched = associate_city(blob, src["default_city"], snapshot, it["location"])
+            blob = " ".join([blob, it["location"]])
             rules = extract_age_rules(blob)
             cand = {
                 "id": hashlib.sha1(it["url"].encode()).hexdigest()[:12],
@@ -265,6 +376,7 @@ def main() -> int:
     candidates.sort(key=lambda c: (c["start"] or "9999", c["title"]))
     report = {
         "generatedAt": dt.datetime.now(dt.timezone.utc).replace(microsecond=0).isoformat(),
+        "generatedOn": today,
         "listings": dict(sorted(listings.items())),
         "candidates": candidates,
         "sources": source_status,
@@ -304,6 +416,9 @@ def render_markdown(report: dict) -> str:
     for key, v in flagged:
         for f in v["flags"]:
             lines.append(f"- **{key}** — `{f['type']}`: {f.get('evidence', '')[:240]}  \n  {v['url']}")
+    reviewed_count = sum(v.get("reviewed_flags", 0) for v in report["listings"].values())
+    if reviewed_count:
+        lines += ["", f"{reviewed_count} finding(s) you already reviewed and dismissed are hidden (see `discovery/reviewed.json`)."]
     hidden = [k for k, v in report["listings"].items() if any(f["type"] == "broken_link" for f in v["flags"])]
     if hidden:
         lines += ["", f"Merging this PR hides {len(hidden)} listing(s) with broken links until they're fixed: " + ", ".join(hidden)]
@@ -324,6 +439,11 @@ def render_markdown(report: dict) -> str:
         "",
         "Confirm it on the organization's official page, then add it to `src/data/verified/opportunities.ts` or",
         "`src/data/verified/charity-events.ts` with verified age rules. Unclear eligibility stays `unverified`.",
+        "",
+        "## Dismissing a finding",
+        "",
+        "If a flag above is a false alarm, add it to `discovery/reviewed.json` (listing, type, and a phrase from the",
+        "evidence). It stays hidden until the page's wording changes.",
         "",
         "## Sources",
         "",

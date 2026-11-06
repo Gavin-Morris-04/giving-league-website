@@ -99,6 +99,15 @@ export type Organization = {
   summary: string;
 };
 
+export type OpportunityRole = {
+  name: string;
+  /** Plain-language date and time, as published by the organizer. */
+  when: string;
+  /** The organizer's age rule for this role, verbatim in meaning — e.g. "Ages 14+ with an adult", "18+". */
+  ages: string;
+  signupUrl: string;
+};
+
 export type Opportunity = {
   slug: string;
   orgSlug: string;
@@ -127,9 +136,11 @@ export type Opportunity = {
   signupUrl: string;
   /** Official page describing the opportunity (may equal signupUrl). */
   infoUrl: string;
-  /** Dates only for `event` listings, ISO yyyy-mm-dd. */
+  /** Dates only for `event` listings, ISO yyyy-mm-dd. Listings drop off the site after `endDate`. */
   startDate?: string;
   endDate?: string;
+  /** Individual roles or shifts, each with its own sign-up page and its own age rule as the organizer states it. */
+  roles?: OpportunityRole[];
   status: "active" | "seasonal" | "paused";
   /** ISO date of the last manual check of every link and fact on this listing. */
   lastVerified: string;

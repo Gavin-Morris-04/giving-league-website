@@ -15,3 +15,7 @@ export function isHiddenByDiscovery(kind: "opportunity" | "event", slug: string)
 }
 
 export const discoveryGeneratedAt: string | null = (report as { generatedAt?: string }).generatedAt ?? null;
+
+/** Louisiana date of the last merged report (written by the job; older reports only have the UTC timestamp). */
+export const discoveryGeneratedOn: string | null =
+  (report as { generatedOn?: string }).generatedOn ?? discoveryGeneratedAt?.slice(0, 10) ?? null;

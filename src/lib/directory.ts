@@ -1,7 +1,9 @@
 import { cities, getUniversity, milesBetween, NEARBY_RADIUS_MILES, universities } from "@/data/reference/geography";
 import { getOrganization } from "@/data/verified/organizations";
 import { verifiedOpportunities } from "@/data/verified/opportunities";
-import { isHiddenByDiscovery } from "@/lib/discovery";
+import { site } from "@/config/site";
+import { discoveryGeneratedOn, isHiddenByDiscovery } from "@/lib/discovery";
+import { isEndedListing, laterDate } from "@/lib/listing-dates";
 import type { Cause, Format, Frequency, GroupEligibility, Opportunity, University } from "@/lib/types";
 
 /** Campuses within NEARBY_RADIUS_MILES of a city. Statewide listings are near every campus. */
@@ -11,9 +13,18 @@ function campusesNear(cityKey: Opportunity["cityKey"]): string[] {
   return universities.filter((u) => milesBetween(u, c) <= NEARBY_RADIUS_MILES).map((u) => u.slug);
 }
 
+/**
+ * The newest date the build knows about (last manual verification or last merged discovery report). Pages are
+ * static, so dated listings whose last day is before this are left out at build time; in the browser, the finder
+ * and date badges also check the visitor's real date.
+ */
+export const directoryReferenceDate = laterDate(site.directoryVerifiedOn, discoveryGeneratedOn);
+
 /** All publishable listings. Only `provenance: "verified"` rows are ever shown. */
 export const opportunities: Opportunity[] = verifiedOpportunities
-  .filter((o) => o.provenance === "verified" && !isHiddenByDiscovery("opportunity", o.slug))
+  .filter(
+    (o) => o.provenance === "verified" && !isHiddenByDiscovery("opportunity", o.slug) && !isEndedListing(o, directoryReferenceDate),
+  )
   .map((o) => ({ ...o, nearbyCampuses: o.nearbyCampuses ?? campusesNear(o.cityKey) }));
 
 export function getOpportunity(slug: string) {

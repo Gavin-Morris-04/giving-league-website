@@ -2,8 +2,8 @@ import type { Opportunity } from "@/lib/types";
 
 /**
  * VERIFIED LIVE DATA — every fact and link below was checked against the organization's own website on
- * `lastVerified`. Nothing here is an open shift: "resource" listings point to the organization's own
- * calendar or application; the single "event" listing is a dated event the organization itself announced.
+ * `lastVerified`. "resource" listings point to the organization's own calendar or application; "event"
+ * listings are dated shifts the organization itself posted, and drop off the site after their last day.
  *
  * `nearbyCampuses` is computed at load time from coordinates (see src/lib/directory.ts).
  *
@@ -562,6 +562,106 @@ export const verifiedOpportunities: OpportunityInput[] = [
     format: "in_person",
     signupUrl: "https://svdpbr.galaxydigital.com/",
     infoUrl: "https://www.svdpbr.net/volunteer",
+    status: "active",
+    lastVerified: V,
+    provenance: "verified",
+  },
+  {
+    slug: "svdp-baton-rouge-santa-shop-2026",
+    orgSlug: "svdp-baton-rouge",
+    kind: "event",
+    title: "Santa Shop holiday helpers",
+    summary:
+      "Help parents choose Christmas gifts for their children at St. Vincent de Paul's Santa Shop — sort and restock toys, assist shoppers, run the Kids' Corner, or help set up and wrap up.",
+    description:
+      "St. Vincent de Paul of Baton Rouge runs a Santa Shop where parents pick out Christmas gifts for their children. Volunteers prepare the shop and organize donated toys (Nov 30–Dec 11); welcome and assist parents, restock tables, select and wrap gifts, or lead coloring and simple crafts in the Kids' Corner (Dec 14–19); and sort remaining toys for community partners (Dec 21–22). Shifts are two to three hours, and each role has its own sign-up on SVdP's volunteer portal.",
+    cause: "community",
+    secondaryCauses: ["youth"],
+    cityKey: "baton-rouge",
+    serviceArea: "Baton Rouge",
+    location: "Holmes Community Outreach Center, Greenwell Springs Road",
+    timeCommitment: "One or more 2–3 hour shifts between Nov 30 and Dec 22",
+    requirements: [
+      "Minimum age 14 — volunteers under 18 must be accompanied by an adult at all times (under 14 can't volunteer for this project)",
+      "A minor volunteer waiver signed by a parent or guardian, brought on the day of service",
+      "Long pants, a shirt with sleeves and closed-toe shoes",
+      "Sign up for a specific shift on SVdP's volunteer portal",
+    ],
+    minimumAge: 14,
+    eligibility: {
+      minimumAge: 14,
+      minors: "with_adult",
+      guardianPermission: "required",
+      schoolGroups: "unverified",
+      days: "both",
+      note: "SVdP's posted minor policy for every Santa Shop role: ages 14+, accompanied by an adult at all times, with a parent-signed waiver.",
+    },
+    groupEligibility: "both",
+    groupNotes: "Most shifts accept team sign-ups; every volunteer under 18 still needs an adult with them",
+    frequency: "one_time",
+    format: "in_person",
+    signupUrl: "https://svdpbr.galaxydigital.com/agency/detail/?agency_id=189466",
+    infoUrl: "https://svdpbr.galaxydigital.com/agency/detail/?agency_id=189466",
+    startDate: "2026-11-30",
+    endDate: "2026-12-22",
+    roles: [
+      { name: "Prep Crew", when: "Mon–Wed, Nov 30–Dec 2 and Dec 7–9, 9:30 AM–12:30 PM · Thu–Fri, Dec 3–4 and Dec 10–11, 1:30–4:30 PM", ages: "Ages 14+ with an adult", signupUrl: "https://svdpbr.galaxydigital.com/need/detail/santa-shop-prep-crew-/?need_id=1338749" },
+      { name: "Santa Shop Shoppers", when: "Mon–Sat, Dec 14–19, 9:30 AM–12:00 PM or 12:00–2:30 PM", ages: "Ages 14+ with an adult", signupUrl: "https://svdpbr.galaxydigital.com/need/detail/santa-shop-shoppers-/?need_id=1338786" },
+      { name: "Kids' Corner", when: "Mon–Sat, Dec 14–19, 9:30 AM–12:00 PM or 12:00–2:30 PM", ages: "Ages 14+ with an adult", signupUrl: "https://svdpbr.galaxydigital.com/need/detail/santa-shop-kids-corner-/?need_id=1338793" },
+      { name: "Restock Helpers", when: "Mon–Sat, Dec 14–19, 9:30 AM–12:00 PM or 12:00–2:30 PM", ages: "Ages 14+ with an adult", signupUrl: "https://svdpbr.galaxydigital.com/need/detail/santa-shop-restock-helpers/?need_id=1338776" },
+      { name: "Vincentian Shoppers (select, wrap and load gifts)", when: "Mon–Sat, Dec 14–19, 2:30–4:30 PM", ages: "Ages 14+ with an adult", signupUrl: "https://svdpbr.galaxydigital.com/need/detail/santa-shop-vincentian-shoppers/?need_id=1338968" },
+      { name: "Wrap-Up Crew", when: "Mon, Dec 21 and Tue, Dec 22, 1:30–3:30 PM", ages: "Ages 14+ with an adult", signupUrl: "https://svdpbr.galaxydigital.com/need/detail/santa-shop-wrap-up-crew/?need_id=1338950" },
+    ],
+    status: "active",
+    lastVerified: V,
+    provenance: "verified",
+  },
+  {
+    slug: "svdp-baton-rouge-christmas-day-2026",
+    orgSlug: "svdp-baton-rouge",
+    kind: "event",
+    title: "Christmas Day lunch volunteer",
+    summary:
+      "Help St. Vincent de Paul serve Christmas Day lunch to neighbors in Baton Rouge — run the dessert station, hand out Bags of Hope, help guests at the tables, or work in the kitchen.",
+    description:
+      "On Christmas Day, St. Vincent de Paul of Baton Rouge serves a holiday lunch in its Dining Room and an outdoor tent dining area. Volunteers 14 and older (with an adult) can set up and serve desserts or hand out Bags of Hope. The serving line, dish washing and pots-and-pans roles are for volunteers 18 and older. The table helper page lists both a 14+ and an 18+ rule, so check with SVdP before signing up a younger volunteer for that role.",
+    cause: "hunger",
+    secondaryCauses: ["community"],
+    cityKey: "baton-rouge",
+    serviceArea: "Baton Rouge",
+    location: "St. Vincent de Paul Dining Room, St. Vincent de Paul Place (downtown)",
+    timeCommitment: "One shift on Friday, Dec 25, between 10:00 AM and 2:00 PM",
+    requirements: [
+      "Dessert Station and Helpers of Hope: ages 14+; volunteers under 18 must be accompanied by an adult at all times (at least one adult per six minors)",
+      "A minor volunteer waiver signed by a parent, brought on the day of service",
+      "Serving line, dish washing and pots and pans: 18+",
+      "Sign up for one role on SVdP's volunteer portal and follow the dress code on its page",
+    ],
+    minimumAge: 14,
+    eligibility: {
+      minimumAge: 14,
+      minors: "with_adult",
+      guardianPermission: "required",
+      schoolGroups: "yes",
+      days: "weekdays",
+      note: "Ages 14+ only for the Dessert Station and Helpers of Hope roles, with an adult (one adult per six minors) and a parent-signed waiver. Kitchen roles are 18+.",
+    },
+    groupEligibility: "both",
+    groupNotes: "Teams can sign up together; groups of minors need at least one adult for every six",
+    frequency: "one_time",
+    format: "in_person",
+    signupUrl: "https://svdpbr.galaxydigital.com/need/detail/christmas-day-dessert-station-main-campus/?need_id=1335993",
+    infoUrl: "https://svdpbr.galaxydigital.com/agency/detail/?agency_id=189466",
+    startDate: "2026-12-25",
+    endDate: "2026-12-25",
+    roles: [
+      { name: "Dessert Station", when: "Fri, Dec 25, 10:30 AM–1:30 PM", ages: "Ages 14+ with an adult", signupUrl: "https://svdpbr.galaxydigital.com/need/detail/christmas-day-dessert-station-main-campus/?need_id=1335993" },
+      { name: "Helpers of Hope (hand out Bags of Hope)", when: "Fri, Dec 25, 11:00 AM–1:30 PM", ages: "Ages 14+ with an adult", signupUrl: "https://svdpbr.galaxydigital.com/need/detail/christmas-day-helpers-of-hope-main-campus-/?need_id=1335981" },
+      { name: "Table Helper", when: "Fri, Dec 25, 11:00 AM–1:30 PM", ages: "Age rule unclear — the page says both 14+ and 18+; ask SVdP", signupUrl: "https://svdpbr.galaxydigital.com/need/detail/christmas-day-table-helper-main-campus/?need_id=1336020" },
+      { name: "Dining Room Serving Line", when: "Fri, Dec 25, 10:00 AM–1:30 PM", ages: "18+", signupUrl: "https://svdpbr.galaxydigital.com/need/detail/christmas-day-dining-room-serving-line-main-campus-/?need_id=1336000" },
+      { name: "Dish Washer", when: "Fri, Dec 25, 11:00 AM–2:00 PM", ages: "18+", signupUrl: "https://svdpbr.galaxydigital.com/need/detail/christmas-day-dish-washer-main-campus/?need_id=1336034" },
+      { name: "Pots and Pans Washer", when: "Fri, Dec 25, 10:30 AM–2:00 PM", ages: "18+", signupUrl: "https://svdpbr.galaxydigital.com/need/detail/christmas-day-pots-and-pans-washer-main-campus-/?need_id=1336029" },
+    ],
     status: "active",
     lastVerified: V,
     provenance: "verified",

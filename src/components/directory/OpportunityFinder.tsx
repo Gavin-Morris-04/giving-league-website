@@ -15,6 +15,8 @@ import {
   orgName,
   type DirectoryFilters,
 } from "@/lib/directory";
+import { isEndedListing } from "@/lib/listing-dates";
+import { useToday } from "@/lib/use-today";
 import type { Cause } from "@/lib/types";
 import { cx } from "@/lib/format";
 import { buttonClass } from "@/components/ui/Button";
@@ -98,7 +100,10 @@ export function OpportunityFinder({ mode = "all", defaultCity }: { mode?: "all" 
     setFilters((f) => ({ ...f, [key]: value }));
   }, []);
 
-  const results = useMemo(() => filterOpportunities(opportunities, filters), [filters]);
+  const today = useToday();
+  // Static pages can be a few days old: hide dated listings whose last day has passed for this visitor.
+  const live = useMemo(() => opportunities.filter((o) => !isEndedListing(o, today)), [today]);
+  const results = useMemo(() => filterOpportunities(live, filters), [live, filters]);
   const campus = getUniversity(filters.campus);
   const cityOptions = useMemo(() => citiesWithListings(), []);
 
@@ -117,7 +122,7 @@ export function OpportunityFinder({ mode = "all", defaultCity }: { mode?: "all" 
   const base = hs ? { ...defaultFilters, level: "high_school" as const } : defaultFilters;
   const resetAll = () => setFilters({ ...base });
   const resetRefinements = () => setFilters((f) => ({ ...base, q: f.q, campus: f.campus, city: hs ? f.city : "", sort: f.sort }));
-  const hidden = hiddenAsUnverified(opportunities, filters);
+  const hidden = hiddenAsUnverified(live, filters);
 
   const toggleCause = (c: Cause) =>
     setFilters((f) => ({ ...f, causes: f.causes.includes(c) ? f.causes.filter((x) => x !== c) : [...f.causes, c] }));

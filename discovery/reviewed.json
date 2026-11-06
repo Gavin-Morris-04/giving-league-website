@@ -1,0 +1,20 @@
+{
+  "_comment": "Findings a person checked and dismissed. Each entry matches a listing, a flag type and a phrase from the evidence; if the page's wording changes, the flag comes back for review.",
+  "flags": [
+    {
+      "listing": "event:love-the-boot-week-2027",
+      "type": "possible_cancellation",
+      "evidence_contains": "Jean Lafitte Nutria",
+      "reviewed_on": "2026-11-06",
+      "note": "The 'CANCELED' notice belongs to a past (April 2025) cleanup listed on the same page, not to Love the Boot Week 2027."
+    },
+    {
+      "listing": "opportunity:habitat-baton-rouge-restore",
+      "type": "age_rule_differs",
+      "found_minimum_age": 16,
+      "evidence_contains": "Construction Site",
+      "reviewed_on": "2026-11-06",
+      "note": "The 16+ rule on the shared interest form applies to construction sites, not to ReStore shifts."
+    }
+  ]
+}
