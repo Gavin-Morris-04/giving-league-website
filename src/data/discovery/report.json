@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-06T21:48:52+00:00",
+  "generatedAt": "2026-11-06T22:32:02+00:00",
   "listings": {
     "event:habitat-baton-rouge-women-build": {
       "url": "https://habitatbrla.org/women-build/",
@@ -169,8 +169,8 @@
     },
     "opportunity:habitat-new-orleans-volunteer": {
       "url": "https://habitat-nola.org/volunteer/",
-      "status": "blocked",
-      "code": 403,
+      "status": "error",
+      "code": 405,
       "consecutive_failures": 0,
       "flags": []
     },
@@ -235,14 +235,7 @@
       "status": "ok",
       "code": 200,
       "consecutive_failures": 0,
-      "flags": [
-        {
-          "type": "age_rule_differs",
-          "found_minimum_age": 14,
-          "recorded_minimum_age": null,
-          "evidence": "ng Strongward's mission. Things to know: Qualifications: Individuals and groups ages 14 and up are welcome Ages 14–15: A parent or guardian must be on-site and sign a waiver"
-        }
-      ]
+      "flags": []
     },
     "opportunity:svdp-baton-rouge-dining-room": {
       "url": "https://svdpbr.galaxydigital.com/",

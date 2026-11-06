@@ -1,6 +1,6 @@
 # Daily discovery report
 
-Generated 2026-11-06T21:48:52+00:00. **Review required — nothing here is published automatically.**
+Generated 2026-11-06T22:32:02+00:00. **Review required — nothing here is published automatically.**
 
 ## Listings that need attention
 
@@ -8,8 +8,6 @@ Generated 2026-11-06T21:48:52+00:00. **Review required — nothing here is publi
   https://keeplouisianabeautiful.org/love-the-boot/volunteer/
 - **opportunity:habitat-baton-rouge-restore** — `age_rule_differs`: Required) Age Group Teen (16-18) Young Adult (19-22) Adult (23-64) Senior (64+) Volunteer must be at least 16 years old to volunteer at a Habitat Construction Site; volunteers under 18 must be accomp  
   https://habitatbrla.org/restore-volunteer-interest-form/
-- **opportunity:strongward-disaster-recovery** — `age_rule_differs`: ng Strongward's mission. Things to know: Qualifications: Individuals and groups ages 14 and up are welcome Ages 14–15: A parent or guardian must be on-site and sign a waiver  
-  https://sbpusa.tfaforms.net/90
 
 ## New items found in organizations' public feeds
 
