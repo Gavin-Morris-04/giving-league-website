@@ -56,7 +56,7 @@ export const site = {
    * address. Set a value only after the inbox/account actually exists.
    */
   contact: {
-    email: null as string | null,
+    email: "thecausekrewe@gmail.com" as string | null,
     phone: null as string | null,
   },
 

@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Camera } from "lucide-react";
+import { Camera, Mail } from "lucide-react";
 import { footerNav } from "@/config/navigation";
 import { site } from "@/config/site";
 import { UpdatesSignup } from "@/components/forms/Forms";
@@ -43,7 +43,7 @@ export function SiteFooter() {
             </div>
           ))}
           <div className="col-span-2 sm:col-span-4">
-            <p className="text-label text-gold">Follow</p>
+            <p className="text-label text-gold">Connect</p>
             <a
               href={site.social.instagram}
               target="_blank"
@@ -54,6 +54,15 @@ export function SiteFooter() {
               Instagram {site.social.instagramHandle}
               <span className="sr-only"> (opens in a new tab)</span>
             </a>
+            {site.contact.email ? (
+              <a
+                href={`mailto:${site.contact.email}`}
+                className="mt-1 flex min-h-11 items-center gap-2 text-[0.9375rem] text-ivory/85 hover:text-ivory hover:underline sm:ml-8 sm:mt-4 sm:inline-flex"
+              >
+                <Mail aria-hidden className="size-5" />
+                {site.contact.email}
+              </a>
+            ) : null}
           </div>
         </nav>
       </div>

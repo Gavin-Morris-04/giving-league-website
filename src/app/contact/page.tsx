@@ -21,6 +21,17 @@ export default function ContactPage() {
       <section className="section-y">
         <div className="container-line grid gap-14 lg:grid-cols-12">
           <aside className="space-y-8 lg:col-span-4">
+            {site.contact.email ? (
+              <div>
+                <p className="text-h3 text-navy">Email us</p>
+                <a className="link mt-2 inline-block text-lg font-semibold break-all" href={`mailto:${site.contact.email}`}>
+                  {site.contact.email}
+                </a>
+                <p className="mt-2 text-[0.9375rem] text-ink-muted">
+                  Online form submissions aren&apos;t switched on yet, so email is the surest way to reach the team right now.
+                </p>
+              </div>
+            ) : null}
             <div>
               <p className="text-h3 text-navy">Looking for something specific?</p>
               <ul className="mt-4 space-y-2">
@@ -54,21 +65,11 @@ export default function ContactPage() {
             <div className="rounded-md border border-hairline bg-paper p-5 text-[0.9375rem] text-ink-muted">
               <p>
                 <strong className="text-ink">Partnerships:</strong> businesses, nonprofits and schools interested in working with us can choose
-                &ldquo;Partnership&rdquo; as the subject.
+                &ldquo;Partnership&rdquo; as the subject or email us with &ldquo;Partnership&rdquo; in the subject line.
               </p>
-              <p className="mt-3">
-                {site.contact.email ? (
-                  <>
-                    Prefer email? Write to{" "}
-                    <a className="link" href={`mailto:${site.contact.email}`}>
-                      {site.contact.email}
-                    </a>
-                    .
-                  </>
-                ) : (
-                  "We don't have a public email inbox yet, so this form is the best way to reach the team."
-                )}
-              </p>
+              {site.contact.email ? null : (
+                <p className="mt-3">We don&apos;t have a public email inbox yet, so this form is the best way to reach the team.</p>
+              )}
               <p className="mt-3">Students under 18: please don&apos;t share personal details beyond your name and email.</p>
             </div>
           </aside>

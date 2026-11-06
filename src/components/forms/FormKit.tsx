@@ -5,6 +5,7 @@ import { createContext, useActionState, useContext, useEffect, useId, useRef, us
 import { AlertCircle, CheckCircle2, Info, Loader2 } from "lucide-react";
 import { submitForm } from "@/app/actions/forms";
 import { Button } from "@/components/ui/Button";
+import { site } from "@/config/site";
 import { cx } from "@/lib/format";
 import type { FormState } from "@/lib/types";
 import { fieldErrorsFrom, schemas, type SchemaKey } from "@/lib/validation";
@@ -100,13 +101,23 @@ export function FormShell({
           <div>
             <h3 className="text-h3 text-navy">{ok ? successTitle : "Submissions aren't switched on yet"}</h3>
             <p className="mt-2 text-ink">{state.message}</p>
-            <button
-              type="button"
-              onClick={() => setDismissed(state)}
-              className="link mt-4 inline-flex min-h-11 items-center font-semibold"
-            >
-              {ok ? "Send another response" : "Back to the form"}
-            </button>
+            <div className="mt-4 flex flex-wrap items-center gap-x-6 gap-y-2">
+              {!ok && site.contact.email ? (
+                <a
+                  href={`mailto:${site.contact.email}`}
+                  className="inline-flex min-h-11 items-center rounded-sm bg-forest px-5 font-semibold text-white hover:bg-forest-deep"
+                >
+                  Email us
+                </a>
+              ) : null}
+              <button
+                type="button"
+                onClick={() => setDismissed(state)}
+                className="link inline-flex min-h-11 items-center font-semibold"
+              >
+                {ok ? "Send another response" : "Back to the form"}
+              </button>
+            </div>
           </div>
         </div>
       </div>

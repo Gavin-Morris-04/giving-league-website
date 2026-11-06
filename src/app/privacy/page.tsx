@@ -78,7 +78,11 @@ export default function PrivacyPage() {
       <h2>Retention and your choices</h2>
       <p>
         We keep submissions only as long as needed for the purpose you submitted them for. You can ask us to access, correct or delete your
-        information using the contact form. <Review />
+        information using the contact form or by emailing{" "}
+        <a className="link" href={`mailto:${site.contact.email}`}>
+          {site.contact.email}
+        </a>
+        . <Review />
       </p>
 
       <h2>Changes</h2>

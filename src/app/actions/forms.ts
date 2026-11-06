@@ -4,6 +4,7 @@ import { headers } from "next/headers";
 import { getSupabaseAdmin, isSupabaseConfigured } from "@/lib/supabase/server";
 import { fieldErrorsFrom, schemas, type SchemaKey } from "@/lib/validation";
 import type { FormState } from "@/lib/types";
+import { site } from "@/config/site";
 
 const TABLES: Record<SchemaKey, string> = {
   contact: "contact_messages",
@@ -24,8 +25,9 @@ const SUCCESS: Record<SchemaKey, string> = {
   updates: "You're on the list. We'll only email you about announcements you asked for.",
 };
 
-const NOT_CONFIGURED =
-  "This preview site isn't connected to a database yet, so nothing was saved. Your entry passed validation — once the organization switches on submissions, this form will store it for review.";
+const NOT_CONFIGURED = site.contact.email
+  ? `Online submissions aren't switched on yet, so nothing was saved. Please email the same details to ${site.contact.email} and we'll get back to you.`
+  : "This preview site isn't connected to a database yet, so nothing was saved. Your entry passed validation — once the organization switches on submissions, this form will store it for review.";
 
 /** Columns the database expects for each form. Everything else (consent, honeypot) is dropped. */
 function toRow(kind: SchemaKey, data: Record<string, unknown>, source: string): Record<string, unknown> {

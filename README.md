@@ -143,7 +143,8 @@ npx impeccable install --providers=claude --project
 
 - [ ] Supabase project + keys (forms validate but don't save yet)
 - [ ] GitHub setting allowing Actions to open PRs (discovery) and Vercel GitHub App access (auto-deploys)
-- [ ] Contact email (`site.contact.email`) and an email provider for replies/confirmations
+- [x] Contact email: thecausekrewe@gmail.com (`site.contact.email`)
+- [ ] An email provider for automatic confirmations (optional; replies can come from the Gmail inbox)
 - [ ] Founder profile (name, bio, approved photo)
 - [ ] Legal review of `/privacy` and `/terms` (incl. COPPA/teen privacy before any youth registration feature); entity and 501(c)(3) status
 - [ ] Any charity's dedicated fundraising campaign + reporting access (required before a donation total can appear)
