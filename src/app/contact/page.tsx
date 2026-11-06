@@ -1,19 +1,23 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { Suspense } from "react";
 import { ContactForm } from "@/components/forms/Forms";
 import { PageHero } from "@/components/layout/PageHero";
 import { site } from "@/config/site";
 
 export const metadata: Metadata = {
   title: "Contact",
-  description: `Get in touch with ${site.name}.`,
+  description: `Get in touch with ${site.name} — general questions, partnerships, listings and website feedback.`,
   alternates: { canonical: "/contact" },
 };
 
 export default function ContactPage() {
   return (
     <>
-      <PageHero title="Get in touch." lead="Questions about volunteering, bringing the initiative to your campus, or partnering with us — send a message and we'll reply by email." />
+      <PageHero
+        title="Get in touch."
+        lead="Questions, partnership ideas, a listing to share, or feedback on the website — choose a subject and send us a message. We reply by email."
+      />
       <section className="section-y">
         <div className="container-line grid gap-14 lg:grid-cols-12">
           <aside className="space-y-8 lg:col-span-4">
@@ -27,37 +31,51 @@ export default function ContactPage() {
                 </li>
                 <li>
                   <Link href="/volunteer/submit" className="link">
-                    Submit an opportunity (nonprofits)
+                    Submit a volunteer opportunity
                   </Link>
                 </li>
                 <li>
-                  <Link href="/partners#campus-leaders" className="link">
-                    Become a campus representative
+                  <Link href="/events/submit" className="link">
+                    Submit a charity event
                   </Link>
                 </li>
                 <li>
-                  <Link href="/partners#businesses" className="link">
-                    Partnership inquiries
+                  <Link href="/high-schools#school-involvement" className="link">
+                    Get a high school involved
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/campuses#bring-to-campus" className="link">
+                    Bring us to a college campus
                   </Link>
                 </li>
               </ul>
             </div>
             <div className="rounded-md border border-hairline bg-paper p-5 text-[0.9375rem] text-ink-muted">
-              {site.contact.email ? (
-                <p>
-                  Prefer email? Write to{" "}
-                  <a className="link" href={`mailto:${site.contact.email}`}>
-                    {site.contact.email}
-                  </a>
-                  .
-                </p>
-              ) : (
-                <p>We don&apos;t have a public email inbox yet. This form is the best way to reach the team.</p>
-              )}
+              <p>
+                <strong className="text-ink">Partnerships:</strong> businesses, nonprofits and schools interested in working with us can choose
+                &ldquo;Partnership&rdquo; as the subject.
+              </p>
+              <p className="mt-3">
+                {site.contact.email ? (
+                  <>
+                    Prefer email? Write to{" "}
+                    <a className="link" href={`mailto:${site.contact.email}`}>
+                      {site.contact.email}
+                    </a>
+                    .
+                  </>
+                ) : (
+                  "We don't have a public email inbox yet, so this form is the best way to reach the team."
+                )}
+              </p>
+              <p className="mt-3">Students under 18: please don&apos;t share personal details beyond your name and email.</p>
             </div>
           </aside>
           <div className="lg:col-span-8">
-            <ContactForm />
+            <Suspense fallback={<div className="h-[36rem] animate-pulse rounded-md bg-sand" aria-busy="true" />}>
+              <ContactForm />
+            </Suspense>
           </div>
         </div>
       </section>

@@ -1,31 +1,32 @@
 ---
 version: 1
-name: The Line — design system for The Giving League (working name)
+name: The Line — design system for The Cause Krewe
 description: >-
-  A statewide route-map identity for a student-led Louisiana service network. Campuses are stops on one
-  line; every page is a stretch of that line. Deep bayou navy and live-oak green own whole regions of the
-  page, levee-white carries the reading, and doubloon gold is reserved for the flagship moment (Geaux Give
-  Week) and for the line itself. A warm grotesk display face with a wide optical range sets headlines;
+  A statewide route-map identity for a student-led Louisiana service network, dressed in the colors of the
+  official Cause Krewe pelican emblem. Deep teal owns whole regions of the page, cream carries the reading, and
+  antique gold marks the line, the emblem's ring and the flagship moment (Geaux Give Week). A warm grotesk display face with a wide optical range sets headlines;
   a quiet humanist sans does the work. Photography is documentary, credited, and never passed off as ours.
 
-colors:
-  ink: "#182628"            # body text, headings on light grounds (14.4:1 on ivory)
-  ink-muted: "#4A5857"      # secondary text on ivory/sand (6.9:1 / 6.3:1)
-  ivory: "#F8F6F0"          # "Levee White" — page ground
-  sand: "#EFEBE1"           # alternate section ground, inputs on sand
-  paper: "#FFFFFF"          # cards, inputs, menus
-  hairline: "#D9D3C4"       # 1px rules and borders on light grounds
-  hairline-strong: "#B9B2A1"
-  navy: "#122A3A"           # "Bayou Navy" — hero scrims, flagship band, footer (white 14.8:1)
-  navy-deep: "#0C1E2A"      # deepest field, scoreboard ground
-  navy-muted: "#A9B7BE"     # secondary text on navy (7.2:1)
-  forest: "#24584C"         # "Live Oak Green" — primary action fill, links on light (7.6:1)
-  forest-deep: "#1B4439"    # primary hover/press (white 10.9:1)
-  forest-tint: "#E3EBE5"    # selected chips, success wash
-  gold: "#D5A653"           # "Doubloon Gold" — the line, flagship ceremony, focus ring on dark (6.6:1 on navy)
-  gold-ink: "#7A5B1A"       # gold-family text on light grounds (5.8:1)
-  gold-tint: "#F4E9D2"      # flagship wash on light grounds
-  error: "#A3321F"          # validation errors (6.4:1 on ivory)
+colors:                     # from the official pelican emblem (token names kept from v1 for code stability)
+  ink: "#0E2A2C"            # body text on light grounds (13.7:1 on cream)
+  ink-muted: "#46605F"      # secondary text (6.1:1 on cream, 5.5:1 on sand)
+  ivory: "#FAF3E4"          # cream page ground
+  sand: "#F2E6CC"           # alternate section ground
+  paper: "#FFFDF8"          # cards, inputs, menus
+  hairline: "#E3D6BB"
+  hairline-strong: "#C4B391"
+  navy: "#0B3033"           # DEEP TEAL — the emblem field: hero scrims, dark bands, footer, mobile menu
+  navy-deep: "#07252A"      # deepest teal (Geaux Give Week, impact counter)
+  navy-muted: "#A9C2BF"     # secondary text on teal (7.5:1)
+  forest: "#155C5C"         # ACTION TEAL — primary buttons, links (7.0:1 on cream; white on it 7.7:1)
+  forest-deep: "#0B3033"    # hover/press
+  forest-tint: "#DCEAE5"
+  gold: "#D9A043"           # ANTIQUE GOLD — emblem ring and beak: accents, buttons on dark, focus on dark (6.1:1 on teal)
+  gold-bright: "#E6B25E"
+  gold-ink: "#7A5414"       # gold-family text on cream (6.1:1)
+  gold-tint: "#F6E7C8"
+  error: "#A3321F"
+  emblem-cream: "#FBE9CB"   # lettering in the emblem; used in the OG image
 
 typography:
   display:
@@ -82,7 +83,12 @@ size carries hierarchy** (map dots scale with the number of verified listings ne
 
 ## 2. Colour
 
-Strategy: **Committed.** Navy and forest own whole regions (hero scrim, flagship band, closing band, footer)
+**Brand source:** the official pelican emblem (`src/assets/brand/cause-krewe-emblem.png`, cleaned copy of the
+founder's file — a stray gray smudge left of the wing was removed). Teal, antique gold and cream are sampled from it.
+Token names (`navy`, `forest`, `ivory`) are kept from v1 so components didn't need renaming; their VALUES are the
+brand colors listed above.
+
+Strategy: **Committed.** Deep teal owns whole regions (hero scrim, flagship band, closing band, footer)
 rather than appearing as scattered accents. Ivory carries reading. Gold is ceremonial.
 
 | Token | Hex | Job | Never |
@@ -160,14 +166,15 @@ summary at the top on submit. Required marked with "Required" text, not only an 
 not-configured states are full panels that replace the form and say exactly what happened.
 
 ### Navigation
-Sticky header, ivory with a hairline once scrolled; over the home hero it starts transparent on navy.
-Desktop: wordmark left, six links centre-right, **Get Involved** primary button right. Current page shows a
-2px gold underline + `aria-current`. Mobile (<1024px): a "Menu" button opens a full-screen navy sheet with
-large display-type links, the CTA, and focus trapped inside; Escape and the close button dismiss it.
+Sticky header (cream with a hairline once scrolled; transparent over the home and Geaux Give Week heroes) with
+the emblem + wordmark. Order: Home · Find Volunteering · Charity Events · College Campuses · High Schools ·
+Donate · Geaux Give Week (Coming Soon) · About Us · **Contact** (button). Desktop (≥1280px) shows the first six
+inline and groups Geaux Give Week and About Us under "More". Below 1280px a "Menu" button opens a full-screen
+teal sheet with every item, focus trapped, Escape to close. It is a sibling of the header (iOS fixed-position bug).
 
 ### Footer
-Navy. Wordmark + mission, four link columns (Programs, Find, Organization, Legal), social placeholders
-(labelled as coming soon, not dead links), the one photo-credit line, and the legal-status note.
+Teal. Emblem + mission, updates signup, four link columns (Programs, Students, Organization, Legal), Instagram
+(@thecausekrewe, the only social account), the one photo-credit line, and the legal-status note.
 
 ## 6. Layout
 

@@ -3,8 +3,8 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useCallback, useEffect, useRef, useState } from "react";
-import { Menu, X } from "lucide-react";
-import { ctaNav, primaryNav } from "@/config/navigation";
+import { ChevronDown, Menu, X } from "lucide-react";
+import { ctaNav, desktopMoreHrefs, primaryNav } from "@/config/navigation";
 import { site } from "@/config/site";
 import { buttonClass } from "@/components/ui/Button";
 import { Wordmark } from "@/components/ui/primitives";
@@ -23,6 +23,8 @@ export function SiteHeader() {
   const [scrolled, setScrolled] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
   const toggleRef = useRef<HTMLButtonElement>(null);
+  const [moreOpen, setMoreOpen] = useState(false);
+  const moreRef = useRef<HTMLLIElement>(null);
 
   const overHero = DARK_HERO_ROUTES.has(pathname) && !scrolled && !open;
 
@@ -43,7 +45,40 @@ export function SiteHeader() {
   if (pathname !== lastPath) {
     setLastPath(pathname);
     if (open) setOpen(false);
+    if (moreOpen) setMoreOpen(false);
   }
+
+  // Desktop "More" menu: close on outside click or Escape.
+  useEffect(() => {
+    if (!moreOpen) return;
+    const onDown = (e: MouseEvent) => {
+      if (!moreRef.current?.contains(e.target as Node)) setMoreOpen(false);
+    };
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        setMoreOpen(false);
+        moreRef.current?.querySelector<HTMLButtonElement>("button")?.focus();
+      }
+    };
+    document.addEventListener("mousedown", onDown);
+    document.addEventListener("keydown", onKey);
+    return () => {
+      document.removeEventListener("mousedown", onDown);
+      document.removeEventListener("keydown", onKey);
+    };
+  }, [moreOpen]);
+
+  const barItems = primaryNav.filter((i) => !desktopMoreHrefs.has(i.href));
+  const moreItems = primaryNav.filter((i) => desktopMoreHrefs.has(i.href));
+  const moreActive = moreItems.some((i) => isActive(pathname, i.href));
+  const linkCls = (active: boolean) =>
+    cx(
+      "relative inline-flex h-11 items-center gap-1 rounded-sm px-2.5 text-[0.9375rem] font-medium whitespace-nowrap transition-colors",
+      overHero ? "text-ivory/85 hover:text-ivory" : "text-ink-muted hover:text-ink",
+      active && (overHero ? "text-ivory" : "text-ink"),
+      "after:absolute after:inset-x-2.5 after:bottom-1.5 after:h-0.5 after:origin-left after:scale-x-0 after:bg-gold after:transition-transform after:duration-300 hover:after:scale-x-100",
+      active && "after:scale-x-100",
+    );
 
   // Focus trap, Escape, scroll lock while the mobile menu is open.
   useEffect(() => {
@@ -93,28 +128,59 @@ export function SiteHeader() {
             <Wordmark tone={overHero ? "dark" : "light"} />
           </Link>
 
-          <nav aria-label="Main" className="hidden lg:block">
-            <ul className="flex items-center gap-1 xl:gap-2">
-              {primaryNav.map((item) => {
+          <nav aria-label="Main" className="hidden xl:block">
+            <ul className="flex items-center gap-0.5">
+              {barItems.map((item) => {
                 const active = isActive(pathname, item.href);
                 return (
                   <li key={item.href}>
-                    <Link
-                      href={item.href}
-                      aria-current={active ? "page" : undefined}
-                      className={cx(
-                        "relative inline-flex h-11 items-center rounded-sm px-2.5 text-[0.9375rem] font-medium transition-colors xl:px-3",
-                        overHero ? "text-ivory/85 hover:text-ivory" : "text-ink-muted hover:text-ink",
-                        active && (overHero ? "text-ivory" : "text-ink"),
-                        "after:absolute after:inset-x-2.5 after:bottom-1.5 after:h-0.5 after:origin-left after:scale-x-0 after:bg-gold after:transition-transform after:duration-300 hover:after:scale-x-100 xl:after:inset-x-3",
-                        active && "after:scale-x-100",
-                      )}
-                    >
+                    <Link href={item.href} aria-current={active ? "page" : undefined} className={linkCls(active)}>
                       {item.label}
                     </Link>
                   </li>
                 );
               })}
+              <li ref={moreRef} className="relative">
+                <button
+                  type="button"
+                  aria-expanded={moreOpen}
+                  aria-controls="more-menu"
+                  onClick={() => setMoreOpen((v) => !v)}
+                  className={linkCls(moreActive)}
+                >
+                  More
+                  <ChevronDown aria-hidden className={cx("size-4 transition-transform", moreOpen && "rotate-180")} />
+                </button>
+                <ul
+                  id="more-menu"
+                  hidden={!moreOpen}
+                  className="absolute top-full right-0 z-50 mt-2 w-64 rounded-md border border-hairline bg-paper p-2 text-ink shadow-[0_18px_40px_-18px_rgb(11_48_51/0.45)]"
+                >
+                  {moreItems.map((item) => {
+                    const active = isActive(pathname, item.href);
+                    return (
+                      <li key={item.href}>
+                        <Link
+                          href={item.href}
+                          aria-current={active ? "page" : undefined}
+                          onClick={() => setMoreOpen(false)}
+                          className={cx(
+                            "flex min-h-11 items-center justify-between gap-3 rounded-sm px-3 text-[0.9375rem] font-medium hover:bg-sand",
+                            active && "bg-sand",
+                          )}
+                        >
+                          {item.label}
+                          {item.badge ? (
+                            <span className="text-label rounded-sm bg-gold-tint px-1.5 py-0.5 text-[0.625rem] text-gold-ink">
+                              {item.badge}
+                            </span>
+                          ) : null}
+                        </Link>
+                      </li>
+                    );
+                  })}
+                </ul>
+              </li>
             </ul>
           </nav>
 
@@ -129,7 +195,7 @@ export function SiteHeader() {
               ref={toggleRef}
               type="button"
               className={cx(
-                "inline-flex min-h-11 items-center gap-2 rounded-sm px-3 font-semibold lg:hidden",
+                "inline-flex min-h-11 items-center gap-2 rounded-sm px-3 font-semibold xl:hidden",
                 overHero ? "text-ivory" : "text-ink",
               )}
               aria-expanded={open}
@@ -152,7 +218,7 @@ export function SiteHeader() {
         aria-modal="true"
         aria-label="Site menu"
         hidden={!open}
-        className="on-dark fixed inset-0 z-60 overflow-y-auto bg-navy text-ivory lg:hidden"
+        className="on-dark fixed inset-0 z-60 overflow-y-auto bg-navy text-ivory xl:hidden"
       >
         <div className="container-line flex h-(--header-h) items-center justify-between">
           <Link href="/" onClick={() => close(false)} className="rounded-sm" aria-label={`${site.name} — home`}>
@@ -180,9 +246,14 @@ export function SiteHeader() {
                     href={item.href}
                     onClick={() => close(false)}
                     aria-current={active ? "page" : undefined}
-                    className="text-h2 block py-2.5 text-ivory transition-colors hover:text-gold-bright"
+                    className="block py-2 font-display text-[clamp(1.5rem,1.2rem+1.2vw,2rem)] leading-tight font-semibold tracking-[-0.02em] text-ivory transition-colors hover:text-gold-bright [font-variation-settings:'wdth'_92]"
                   >
                     {item.label}
+                    {item.badge ? (
+                      <span className="text-label ml-3 rounded-sm border border-gold/50 px-1.5 py-0.5 align-middle text-[0.625rem] text-gold">
+                        {item.badge}
+                      </span>
+                    ) : null}
                   </Link>
                 </li>
               );

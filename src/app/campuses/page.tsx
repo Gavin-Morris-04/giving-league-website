@@ -13,7 +13,7 @@ import { localOpportunitiesNearCampus } from "@/lib/directory";
 import type { CampusStatus, CityKey } from "@/lib/types";
 
 export const metadata: Metadata = {
-  title: "Campuses",
+  title: "College Campuses",
   description:
     "A directory of Louisiana colleges and universities, with verified volunteer opportunities near each campus and a way to bring the initiative to yours.",
   alternates: { canonical: "/campuses" },
@@ -60,7 +60,7 @@ export default function CampusesPage() {
               <SectionHeading
                 id="directory-heading"
                 title="Louisiana campus directory"
-                lead="These universities are where students can search for nearby opportunities today — and where we hope to build campus teams. Listing a school here does not mean it has joined or endorsed us."
+                lead="These universities are where college students can search for nearby opportunities today — and where we hope to build campus teams. Listing a school here does not mean it has joined or endorsed us."
               />
               <dl className="mt-10 grid grid-cols-3 gap-px overflow-hidden rounded-md border border-hairline bg-hairline">
                 {statuses.map((s) => (
@@ -106,6 +106,13 @@ export default function CampusesPage() {
             ))}
           </ul>
           <p className="mt-6 text-[0.875rem] text-ink-muted">
+            In high school?{" "}
+            <Link href="/high-schools" className="link">
+              Visit High Schools
+            </Link>{" "}
+            for opportunities and events in the same cities, filtered by age rules.
+          </p>
+          <p className="mt-2 text-[0.875rem] text-ink-muted">
             Don&apos;t see your school? Any Louisiana college can take part —{" "}
             <Link href="#bring-to-campus" className="link">
               tell us about yours
@@ -143,7 +150,7 @@ export default function CampusesPage() {
           <div className="on-light rounded-md bg-ivory p-6 text-ink sm:p-10 lg:col-span-7">
             <h3 className="text-h3 text-navy">Campus representative interest</h3>
             <p className="mt-2 mb-8 text-[0.9375rem] text-ink-muted">We review every inquiry and reply by email.</p>
-            <CampusRepForm />
+            <CampusRepForm mode="college" submitLabel="Send campus interest" />
           </div>
         </div>
       </section>

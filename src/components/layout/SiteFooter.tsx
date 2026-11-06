@@ -1,14 +1,9 @@
 import Link from "next/link";
+import { Camera } from "lucide-react";
 import { footerNav } from "@/config/navigation";
 import { site } from "@/config/site";
 import { UpdatesSignup } from "@/components/forms/Forms";
 import { Wordmark } from "@/components/ui/primitives";
-
-const socials: { key: keyof typeof site.social; label: string }[] = [
-  { key: "instagram", label: "Instagram" },
-  { key: "tiktok", label: "TikTok" },
-  { key: "linkedin", label: "LinkedIn" },
-];
 
 export function SiteFooter() {
   return (
@@ -49,25 +44,16 @@ export function SiteFooter() {
           ))}
           <div className="col-span-2 sm:col-span-4">
             <p className="text-label text-gold">Follow</p>
-            <ul className="mt-4 flex flex-wrap gap-x-6 gap-y-2 text-[0.9375rem]">
-              {socials.map((s) => {
-                const url = site.social[s.key];
-                return (
-                  <li key={s.key}>
-                    {url ? (
-                      <a href={url} target="_blank" rel="noopener noreferrer" className="text-ivory/85 hover:text-ivory hover:underline">
-                        {s.label}
-                        <span className="sr-only"> (opens in a new tab)</span>
-                      </a>
-                    ) : (
-                      <span className="text-navy-muted">
-                        {s.label} <span className="text-[0.8125rem]">— coming soon</span>
-                      </span>
-                    )}
-                  </li>
-                );
-              })}
-            </ul>
+            <a
+              href={site.social.instagram}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-4 inline-flex min-h-11 items-center gap-2 text-[0.9375rem] text-ivory/85 hover:text-ivory hover:underline"
+            >
+              <Camera aria-hidden className="size-5" />
+              Instagram {site.social.instagramHandle}
+              <span className="sr-only"> (opens in a new tab)</span>
+            </a>
           </div>
         </nav>
       </div>
@@ -75,7 +61,7 @@ export function SiteFooter() {
       <div className="border-t border-navy-line">
         <div className="container-line flex flex-col gap-4 py-8 text-[0.8125rem] leading-relaxed text-navy-muted lg:flex-row lg:items-start lg:justify-between lg:gap-12">
           <p className="max-w-3xl">
-            <span className="text-ivory">{site.name}</span> is a working name. {site.legalStatus}
+            <span className="text-ivory">{site.name}</span> — {site.legalStatus}
           </p>
           <p className="shrink-0">
             Photographs via Unsplash ·{" "}

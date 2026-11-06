@@ -8,6 +8,7 @@ import { cx } from "@/lib/format";
  * `compact` keeps the first screen short so a working tool (the finder) starts above the fold.
  */
 export function PageHero({
+  eyebrow,
   title,
   lead,
   photo,
@@ -16,6 +17,8 @@ export function PageHero({
   compact = false,
   className,
 }: {
+  /** Only where the copy deck specifies one. */
+  eyebrow?: string;
   title: ReactNode;
   lead: ReactNode;
   photo?: PhotoKey;
@@ -34,6 +37,7 @@ export function PageHero({
       >
         <div className={cx(photo ? "lg:col-span-7" : "lg:col-span-9")}>
           <Station className="mb-5 md:mb-7" />
+          {eyebrow ? <p className="text-label mb-4 text-gold-ink">{eyebrow}</p> : null}
           <h1 className="text-display-lg text-navy">{title}</h1>
           <p className="text-lead mt-4 max-w-2xl text-ink-muted md:mt-6">{lead}</p>
           {meta ? <div className="mt-6">{meta}</div> : null}

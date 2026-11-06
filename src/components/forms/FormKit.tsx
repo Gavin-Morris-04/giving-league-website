@@ -405,25 +405,25 @@ export function RadioGroup({
   );
 }
 
-export function Consent({ label }: { label: string }) {
+export function Consent({ label, name = "consent" }: { label: string; name?: string }) {
   const { errors, formId, clearError } = useForm();
-  const err = errors.consent;
+  const err = errors[name];
   return (
     <div className="sm:col-span-2">
       <label className="flex cursor-pointer items-start gap-3 text-[0.9375rem]">
         <input
-          id={`${formId}-consent`}
+          id={`${formId}-${name}`}
           type="checkbox"
-          name="consent"
+          name={name}
           className="check mt-0.5"
           aria-invalid={Boolean(err) || undefined}
-          aria-describedby={err ? `${formId}-consent-err` : undefined}
-          onChange={() => clearError("consent")}
+          aria-describedby={err ? `${formId}-${name}-err` : undefined}
+          onChange={() => clearError(name)}
         />
         <span>{label}</span>
       </label>
       {err ? (
-        <p id={`${formId}-consent-err`} className="mt-2 flex items-center gap-1.5 text-[0.875rem] font-medium text-error">
+        <p id={`${formId}-${name}-err`} className="mt-2 flex items-center gap-1.5 text-[0.875rem] font-medium text-error">
           <AlertCircle aria-hidden className="size-4 shrink-0" />
           {err}
         </p>

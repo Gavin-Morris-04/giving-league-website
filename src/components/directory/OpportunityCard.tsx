@@ -1,8 +1,8 @@
 import Link from "next/link";
-import { ArrowUpRight, CalendarDays, MapPin, Users } from "lucide-react";
+import { ArrowUpRight, CalendarDays, MapPin, ShieldCheck, Users } from "lucide-react";
 import { Badge } from "@/components/ui/primitives";
 import { causes, cities } from "@/data/reference/geography";
-import { labels } from "@/lib/directory";
+import { eligibilityLabel, guardianLabel, labels } from "@/lib/directory";
 import { cx, formatDateRange, formatShortDate } from "@/lib/format";
 import type { Opportunity } from "@/lib/types";
 
@@ -13,6 +13,8 @@ export function OpportunityCard({
   headingLevel = "h3",
   className,
   revealItem,
+  unverifiedForYouth,
+  youthView,
 }: {
   o: Opportunity;
   org: string;
@@ -20,7 +22,13 @@ export function OpportunityCard({
   headingLevel?: "h2" | "h3";
   className?: string;
   revealItem?: boolean;
+  /** Shown when youth filters are on and this organization hasn't published age rules. */
+  unverifiedForYouth?: boolean;
+  /** High school view: surface the guardian-permission label prominently. */
+  youthView?: boolean;
 }) {
+  const elig = eligibilityLabel(o);
+  const guardian = guardianLabel(o);
   const H = headingLevel;
   const place = o.cityKey === "statewide" ? "Statewide" : cities[o.cityKey].name;
   return (
@@ -38,6 +46,8 @@ export function OpportunityCard({
           <Badge tone="forest">{labels.kind.resource}</Badge>
         )}
         <Badge tone="hollow">{causes[o.cause].label}</Badge>
+        {unverifiedForYouth ? <Badge tone="gold">Eligibility not verified — check with organizer</Badge> : null}
+        {youthView && guardian ? <Badge tone="gold">{guardian}</Badge> : null}
       </div>
 
       <p className="mt-4 text-[0.875rem] font-semibold text-forest">{org}</p>
@@ -61,6 +71,14 @@ export function OpportunityCard({
           <dt className="sr-only">Who can volunteer</dt>
           <Users aria-hidden className="size-4 shrink-0 text-ink-muted" />
           <dd>{labels.group[o.groupEligibility]}</dd>
+        </div>
+        <div className="flex items-center gap-2">
+          <dt className="sr-only">Age and eligibility</dt>
+          <ShieldCheck aria-hidden className="size-4 shrink-0 text-ink-muted" />
+          <dd className={elig.tone === "hollow" ? "text-ink-muted" : undefined}>
+            {elig.text}
+            {!youthView && guardian ? <span className="text-ink-muted"> · guardian permission for minors</span> : null}
+          </dd>
         </div>
         <div className="flex items-center gap-2">
           <dt className="sr-only">Schedule</dt>

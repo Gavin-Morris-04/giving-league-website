@@ -16,17 +16,17 @@ export default function PrivacyPage() {
       <p>We collect information only when you choose to submit a form:</p>
       <ul>
         <li>
-          <strong>Contact form:</strong> your name, email, topic and message.
+          <strong>Contact form:</strong> your name, email, subject, optional organization and message.
         </li>
         <li>
-          <strong>Campus representative and Geaux Give Week interest:</strong> your name, email, campus, role or organization, interest
-          and an optional message.
+          <strong>School representative and Geaux Give Week interest (adults only):</strong> your name, email, connection to the school,
+          school, role or organization, interest and an optional message.
+        </li>
+        <li>
+          <strong>Submit a charity event:</strong> organization details, a contact name and email, and the event details you provide.
         </li>
         <li>
           <strong>Submit an opportunity:</strong> organization details, a contact name and email, and the opportunity details you provide.
-        </li>
-        <li>
-          <strong>Partnership inquiry:</strong> your name, email, organization, optional website, and message.
         </li>
         <li>
           <strong>Updates signup:</strong> your email and, optionally, your campus.
@@ -53,8 +53,10 @@ export default function PrivacyPage() {
 
       <h2>Cookies and analytics</h2>
       <p>
-        This site does not set advertising or tracking cookies and does not currently use third-party analytics. If that changes, this policy
-        will be updated first. <Review />
+        This site does not set advertising or tracking cookies and does not use third-party analytics. On the Donations page we count clicks on
+        outbound charity links as anonymous daily totals per charity — no cookies, IP addresses, device details or identifiers are stored, and
+        nothing is counted if your browser sends Do Not Track or Global Privacy Control. These counts are internal statistics, never donations.
+        <Review />
       </p>
 
       <h2>Links to other sites</h2>
@@ -63,9 +65,14 @@ export default function PrivacyPage() {
         to any information you give them.
       </p>
 
-      <h2>Students under 18</h2>
+      <h2>High school students and minors</h2>
       <p>
-        This site is intended for college students and adults. We do not knowingly collect information from children under 13. <Review />
+        High school students can use every directory without an account. We don&apos;t publish students&apos; names, photos or contact details,
+        we don&apos;t offer messaging between students and other users, and school-involvement forms are meant for adults (teachers, staff,
+        advisors, parents or guardians). If a student under 18 uses the contact or updates form, we collect only what that form asks for and use
+        it only to reply. We do not knowingly collect information from children under 13; if you believe a child under 13 has sent us information,
+        contact us and we&apos;ll delete it. Before any youth registration feature is added, we will review COPPA, state student-privacy rules
+        and safeguarding requirements. <Review />
       </p>
 
       <h2>Retention and your choices</h2>

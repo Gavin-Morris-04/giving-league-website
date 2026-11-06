@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   },
   description: site.description,
   applicationName: site.name,
-  keywords: ["Louisiana volunteer opportunities", "college students volunteer", "Baton Rouge volunteer", "New Orleans volunteer", "student community service", "Geaux Give Week"],
+  keywords: ["Louisiana volunteer opportunities", "high school volunteer Louisiana", "college students volunteer", "charity events Louisiana", "donate Louisiana charities", "Baton Rouge volunteer", "New Orleans volunteer", "student community service", "Geaux Give Week"],
   openGraph: {
     type: "website",
     siteName: site.name,
@@ -28,7 +28,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#122A3A",
+  themeColor: "#0B3033",
   width: "device-width",
   initialScale: 1,
   // Let the layout extend under the iPhone notch / home indicator; safe-area padding is applied in CSS.

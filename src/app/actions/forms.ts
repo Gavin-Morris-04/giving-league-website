@@ -9,7 +9,7 @@ const TABLES: Record<SchemaKey, string> = {
   contact: "contact_messages",
   campus_representative: "campus_interest",
   opportunity_submission: "submitted_opportunities",
-  partnership: "partnership_inquiries",
+  charity_event_submission: "submitted_charity_events",
   updates: "update_subscribers",
 };
 
@@ -19,7 +19,8 @@ const SUCCESS: Record<SchemaKey, string> = {
     "Thanks — your interest is recorded. We review every campus inquiry and will email you about next steps.",
   opportunity_submission:
     "Thanks — your opportunity is in our review queue. We check every listing against your official page before it appears in the directory, and we'll email you if we have questions.",
-  partnership: "Thanks — your inquiry is in. We'll follow up by email to talk through what makes sense.",
+  charity_event_submission:
+    "Thanks — your event is in our review queue. We check every listing against your official event page before it's published, and we'll email you if we have questions.",
   updates: "You're on the list. We'll only email you about announcements you asked for.",
 };
 
@@ -51,27 +52,37 @@ function toRow(kind: SchemaKey, data: Record<string, unknown>, source: string): 
         status: "pending_review",
         source_path: base.source_path,
       };
+    case "charity_event_submission":
+      return {
+        org_name: rest.orgName,
+        org_website: rest.orgWebsite,
+        contact_name: rest.contactName,
+        contact_email: rest.contactEmail,
+        event_name: rest.eventName,
+        description: rest.description,
+        event_type: rest.eventType,
+        cause: rest.cause,
+        city: rest.city,
+        recurrence: rest.recurrence,
+        event_date: rest.eventDate || null,
+        typical_timing: rest.typicalTiming || null,
+        registration_url: rest.registrationUrl,
+        cost: rest.cost,
+        age_rules: rest.ageRules || null,
+        status: "pending_review",
+        source_path: base.source_path,
+      };
     case "campus_representative":
       return {
         name: rest.name,
         email: rest.email,
+        relationship: rest.relationship,
         campus_slug: rest.campus,
+        school_name: rest.schoolName || null,
         other_campus: rest.otherCampus || null,
         role: rest.role,
         interest: rest.interest,
         message: rest.message || null,
-        status: "new",
-        source_path: base.source_path,
-      };
-    case "partnership":
-      return {
-        name: rest.name,
-        email: rest.email,
-        organization: rest.organization,
-        website: rest.website || null,
-        org_type: rest.type,
-        interest: rest.interest,
-        message: rest.message,
         status: "new",
         source_path: base.source_path,
       };
@@ -88,6 +99,7 @@ function toRow(kind: SchemaKey, data: Record<string, unknown>, source: string): 
         name: rest.name,
         email: rest.email,
         topic: rest.topic,
+        organization: rest.organization || null,
         message: rest.message,
         status: "new",
         source_path: base.source_path,

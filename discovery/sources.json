@@ -1,0 +1,56 @@
+{
+  "_comment": "Public feeds published by the organizations themselves. Only add sources whose robots.txt and terms allow automated reading. No paid APIs.",
+  "feeds": [
+    {
+      "id": "crcl-events",
+      "org_slug": "crcl",
+      "type": "ical",
+      "kind": "event",
+      "url": "https://connect.crcl.org/civicrm/event/ical?reset=1&list=1",
+      "default_city": "new-orleans"
+    },
+    {
+      "id": "handson-nola-needs",
+      "org_slug": "handson-new-orleans",
+      "type": "rss",
+      "kind": "opportunity",
+      "url": "https://volunteer.handsonneworleans.org/need/rss",
+      "default_city": "new-orleans"
+    },
+    {
+      "id": "svdp-br-needs",
+      "org_slug": "svdp-baton-rouge",
+      "type": "rss",
+      "kind": "opportunity",
+      "url": "https://svdpbr.galaxydigital.com/need/rss",
+      "default_city": "baton-rouge"
+    },
+    {
+      "id": "klb-news",
+      "org_slug": "keep-louisiana-beautiful",
+      "type": "rss",
+      "kind": "event",
+      "url": "https://keeplouisianabeautiful.org/feed/",
+      "default_city": "statewide",
+      "only_if_matches": "clean ?up|love the boot|volunteer|sweep|litter"
+    },
+    {
+      "id": "gbrfb-news",
+      "org_slug": "greater-baton-rouge-food-bank",
+      "type": "rss",
+      "kind": "event",
+      "url": "https://brfoodbank.org/feed/",
+      "default_city": "baton-rouge",
+      "only_if_matches": "volunteer|food drive|drive|event"
+    },
+    {
+      "id": "second-harvest-news",
+      "org_slug": "second-harvest",
+      "type": "rss",
+      "kind": "event",
+      "url": "https://no-hunger.org/feed/",
+      "default_city": "new-orleans",
+      "only_if_matches": "volunteer|food drive|drive|event"
+    }
+  ]
+}

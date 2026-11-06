@@ -1,29 +1,31 @@
 @import "tailwindcss";
 
 /* ──────────────────────────────────────────────────────────────────────────
-   Design tokens — "The Line". Source of truth: DESIGN.md
+   Design tokens — The Cause Krewe. Source of truth: DESIGN.md
+   Token names kept from v1 for stability: "navy" = deep teal, "forest" = action teal,
+   "ivory" = cream ground. Values come from the official pelican emblem.
    ────────────────────────────────────────────────────────────────────────── */
 @theme {
-  --color-ink: #182628;
-  --color-ink-muted: #4a5857;
-  --color-ivory: #f8f6f0;
-  --color-sand: #efebe1;
-  --color-paper: #ffffff;
-  --color-hairline: #d9d3c4;
-  --color-hairline-strong: #b9b2a1;
-  --color-navy: #122a3a;
-  --color-navy-deep: #0c1e2a;
-  --color-navy-muted: #a9b7be;
-  --color-navy-line: #2a4354;
-  --color-forest: #24584c;
-  --color-forest-deep: #1b4439;
-  --color-forest-tint: #e3ebe5;
-  --color-gold: #d5a653;
-  --color-gold-bright: #e3bc73;
-  --color-gold-ink: #7a5b1a;
-  --color-gold-tint: #f4e9d2;
+  --color-ink: #0e2a2c;
+  --color-ink-muted: #46605f;
+  --color-ivory: #faf3e4;
+  --color-sand: #f2e6cc;
+  --color-paper: #fffdf8;
+  --color-hairline: #e3d6bb;
+  --color-hairline-strong: #c4b391;
+  --color-navy: #0b3033;
+  --color-navy-deep: #07252a;
+  --color-navy-muted: #a9c2bf;
+  --color-navy-line: #1e4a4d;
+  --color-forest: #155c5c;
+  --color-forest-deep: #0b3033;
+  --color-forest-tint: #dceae5;
+  --color-gold: #d9a043;
+  --color-gold-bright: #e6b25e;
+  --color-gold-ink: #7a5414;
+  --color-gold-tint: #f6e7c8;
   --color-error: #a3321f;
-  --color-error-tint: #f7e4df;
+  --color-error-tint: #f8e3da;
 
   --font-display: var(--font-bricolage), ui-sans-serif, system-ui, sans-serif;
   --font-sans: var(--font-figtree), ui-sans-serif, system-ui, sans-serif;
@@ -245,7 +247,7 @@
   }
   .card-lift:hover {
     transform: translateY(-2px);
-    box-shadow: 0 10px 30px -12px rgb(18 42 58 / 0.25);
+    box-shadow: 0 10px 30px -12px rgb(11 48 51 / 0.25);
     border-color: var(--color-hairline-strong);
   }
 
@@ -291,7 +293,7 @@
   .field:focus {
     outline: none;
     border-color: var(--color-forest);
-    box-shadow: 0 0 0 3px rgb(36 88 76 / 0.22);
+    box-shadow: 0 0 0 3px rgb(21 92 92 / 0.22);
   }
   .field[aria-invalid="true"] {
     border-color: var(--color-error);
@@ -302,7 +304,7 @@
   select.field {
     appearance: none;
     padding-right: 2.5rem;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='none' stroke='%23182628' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m4 6 4 4 4-4'/%3E%3C/svg%3E");
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='none' stroke='%230e2a2c' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m4 6 4 4 4-4'/%3E%3C/svg%3E");
     background-repeat: no-repeat;
     background-position: right 0.875rem center;
   }
@@ -383,7 +385,7 @@
 }
 .on-dark .field:focus {
   border-color: var(--color-gold);
-  box-shadow: 0 0 0 3px rgb(213 166 83 / 0.35);
+  box-shadow: 0 0 0 3px rgb(217 160 67 / 0.35);
 }
 
 /* Light cards placed inside dark sections restore the light-ground rules */
@@ -395,7 +397,7 @@
 }
 .on-dark .on-light .field:focus {
   border-color: var(--color-forest);
-  box-shadow: 0 0 0 3px rgb(36 88 76 / 0.22);
+  box-shadow: 0 0 0 3px rgb(21 92 92 / 0.22);
 }
 .on-dark .on-light :focus-visible {
   outline-color: var(--color-forest);

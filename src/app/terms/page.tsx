@@ -30,17 +30,24 @@ export default function TermsPage() {
         <li>We are not responsible for the content, availability or practices of external websites. <Review /></li>
       </ul>
 
-      <h2>Our events</h2>
+      <h2>Charity events</h2>
       <p>
-        Event series shown as &ldquo;concepts&rdquo; are plans, not scheduled events. Specific terms, waivers and safety information will be
-        provided for each event when it is scheduled. <Review />
+        Charity events are organized by independent organizations. Dates are shown only when confirmed on the organizer&apos;s official site; age,
+        supervision and fee rules are the organizer&apos;s. Confirm details with the organizer before attending. <Review />
       </p>
 
       <h2>Geaux Give Week</h2>
       <p>
-        Geaux Give Week is in development. No dates, participating universities or beneficiary charity have been confirmed. When a campaign
-        runs, donations will be made directly to the approved charity through its own platform under that charity&apos;s terms. This website
-        does not accept donations. <Review />
+        Geaux Give Week is coming soon and is exclusively for Louisiana colleges and universities; high schools don&apos;t participate. No dates,
+        participating universities or beneficiary charity have been confirmed. When a campaign runs, donations will be made directly to the
+        approved charity through its own platform under that charity&apos;s terms. <Review />
+      </p>
+
+      <h2>Donations and charity links</h2>
+      <p>
+        This website does not accept, hold or process donations. Donation and corporate-giving links go to independent charities&apos; own
+        websites, and those charities&apos; terms apply. Listed charities are suggested resources, not partners. Information about business giving
+        and tax benefits is general information, not tax or legal advice. <Review />
       </p>
 
       <h2>No tax advice</h2>

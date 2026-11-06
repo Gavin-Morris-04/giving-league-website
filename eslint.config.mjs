@@ -12,6 +12,12 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    // Locally installed design tools (not committed, not site code)
+    ".agents/**",
+    ".claude/**",
+    ".impeccable/**",
+    ".taste-skill/**",
+    "discovery/.cache/**",
   ]),
 ]);
 

@@ -180,7 +180,7 @@ export default async function CampusPage({ params }: Props) {
               </li>
               <li>
                 <p className="font-semibold text-navy">Represent your campus</p>
-                <p className="mt-1 text-ink-muted">Help organize events and bring Geaux Give Week to {u.shortName}.</p>
+                <p className="mt-1 text-ink-muted">Help organize service and bring Geaux Give Week (coming soon, college-only) to {u.shortName}.</p>
               </li>
               <li>
                 <p className="font-semibold text-navy">Bring your organization</p>
@@ -191,7 +191,7 @@ export default async function CampusPage({ params }: Props) {
           <div className="rounded-md border border-hairline bg-paper p-6 sm:p-10 lg:col-span-7">
             <h3 className="text-h3 text-navy">Interested in representing {u.shortName}?</h3>
             <p className="mt-2 mb-8 text-[0.9375rem] text-ink-muted">Tell us about yourself. We reply to every inquiry by email.</p>
-            <CampusRepForm defaultCampus={u.slug} />
+            <CampusRepForm mode="college" defaultCampus={u.slug} submitLabel="Send campus interest" />
           </div>
         </div>
       </section>

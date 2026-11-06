@@ -15,6 +15,12 @@ const nextConfig: NextConfig = {
     formats: ["image/avif", "image/webp"],
     qualities: [70, 75],
   },
+  async redirects() {
+    return [
+      // Partnerships now go through the Contact form ("Partnership" subject).
+      { source: "/partners", destination: "/contact?topic=partnership", permanent: true },
+    ];
+  },
   async headers() {
     return [{ source: "/:path*", headers: securityHeaders }];
   },

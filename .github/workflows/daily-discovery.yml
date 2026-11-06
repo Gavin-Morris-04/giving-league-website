@@ -1,0 +1,64 @@
+# Daily discovery — free on public repositories (GitHub Actions), no paid APIs, no dependencies beyond the
+# Node and Python standard tooling. Review-gated: it opens a pull request; nothing goes live until it's merged.
+name: Daily discovery
+
+on:
+  schedule:
+    - cron: "0 11 * * *" # 11:00 UTC ≈ 6 AM in Louisiana
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+  pull-requests: write
+  issues: write
+
+concurrency:
+  group: daily-discovery
+  cancel-in-progress: false
+
+jobs:
+  discover:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Export verified data snapshot
+        run: node --experimental-strip-types --no-warnings scripts/export-snapshot.ts
+
+      - name: Test extraction rules
+        run: python -m unittest discovery.test_extraction
+
+      - name: Check listings and read public feeds
+        run: python -m discovery.run
+
+      - name: Open a review pull request if findings changed
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          if git diff --quiet -- src/data/discovery/report.json discovery/REPORT.md; then
+            echo "No changes."
+            exit 0
+          fi
+          branch="discovery/$(date -u +%Y-%m-%d)"
+          git config user.name "cause-krewe-discovery[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git checkout -b "$branch"
+          git add src/data/discovery/report.json discovery/REPORT.md
+          git commit -m "Daily discovery report $(date -u +%Y-%m-%d)"
+          git push --force origin "$branch"
+          title="Daily discovery: review new findings ($(date -u +%Y-%m-%d))"
+          if ! gh pr create --base main --head "$branch" --title "$title" --body-file discovery/REPORT.md; then
+            # Repos that don't allow Actions to open PRs get an issue with a link to the branch instead.
+            gh issue create --title "$title" --body "Findings are on branch \`$branch\`: ${{ github.server_url }}/${{ github.repository }}/compare/main...$branch
+
+          $(cat discovery/REPORT.md)" || true
+          fi

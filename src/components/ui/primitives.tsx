@@ -3,26 +3,27 @@ import { ArrowUpRight, Check } from "lucide-react";
 import type { ReactNode } from "react";
 import { site } from "@/config/site";
 import { photos, type PhotoKey } from "@/data/photos";
+import emblem from "@/assets/brand/cause-krewe-emblem.png";
 import { cx } from "@/lib/format";
 
-/* ── Brand mark: two stations joined by a bent line ─────────────────────── */
-export function Mark({ className, tone = "light" }: { className?: string; tone?: "light" | "dark" }) {
-  const line = tone === "dark" ? "var(--color-gold)" : "var(--color-forest)";
-  const dot = tone === "dark" ? "var(--color-ivory)" : "var(--color-navy)";
+/* ── Brand: the official pelican emblem ─────────────────────────────────── */
+export function Mark({ className, priority }: { className?: string; tone?: "light" | "dark"; priority?: boolean }) {
   return (
-    <svg viewBox="0 0 32 32" className={className} aria-hidden focusable="false">
-      <path d="M6 24 H15 L26 9" fill="none" stroke={line} strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
-      <circle cx="6" cy="24" r="4" fill={dot} />
-      <circle cx="26" cy="9" r="4" fill={dot} />
-      <circle cx="15" cy="24" r="2.25" fill={line} />
-    </svg>
+    <Image
+      src={emblem}
+      alt=""
+      aria-hidden
+      sizes="96px"
+      preload={priority}
+      className={cx("shrink-0 rounded-full", className)}
+    />
   );
 }
 
 export function Wordmark({ tone = "light", className }: { tone?: "light" | "dark"; className?: string }) {
   return (
     <span className={cx("inline-flex items-center gap-2.5", className)}>
-      <Mark className="size-8 shrink-0" tone={tone} />
+      <Mark className="size-11" priority />
       <span
         className={cx(
           "font-display text-[1.2rem] leading-none font-semibold whitespace-nowrap tracking-[-0.02em] [font-variation-settings:'wdth'_88,'opsz'_24]",

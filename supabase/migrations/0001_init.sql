@@ -1,5 +1,5 @@
 -- ─────────────────────────────────────────────────────────────────────────────
--- The Giving League (working name) — initial schema
+-- The Cause Krewe — initial schema
 --
 -- Security model
 --   • Row Level Security is ON for every table.

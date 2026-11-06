@@ -10,7 +10,7 @@ import { site } from "@/config/site";
 
 export const metadata: Metadata = {
   title: "About Us",
-  description: `${site.name} is an emerging, student-led initiative connecting Louisiana college students with ways to serve. Our mission, story, programs and values.`,
+  description: `${site.name} is an emerging, student-led initiative connecting Louisiana high school and college students with ways to volunteer, attend charity events and give. Our mission, story, programs and values.`,
   alternates: { canonical: "/about" },
 };
 
@@ -41,13 +41,12 @@ export default function AboutPage() {
           </div>
           <div className="space-y-5 text-[1.1875rem] leading-relaxed text-ink lg:col-span-7 lg:col-start-6" data-reveal>
             <p className="text-lead font-medium text-navy">
-              We started with a simple idea: college students want to make a difference, but finding the right opportunity isn&apos;t always
-              easy.
+              We started with a simple idea: students want to make a difference, but finding the right opportunity isn&apos;t always easy.
             </p>
             <p>Our goal is to change that.</p>
             <p>
-              By connecting Louisiana universities, local nonprofits, student organizations, and community partners, we&apos;re building a
-              network that makes giving back easier and more meaningful.
+              By connecting Louisiana high schools and universities, local nonprofits, student organizations, and community partners, we&apos;re
+              building a network that makes giving back easier and more meaningful.
             </p>
             <p>
               From discovering a volunteer opportunity near campus to participating in statewide charitable initiatives, we want every
@@ -81,7 +80,7 @@ export default function AboutPage() {
       {/* Programs */}
       <section className="section-y" aria-labelledby="programs-heading">
         <div className="container-line">
-          <SectionHeading id="programs-heading" title="Our three programs" lead="Three permanent areas of activity, all year, every year." />
+          <SectionHeading id="programs-heading" title="Our three programs" lead="Volunteering, charity events and giving — all year, for high school and college students. Plus one future, college-only flagship." />
           <div className="mt-14 grid gap-14">
             <article className="grid items-center gap-10 lg:grid-cols-12" data-reveal>
               <Photo name="foodBankSorting" sizes="(min-width: 1024px) 45vw, 100vw" className="aspect-[16/10] rounded-md lg:col-span-6" />
@@ -96,8 +95,11 @@ export default function AboutPage() {
                   <ButtonLink href="/volunteer" icon="arrow">
                     Find Volunteer Opportunities
                   </ButtonLink>
+                  <ButtonLink href="/high-schools" variant="secondary">
+                    High Schools
+                  </ButtonLink>
                   <ButtonLink href="/campuses" variant="secondary">
-                    Explore Participating Campuses
+                    College Campuses
                   </ButtonLink>
                 </div>
               </div>
@@ -107,33 +109,44 @@ export default function AboutPage() {
                 <Photo name="cleanupSmile" sizes="(min-width: 1024px) 45vw, 100vw" className="aspect-[16/10] rounded-md" />
               </div>
               <div className="lg:order-1 lg:col-span-5">
-                <p className="text-[0.9375rem] font-semibold text-forest">Community Events</p>
+                <p className="text-[0.9375rem] font-semibold text-forest">Charity Events</p>
                 <h3 className="text-h2 mt-2 text-navy">Making a Difference, All Year Long.</h3>
                 <p className="mt-4 text-ink-muted">
-                  Community impact doesn&apos;t happen during just one week of the year. From local food drives to hands-on service
-                  projects, we bring students together to support causes that strengthen Louisiana communities.
+                  Charity walks, toy drives, cleanup days and fundraisers hosted by organizations across Louisiana — with dates shown only when the
+                  organizer confirms them.
                 </p>
                 <ButtonLink href="/events" icon="arrow" className="mt-7">
-                  Explore Upcoming Events
+                  Explore Charity Events
+                </ButtonLink>
+              </div>
+            </article>
+            <article className="grid items-center gap-10 lg:grid-cols-12" data-reveal>
+              <Photo name="shelterDog" sizes="(min-width: 1024px) 45vw, 100vw" className="aspect-[16/10] rounded-md lg:col-span-6" />
+              <div className="lg:col-span-5 lg:col-start-8">
+                <p className="text-[0.9375rem] font-semibold text-forest">Donate</p>
+                <h3 className="text-h2 mt-2 text-navy">A Little Generosity Goes a Long Way.</h3>
+                <p className="mt-4 text-ink-muted">
+                  A directory of trusted charities with links to their own official donation pages, plus business giving resources. We never process
+                  donations ourselves.
+                </p>
+                <ButtonLink href="/donations" icon="arrow" className="mt-7">
+                  Explore Charities
                 </ButtonLink>
               </div>
             </article>
             <article className="on-dark grid gap-10 rounded-md bg-navy-deep p-8 text-ivory sm:p-12 lg:grid-cols-12" data-reveal>
               <div className="lg:col-span-7">
-                <p className="text-label text-gold">Our flagship event</p>
-                <h3 className="text-event mt-4 text-6xl text-gold sm:text-7xl">One State. One Week. One Cause.</h3>
+                <p className="text-label text-gold">Coming soon · colleges only</p>
+                <h3 className="text-event mt-4 text-6xl text-gold sm:text-7xl">Geaux Give Week</h3>
               </div>
               <div className="lg:col-span-5">
-                <p className="text-ivory/85">A statewide fundraising challenge bringing Louisiana universities together to support a cause bigger than any one campus.</p>
-                <p className="mt-4 text-navy-muted">Status: {site.flagship.status}</p>
-                <div className="mt-7 flex flex-col gap-3">
-                  <ButtonLink href="/geaux-give-week" variant="dark" icon="arrow">
-                    Learn About Geaux Give Week
-                  </ButtonLink>
-                  <ButtonLink href="/geaux-give-week#register" variant="darkSecondary">
-                    Bring the Challenge to Your Campus
-                  </ButtonLink>
-                </div>
+                <p className="text-ivory/85">
+                  A future annual statewide fundraising competition exclusively for Louisiana colleges and universities. Details will be announced as
+                  plans and partnerships are finalized.
+                </p>
+                <ButtonLink href="/geaux-give-week" variant="dark" icon="arrow" className="mt-7">
+                  Learn About Geaux Give Week
+                </ButtonLink>
               </div>
             </article>
           </div>
@@ -162,7 +175,7 @@ export default function AboutPage() {
             <SectionHeading
               id="team-heading"
               title="Founder and future leadership"
-              lead="Founded by an LSU student in Baton Rouge. As the initiative grows across Louisiana, we'll add campus representatives and a leadership team — and introduce them here."
+              lead="Founded by an LSU student in Baton Rouge. As we grow across Louisiana, we'll add college campus representatives, school advisors and a leadership team — and introduce adult leaders here. We don't publish profiles or photos of minors."
             />
           </div>
           <div className="space-y-6 lg:col-span-7">
@@ -172,8 +185,8 @@ export default function AboutPage() {
               <p className="mt-2 text-ink-muted">
                 We&apos;re looking for students who want to help lead — from campus representatives to statewide program roles.
               </p>
-              <Link href="/partners#campus-leaders" className="link mt-5 inline-flex items-center gap-2 font-semibold">
-                Become a campus representative <ArrowRight aria-hidden className="size-4" />
+              <Link href="/contact" className="link mt-5 inline-flex items-center gap-2 font-semibold">
+                Contact us about getting involved <ArrowRight aria-hidden className="size-4" />
               </Link>
             </div>
           </div>

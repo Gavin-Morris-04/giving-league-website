@@ -27,4 +27,4 @@ values
    'both', 'flexible', 'in_person', 'https://example.org/volunteer', 'https://example.org/volunteer', 'active', current_date, 'example')
 on conflict (slug) do nothing;
 
-insert into public.fundraising_campaigns (year, status) values (2027, 'planning') on conflict (year) do nothing;
+insert into public.ggw_campaigns (year, status) values (2027, 'planning') on conflict (year) do nothing;

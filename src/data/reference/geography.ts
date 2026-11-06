@@ -1,20 +1,32 @@
-import type { Cause, City, CityKey, University } from "@/lib/types";
+import type { Cause, City, CityKey, RegionKey, University } from "@/lib/types";
 
 /** City centroids (approximate) used for "near my campus" matching and sorting. */
 export const cities: Record<CityKey, City> = {
-  "baton-rouge": { key: "baton-rouge", name: "Baton Rouge", lat: 30.4515, lng: -91.1871 },
-  "new-orleans": { key: "new-orleans", name: "New Orleans", lat: 29.9511, lng: -90.0715 },
-  lafayette: { key: "lafayette", name: "Lafayette", lat: 30.2241, lng: -92.0198 },
-  hammond: { key: "hammond", name: "Hammond", lat: 30.5044, lng: -90.4612 },
-  ruston: { key: "ruston", name: "Ruston", lat: 32.5232, lng: -92.6379 },
-  grambling: { key: "grambling", name: "Grambling", lat: 32.5277, lng: -92.714 },
-  monroe: { key: "monroe", name: "Monroe", lat: 32.5093, lng: -92.1193 },
-  natchitoches: { key: "natchitoches", name: "Natchitoches", lat: 31.7607, lng: -93.0863 },
-  "lake-charles": { key: "lake-charles", name: "Lake Charles", lat: 30.2266, lng: -93.2174 },
-  thibodaux: { key: "thibodaux", name: "Thibodaux", lat: 29.7958, lng: -90.8229 },
-  houma: { key: "houma", name: "Houma", lat: 29.5958, lng: -90.7195 },
-  alexandria: { key: "alexandria", name: "Alexandria", lat: 31.3113, lng: -92.4451 },
-  statewide: { key: "statewide", name: "Statewide", lat: 31.0, lng: -92.0 },
+  "baton-rouge": { key: "baton-rouge", name: "Baton Rouge", lat: 30.4515, lng: -91.1871, region: "capital" },
+  "new-orleans": { key: "new-orleans", name: "New Orleans", lat: 29.9511, lng: -90.0715, region: "greater-new-orleans" },
+  lafayette: { key: "lafayette", name: "Lafayette", lat: 30.2241, lng: -92.0198, region: "acadiana" },
+  hammond: { key: "hammond", name: "Hammond", lat: 30.5044, lng: -90.4612, region: "northshore" },
+  ruston: { key: "ruston", name: "Ruston", lat: 32.5232, lng: -92.6379, region: "north" },
+  grambling: { key: "grambling", name: "Grambling", lat: 32.5277, lng: -92.714, region: "north" },
+  monroe: { key: "monroe", name: "Monroe", lat: 32.5093, lng: -92.1193, region: "north" },
+  natchitoches: { key: "natchitoches", name: "Natchitoches", lat: 31.7607, lng: -93.0863, region: "central" },
+  "lake-charles": { key: "lake-charles", name: "Lake Charles", lat: 30.2266, lng: -93.2174, region: "southwest" },
+  thibodaux: { key: "thibodaux", name: "Thibodaux", lat: 29.7958, lng: -90.8229, region: "bayou" },
+  houma: { key: "houma", name: "Houma", lat: 29.5958, lng: -90.7195, region: "bayou" },
+  alexandria: { key: "alexandria", name: "Alexandria", lat: 31.3113, lng: -92.4451, region: "central" },
+  statewide: { key: "statewide", name: "Statewide", lat: 31.0, lng: -92.0, region: "statewide" },
+};
+
+export const regions: Record<RegionKey, string> = {
+  capital: "Capital Region (Baton Rouge)",
+  "greater-new-orleans": "Greater New Orleans",
+  acadiana: "Acadiana",
+  southwest: "Southwest Louisiana",
+  north: "North Louisiana",
+  central: "Central Louisiana",
+  bayou: "Bayou Region",
+  northshore: "Northshore & Florida Parishes",
+  statewide: "Statewide",
 };
 
 /**

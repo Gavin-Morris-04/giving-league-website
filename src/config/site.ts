@@ -7,23 +7,26 @@
  */
 
 export const site = {
-  /** PROVISIONAL working name. The official nonprofit name has not been chosen. */
-  name: "The Giving League",
+  /** Official name. The pelican emblem lives in src/assets/brand and public/brand. */
+  name: "The Cause Krewe",
   /** Short form used in tight spaces (mobile header, OG image). */
-  shortName: "Giving League",
-  /** Marks the name as a placeholder in development tooling and the README. */
-  nameIsProvisional: true,
+  shortName: "Cause Krewe",
+  nameIsProvisional: false,
 
   tagline: "Connecting Students. Strengthening Communities.",
 
   mission:
-    "To empower Louisiana college students to create meaningful change by connecting them with volunteer opportunities, organizing community service initiatives, and uniting universities in support of charitable causes.",
+    "To empower high school and college students across Louisiana to create meaningful change through accessible volunteer opportunities, community service, charitable giving, and collaboration.",
 
   vision:
-    "To build Louisiana's leading student-driven community service network, where every college student has the opportunity, resources, and connections to make a positive impact in their community.",
+    "To build Louisiana's leading student-driven service network, connecting young people with the organizations, resources, and opportunities needed to make a lasting difference.",
 
+  /** Organization description (used in metadata and the homepage). */
   description:
-    "A student-led initiative connecting Louisiana college students with volunteer opportunities, community service events, and Geaux Give Week — a statewide college fundraising challenge in development.",
+    "We connect Louisiana high school and college students with meaningful opportunities to volunteer, support charitable causes, and strengthen their communities.",
+
+  /** Who we serve. Geaux Give Week is the exception: it is college-only. */
+  audience: "High school and college students throughout Louisiana",
 
   /** Honest one-line statement of legal status. Update when 501(c)(3) recognition is granted. */
   legalStatus:
@@ -57,11 +60,10 @@ export const site = {
     phone: null as string | null,
   },
 
-  /** Social accounts. `null` = not created yet; the footer renders a "coming soon" label, not a dead link. */
+  /** Official social accounts. Instagram is the only one. */
   social: {
-    instagram: null as string | null,
-    tiktok: null as string | null,
-    linkedin: null as string | null,
+    instagram: "https://www.instagram.com/thecausekrewe/",
+    instagramHandle: "@thecausekrewe",
   },
 
   /**
@@ -77,11 +79,15 @@ export const site = {
     photo: null as string | null,
   },
 
-  /** Flagship event facts. Nothing here is confirmed; the UI labels it as in development. */
+  /**
+   * Geaux Give Week — a FUTURE, college-only statewide fundraising competition. High schools and high school
+   * students do not take part. Nothing here is confirmed; the UI labels it "Coming Soon".
+   */
   flagship: {
     name: "Geaux Give Week",
-    status: "In Development — Spring 2027",
-    statusLong: "Planned for Spring 2027 — Details Coming Soon",
+    status: "Coming Soon",
+    statusLong: "Coming Soon — details will be announced as plans and partnerships are finalized",
+    collegeOnly: true,
     /** Set to an ISO date only once confirmed with universities and the beneficiary. */
     startDate: null as string | null,
     /** Name of the approved beneficiary charity, once confirmed in writing. */

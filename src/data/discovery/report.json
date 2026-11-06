@@ -1,0 +1,1417 @@
+{
+  "generatedAt": "2026-11-06T21:48:52+00:00",
+  "listings": {
+    "event:habitat-baton-rouge-women-build": {
+      "url": "https://habitatbrla.org/women-build/",
+      "status": "ok",
+      "code": 200,
+      "consecutive_failures": 0,
+      "flags": []
+    },
+    "event:love-the-boot-week-2027": {
+      "url": "https://keeplouisianabeautiful.org/love-the-boot/volunteer/",
+      "status": "ok",
+      "code": 200,
+      "consecutive_failures": 0,
+      "flags": [
+        {
+          "type": "possible_cancellation",
+          "evidence": "101 State Park Road Doyline, LA 71023 When April 10, 2025 @ 10:00 am Edit My Event Event has Passed CANCELED! Jean Lafitte Nutria Protector Clean-Up Coalition to Restore Coastal Louisiana Cleanup Where Jean L"
+        }
+      ]
+    },
+    "event:no-such-thing-as-impossible-bike-ride": {
+      "url": "https://p2p.onecause.com/nosuchthingasimpossible",
+      "status": "ok",
+      "code": 200,
+      "consecutive_failures": 0,
+      "flags": []
+    },
+    "event:st-jude-walk-baton-rouge": {
+      "url": "https://www.stjude.org/get-involved/fitness-fundraisers/5k-walk-run.html",
+      "status": "ok",
+      "code": 200,
+      "consecutive_failures": 0,
+      "flags": []
+    },
+    "event:these-bikes-change-lives-ride": {
+      "url": "https://p2p.onecause.com/thesebikeschangelives2026",
+      "status": "ok",
+      "code": 200,
+      "consecutive_failures": 0,
+      "flags": []
+    },
+    "event:toys-for-tots-baton-rouge": {
+      "url": "https://baton-rouge-la.toysfortots.org/local-coordinator-sites/lco-sites/local-get-involved.aspx",
+      "status": "error",
+      "code": 302,
+      "consecutive_failures": 0,
+      "flags": []
+    },
+    "event:toys-for-tots-new-orleans": {
+      "url": "https://new-orleans-la.toysfortots.org/",
+      "status": "error",
+      "code": 302,
+      "consecutive_failures": 0,
+      "flags": []
+    },
+    "event:walk-to-remember-baton-rouge": {
+      "url": "https://give.alzbr.org/",
+      "status": "ok",
+      "code": 200,
+      "consecutive_failures": 0,
+      "flags": []
+    },
+    "event:wbrz-stuff-the-bus": {
+      "url": "https://www.wbrz.com/stuff-the-bus",
+      "status": "ok",
+      "code": 200,
+      "consecutive_failures": 0,
+      "flags": []
+    },
+    "event:wish-classic-golf-tournament": {
+      "url": "https://wishclassic.org",
+      "status": "ok",
+      "code": 200,
+      "consecutive_failures": 0,
+      "flags": []
+    },
+    "opportunity:audubon-volunteer-program": {
+      "url": "https://audubonnatureinstitute.org/volunteer",
+      "status": "ok",
+      "code": 200,
+      "consecutive_failures": 0,
+      "flags": []
+    },
+    "opportunity:big-buddy-volunteer": {
+      "url": "https://www.bigbuddyprogram.org/volunteer",
+      "status": "ok",
+      "code": 200,
+      "consecutive_failures": 0,
+      "flags": []
+    },
+    "opportunity:breada-market-volunteer": {
+      "url": "https://breada.org/volunteer/",
+      "status": "ok",
+      "code": 200,
+      "consecutive_failures": 0,
+      "flags": []
+    },
+    "opportunity:companion-animal-alliance-shelter-volunteer": {
+      "url": "https://app.betterimpact.com/Application?ApplicationFormNumber=1&OrganizationGuid=596adf8d-c9b3-45ea-a1bf-ea83fe6748a5",
+      "status": "ok",
+      "code": 200,
+      "consecutive_failures": 0,
+      "flags": []
+    },
+    "opportunity:crcl-coastal-restoration": {
+      "url": "https://connect.crcl.org/civicrm/event/list",
+      "status": "ok",
+      "code": 200,
+      "consecutive_failures": 0,
+      "flags": []
+    },
+    "opportunity:ebr-council-on-aging-volunteer": {
+      "url": "https://ebrcoa.org/volunteer-opportunities/",
+      "status": "ok",
+      "code": 200,
+      "consecutive_failures": 0,
+      "flags": []
+    },
+    "opportunity:food-bank-central-louisiana-volunteer": {
+      "url": "https://www.fbcenla.org/volunteer",
+      "status": "ok",
+      "code": 200,
+      "consecutive_failures": 0,
+      "flags": []
+    },
+    "opportunity:food-bank-northeast-louisiana-volunteer": {
+      "url": "https://foodbanknela.volunteerhub.com/vv2/",
+      "status": "ok",
+      "code": 200,
+      "consecutive_failures": 0,
+      "flags": []
+    },
+    "opportunity:greater-baton-rouge-food-bank-volunteer-shifts": {
+      "url": "https://volunteer.brfoodbank.org/volunteer-sign-up",
+      "status": "ok",
+      "code": 200,
+      "consecutive_failures": 0,
+      "flags": []
+    },
+    "opportunity:habitat-baton-rouge-build-days": {
+      "url": "https://habitatbrla.org/apply-to-volunteer/",
+      "status": "ok",
+      "code": 200,
+      "consecutive_failures": 0,
+      "flags": []
+    },
+    "opportunity:habitat-baton-rouge-restore": {
+      "url": "https://habitatbrla.org/restore-volunteer-interest-form/",
+      "status": "ok",
+      "code": 200,
+      "consecutive_failures": 0,
+      "flags": [
+        {
+          "type": "age_rule_differs",
+          "found_minimum_age": 16,
+          "recorded_minimum_age": null,
+          "evidence": "Required) Age Group Teen (16-18) Young Adult (19-22) Adult (23-64) Senior (64+) Volunteer must be at least 16 years old to volunteer at a Habitat Construction Site; volunteers under 18 must be accomp"
+        }
+      ]
+    },
+    "opportunity:habitat-lafayette-build-and-restore": {
+      "url": "https://habitatlafayette.org/volunteer/",
+      "status": "ok",
+      "code": 200,
+      "consecutive_failures": 0,
+      "flags": []
+    },
+    "opportunity:habitat-new-orleans-volunteer": {
+      "url": "https://habitat-nola.org/volunteer/",
+      "status": "blocked",
+      "code": 403,
+      "consecutive_failures": 0,
+      "flags": []
+    },
+    "opportunity:handson-new-orleans-projects": {
+      "url": "https://volunteer.handsonneworleans.org/calendar/",
+      "status": "ok",
+      "code": 200,
+      "consecutive_failures": 0,
+      "flags": []
+    },
+    "opportunity:louisiana-spca-volunteer": {
+      "url": "https://www.louisianaspca.org/get-involved/volunteer/orientation/",
+      "status": "ok",
+      "code": 200,
+      "consecutive_failures": 0,
+      "flags": []
+    },
+    "opportunity:ochsner-hospital-volunteer": {
+      "url": "https://www.ochsner.org/giving/volunteer/volunteer-application/",
+      "status": "ok",
+      "code": 200,
+      "consecutive_failures": 0,
+      "flags": []
+    },
+    "opportunity:red-cross-louisiana-volunteer": {
+      "url": "https://www.redcross.org/local/louisiana/volunteer.html",
+      "status": "blocked",
+      "code": 403,
+      "consecutive_failures": 0,
+      "flags": []
+    },
+    "opportunity:second-harvest-houma-shifts": {
+      "url": "https://shfbgnoa.volunteerhub.com/vv2/lp/bayou",
+      "status": "ok",
+      "code": 200,
+      "consecutive_failures": 0,
+      "flags": []
+    },
+    "opportunity:second-harvest-lafayette-shifts": {
+      "url": "https://no-hunger.org/volunteer/",
+      "status": "ok",
+      "code": 200,
+      "consecutive_failures": 0,
+      "flags": []
+    },
+    "opportunity:second-harvest-lake-charles-shifts": {
+      "url": "https://no-hunger.org/volunteer/",
+      "status": "ok",
+      "code": 200,
+      "consecutive_failures": 0,
+      "flags": []
+    },
+    "opportunity:second-harvest-new-orleans-shifts": {
+      "url": "https://shfbgnoa.volunteerhub.com/vv2/",
+      "status": "ok",
+      "code": 200,
+      "consecutive_failures": 0,
+      "flags": []
+    },
+    "opportunity:strongward-disaster-recovery": {
+      "url": "https://sbpusa.tfaforms.net/90",
+      "status": "ok",
+      "code": 200,
+      "consecutive_failures": 0,
+      "flags": [
+        {
+          "type": "age_rule_differs",
+          "found_minimum_age": 14,
+          "recorded_minimum_age": null,
+          "evidence": "ng Strongward's mission. Things to know: Qualifications: Individuals and groups ages 14 and up are welcome Ages 14–15: A parent or guardian must be on-site and sign a waiver"
+        }
+      ]
+    },
+    "opportunity:svdp-baton-rouge-dining-room": {
+      "url": "https://svdpbr.galaxydigital.com/",
+      "status": "ok",
+      "code": 200,
+      "consecutive_failures": 0,
+      "flags": []
+    },
+    "opportunity:volunteer-louisiana-opportunity-search": {
+      "url": "https://volunteerlouisiana.gov/get-involved/volunteer-resources",
+      "status": "blocked",
+      "code": 403,
+      "consecutive_failures": 0,
+      "flags": []
+    }
+  },
+  "candidates": [
+    {
+      "id": "46980019a04b",
+      "source": "crcl-events",
+      "org_slug": "crcl",
+      "kind": "event",
+      "title": "CWRC Tree Planting 11.7.26",
+      "url": "https://connect.crcl.org/civicrm/event/info?reset=1&id=1006",
+      "start": "2026-11-07",
+      "end": "2026-11-07",
+      "city_key": "baton-rouge",
+      "city_matched_on": "Central",
+      "age_rules": {
+        "ages": [],
+        "minimum_age": null,
+        "adults_only": false,
+        "guardian_mentioned": true,
+        "snippet": ""
+      },
+      "high_school": "needs_review",
+      "cancelled": false,
+      "review": "required"
+    },
+    {
+      "id": "5a87810dbdf5",
+      "source": "crcl-events",
+      "org_slug": "crcl",
+      "kind": "event",
+      "title": "CRCLecture - Standing Through the Storms: The History and Preservation of the Sabine Pass Lighthouse",
+      "url": "https://connect.crcl.org/civicrm/event/info?reset=1&id=1029",
+      "start": "2026-11-10",
+      "end": "2026-11-10",
+      "city_key": "baton-rouge",
+      "city_matched_on": "Central",
+      "age_rules": {
+        "ages": [],
+        "minimum_age": null,
+        "adults_only": false,
+        "guardian_mentioned": false,
+        "snippet": ""
+      },
+      "high_school": "needs_review",
+      "cancelled": false,
+      "review": "required"
+    },
+    {
+      "id": "d85331469ed8",
+      "source": "crcl-events",
+      "org_slug": "crcl",
+      "kind": "event",
+      "title": "CWRC Tree Planting 11.21.26",
+      "url": "https://connect.crcl.org/civicrm/event/info?reset=1&id=1010",
+      "start": "2026-11-21",
+      "end": "2026-11-21",
+      "city_key": "baton-rouge",
+      "city_matched_on": "Central",
+      "age_rules": {
+        "ages": [],
+        "minimum_age": null,
+        "adults_only": false,
+        "guardian_mentioned": true,
+        "snippet": ""
+      },
+      "high_school": "needs_review",
+      "cancelled": false,
+      "review": "required"
+    },
+    {
+      "id": "47c06d5b703e",
+      "source": "crcl-events",
+      "org_slug": "crcl",
+      "kind": "event",
+      "title": "CWRC Tree Planting 12.4.26",
+      "url": "https://connect.crcl.org/civicrm/event/info?reset=1&id=1011",
+      "start": "2026-12-04",
+      "end": "2026-12-04",
+      "city_key": "baton-rouge",
+      "city_matched_on": "Central",
+      "age_rules": {
+        "ages": [],
+        "minimum_age": null,
+        "adults_only": false,
+        "guardian_mentioned": true,
+        "snippet": ""
+      },
+      "high_school": "needs_review",
+      "cancelled": false,
+      "review": "required"
+    },
+    {
+      "id": "42f7fabdaf11",
+      "source": "crcl-events",
+      "org_slug": "crcl",
+      "kind": "event",
+      "title": "CWRC Tree Planting 12.5.26",
+      "url": "https://connect.crcl.org/civicrm/event/info?reset=1&id=1012",
+      "start": "2026-12-05",
+      "end": "2026-12-05",
+      "city_key": "baton-rouge",
+      "city_matched_on": "Central",
+      "age_rules": {
+        "ages": [],
+        "minimum_age": null,
+        "adults_only": false,
+        "guardian_mentioned": true,
+        "snippet": ""
+      },
+      "high_school": "needs_review",
+      "cancelled": false,
+      "review": "required"
+    },
+    {
+      "id": "424b5cb279d4",
+      "source": "crcl-events",
+      "org_slug": "crcl",
+      "kind": "event",
+      "title": "Maurepas Tree Planting 12.18.26",
+      "url": "https://connect.crcl.org/civicrm/event/info?reset=1&id=1013",
+      "start": "2026-12-18",
+      "end": "2026-12-18",
+      "city_key": "new-orleans",
+      "city_matched_on": null,
+      "age_rules": {
+        "ages": [],
+        "minimum_age": null,
+        "adults_only": false,
+        "guardian_mentioned": true,
+        "snippet": ""
+      },
+      "high_school": "needs_review",
+      "cancelled": false,
+      "review": "required"
+    },
+    {
+      "id": "40d5bf3b3321",
+      "source": "crcl-events",
+      "org_slug": "crcl",
+      "kind": "event",
+      "title": "Maurepas Tree Planting 12.19.26",
+      "url": "https://connect.crcl.org/civicrm/event/info?reset=1&id=1015",
+      "start": "2026-12-19",
+      "end": "2026-12-19",
+      "city_key": "new-orleans",
+      "city_matched_on": null,
+      "age_rules": {
+        "ages": [],
+        "minimum_age": null,
+        "adults_only": false,
+        "guardian_mentioned": true,
+        "snippet": ""
+      },
+      "high_school": "needs_review",
+      "cancelled": false,
+      "review": "required"
+    },
+    {
+      "id": "85f031f3a56f",
+      "source": "crcl-events",
+      "org_slug": "crcl",
+      "kind": "event",
+      "title": "Atchafalaya Tree Planting 1.14.27",
+      "url": "https://connect.crcl.org/civicrm/event/info?reset=1&id=1031",
+      "start": "2027-01-14",
+      "end": "2027-01-14",
+      "city_key": "new-orleans",
+      "city_matched_on": null,
+      "age_rules": {
+        "ages": [],
+        "minimum_age": null,
+        "adults_only": false,
+        "guardian_mentioned": true,
+        "snippet": ""
+      },
+      "high_school": "needs_review",
+      "cancelled": false,
+      "review": "required"
+    },
+    {
+      "id": "d57a800dff05",
+      "source": "crcl-events",
+      "org_slug": "crcl",
+      "kind": "event",
+      "title": "Atchafalaya Tree Planting 1.15.27",
+      "url": "https://connect.crcl.org/civicrm/event/info?reset=1&id=1032",
+      "start": "2027-01-15",
+      "end": "2027-01-15",
+      "city_key": "new-orleans",
+      "city_matched_on": null,
+      "age_rules": {
+        "ages": [],
+        "minimum_age": null,
+        "adults_only": false,
+        "guardian_mentioned": true,
+        "snippet": ""
+      },
+      "high_school": "needs_review",
+      "cancelled": false,
+      "review": "required"
+    },
+    {
+      "id": "59af14cd3400",
+      "source": "crcl-events",
+      "org_slug": "crcl",
+      "kind": "event",
+      "title": "State of the Coast Conference",
+      "url": "https://connect.crcl.org/civicrm/event/info?reset=1&id=982",
+      "start": "2027-05-11",
+      "end": "2027-05-13",
+      "city_key": "new-orleans",
+      "city_matched_on": "New Orleans",
+      "age_rules": {
+        "ages": [],
+        "minimum_age": null,
+        "adults_only": false,
+        "guardian_mentioned": false,
+        "snippet": ""
+      },
+      "high_school": "needs_review",
+      "cancelled": false,
+      "review": "required"
+    },
+    {
+      "id": "0d26e4f27609",
+      "source": "handson-nola-needs",
+      "org_slug": "handson-new-orleans",
+      "kind": "opportunity",
+      "title": "'Barrel Preparation'",
+      "url": "http://volunteer.handsonneworleans.org/need/detail/barrel-preparation/?need_id=1311112",
+      "start": null,
+      "end": null,
+      "city_key": "new-orleans",
+      "city_matched_on": null,
+      "age_rules": {
+        "ages": [],
+        "minimum_age": null,
+        "adults_only": false,
+        "guardian_mentioned": false,
+        "snippet": ""
+      },
+      "high_school": "needs_review",
+      "cancelled": false,
+      "review": "required"
+    },
+    {
+      "id": "05bf6861b7e2",
+      "source": "svdp-br-needs",
+      "org_slug": "svdp-baton-rouge",
+      "kind": "opportunity",
+      "title": "'Christmas Day Dessert Station - Main Campus'",
+      "url": "http://svdpbr.galaxydigital.com/need/detail/christmas-day-dessert-station-main-campus/?need_id=1335993",
+      "start": null,
+      "end": null,
+      "city_key": "baton-rouge",
+      "city_matched_on": "Baton Rouge",
+      "age_rules": {
+        "ages": [
+          14
+        ],
+        "minimum_age": 14,
+        "adults_only": false,
+        "guardian_mentioned": false,
+        "snippet": "L NOTE : WE NO LONGER ACCEPT COURT APPOINTED VOLUNTEERISM. Please note that all volunteers must be at least 14 years of age to participate . Help bring a little extra sweetness to our Christmas Day celeb"
+      },
+      "high_school": "eligible_if_confirmed",
+      "cancelled": false,
+      "review": "required"
+    },
+    {
+      "id": "0753da64ddc7",
+      "source": "svdp-br-needs",
+      "org_slug": "svdp-baton-rouge",
+      "kind": "opportunity",
+      "title": "'Christmas Day Dining Room Serving Line- Main Campus '",
+      "url": "http://svdpbr.galaxydigital.com/need/detail/christmas-day-dining-room-serving-line-main-campus-/?need_id=1336000",
+      "start": null,
+      "end": null,
+      "city_key": "baton-rouge",
+      "city_matched_on": "Baton Rouge",
+      "age_rules": {
+        "ages": [
+          18
+        ],
+        "minimum_age": 18,
+        "adults_only": false,
+        "guardian_mentioned": false,
+        "snippet": "mpus ' ' WE NO LONGER ACCEPT COURT APPOINTED VOLUNTEERISM. Please note that all volunteers must be at least 18 years of age to participate in this program. Overview Help us to serve a delicious Christmas"
+      },
+      "high_school": "not_eligible",
+      "cancelled": false,
+      "review": "required"
+    },
+    {
+      "id": "6d9485c2f971",
+      "source": "svdp-br-needs",
+      "org_slug": "svdp-baton-rouge",
+      "kind": "opportunity",
+      "title": "'Christmas Day Dish Washer- Main Campus'",
+      "url": "http://svdpbr.galaxydigital.com/need/detail/christmas-day-dish-washer-main-campus/?need_id=1336034",
+      "start": null,
+      "end": null,
+      "city_key": "baton-rouge",
+      "city_matched_on": "Baton Rouge",
+      "age_rules": {
+        "ages": [
+          18
+        ],
+        "minimum_age": 18,
+        "adults_only": false,
+        "guardian_mentioned": false,
+        "snippet": "ampus' ' WE NO LONGER ACCEPT COURT APPOINTED VOLUNTEERISM. Please note that all volunteers must be at least 18 years of age to participate in this program. Overview Support our kitchen team by helping to"
+      },
+      "high_school": "not_eligible",
+      "cancelled": false,
+      "review": "required"
+    },
+    {
+      "id": "4f8b53e267b0",
+      "source": "svdp-br-needs",
+      "org_slug": "svdp-baton-rouge",
+      "kind": "opportunity",
+      "title": "'Christmas Day Helpers of Hope - Main Campus '",
+      "url": "http://svdpbr.galaxydigital.com/need/detail/christmas-day-helpers-of-hope-main-campus-/?need_id=1335981",
+      "start": null,
+      "end": null,
+      "city_key": "baton-rouge",
+      "city_matched_on": "Baton Rouge",
+      "age_rules": {
+        "ages": [
+          14
+        ],
+        "minimum_age": 14,
+        "adults_only": false,
+        "guardian_mentioned": false,
+        "snippet": "L NOTE : WE NO LONGER ACCEPT COURT APPOINTED VOLUNTEERISM. Please note that all volunteers must be at least 14 years of age to participate . Overview: Help share the spirit of Christmas by distributing B"
+      },
+      "high_school": "eligible_if_confirmed",
+      "cancelled": false,
+      "review": "required"
+    },
+    {
+      "id": "4d6371cea6b2",
+      "source": "svdp-br-needs",
+      "org_slug": "svdp-baton-rouge",
+      "kind": "opportunity",
+      "title": "'Christmas Day Pots and Pans Washer- Main Campus '",
+      "url": "http://svdpbr.galaxydigital.com/need/detail/christmas-day-pots-and-pans-washer-main-campus-/?need_id=1336029",
+      "start": null,
+      "end": null,
+      "city_key": "baton-rouge",
+      "city_matched_on": "Baton Rouge",
+      "age_rules": {
+        "ages": [
+          18
+        ],
+        "minimum_age": 18,
+        "adults_only": false,
+        "guardian_mentioned": false,
+        "snippet": "mpus ' ' WE NO LONGER ACCEPT COURT APPOINTED VOLUNTEERISM. Please note that all volunteers must be at least 18 years of age to participate in this program. Overview Help keep our kitchen running smoothly"
+      },
+      "high_school": "not_eligible",
+      "cancelled": false,
+      "review": "required"
+    },
+    {
+      "id": "d05c2ca773ff",
+      "source": "svdp-br-needs",
+      "org_slug": "svdp-baton-rouge",
+      "kind": "opportunity",
+      "title": "'Christmas Day Table Helper- Main Campus'",
+      "url": "http://svdpbr.galaxydigital.com/need/detail/christmas-day-table-helper-main-campus/?need_id=1336020",
+      "start": null,
+      "end": null,
+      "city_key": "baton-rouge",
+      "city_matched_on": "Baton Rouge",
+      "age_rules": {
+        "ages": [
+          14,
+          18
+        ],
+        "minimum_age": 14,
+        "adults_only": false,
+        "guardian_mentioned": false,
+        "snippet": "ampus' ' WE NO LONGER ACCEPT COURT APPOINTED VOLUNTEERISM. Please note that all volunteers must be at least 18 years of age to participate in this program. Overview Help us to serve a delicious Christmas"
+      },
+      "high_school": "eligible_if_confirmed",
+      "cancelled": false,
+      "review": "required"
+    },
+    {
+      "id": "e0aef474459c",
+      "source": "svdp-br-needs",
+      "org_slug": "svdp-baton-rouge",
+      "kind": "opportunity",
+      "title": "'Christmas Prep Turkey Carver- Main Campus '",
+      "url": "http://svdpbr.galaxydigital.com/need/detail/christmas-prep-turkey-carver-main-campus-/?need_id=1335976",
+      "start": null,
+      "end": null,
+      "city_key": "baton-rouge",
+      "city_matched_on": "Baton Rouge",
+      "age_rules": {
+        "ages": [
+          18
+        ],
+        "minimum_age": 18,
+        "adults_only": false,
+        "guardian_mentioned": false,
+        "snippet": "mpus ' ' WE NO LONGER ACCEPT COURT APPOINTED VOLUNTEERISM. Please note that all volunteers must be at least 18 years of age to participate in this program. Overview Help prepare a traditional Christmas D"
+      },
+      "high_school": "not_eligible",
+      "cancelled": false,
+      "review": "required"
+    },
+    {
+      "id": "1b20f228a891",
+      "source": "handson-nola-needs",
+      "org_slug": "handson-new-orleans",
+      "kind": "opportunity",
+      "title": "'Daily Garden Support '",
+      "url": "http://volunteer.handsonneworleans.org/need/detail/daily-garden-support-/?need_id=1272205",
+      "start": null,
+      "end": null,
+      "city_key": "new-orleans",
+      "city_matched_on": null,
+      "age_rules": {
+        "ages": [],
+        "minimum_age": null,
+        "adults_only": false,
+        "guardian_mentioned": false,
+        "snippet": ""
+      },
+      "high_school": "needs_review",
+      "cancelled": false,
+      "review": "required"
+    },
+    {
+      "id": "09f1cb52e99e",
+      "source": "handson-nola-needs",
+      "org_slug": "handson-new-orleans",
+      "kind": "opportunity",
+      "title": "'Day of Action: Holiday Gift Wrapping'",
+      "url": "http://volunteer.handsonneworleans.org/need/detail/day-of-action-holiday-gift-wrapping/?need_id=1312791",
+      "start": null,
+      "end": null,
+      "city_key": "new-orleans",
+      "city_matched_on": null,
+      "age_rules": {
+        "ages": [],
+        "minimum_age": null,
+        "adults_only": false,
+        "guardian_mentioned": false,
+        "snippet": ""
+      },
+      "high_school": "needs_review",
+      "cancelled": false,
+      "review": "required"
+    },
+    {
+      "id": "6a9fa8264d69",
+      "source": "handson-nola-needs",
+      "org_slug": "handson-new-orleans",
+      "kind": "opportunity",
+      "title": "'Event Support: Art Supply Giveaway'",
+      "url": "http://volunteer.handsonneworleans.org/need/detail/event-support-art-supply-giveaway/?need_id=1314185",
+      "start": null,
+      "end": null,
+      "city_key": "new-orleans",
+      "city_matched_on": null,
+      "age_rules": {
+        "ages": [],
+        "minimum_age": null,
+        "adults_only": false,
+        "guardian_mentioned": false,
+        "snippet": ""
+      },
+      "high_school": "needs_review",
+      "cancelled": false,
+      "review": "required"
+    },
+    {
+      "id": "759b668b5a0d",
+      "source": "handson-nola-needs",
+      "org_slug": "handson-new-orleans",
+      "kind": "opportunity",
+      "title": "'HandsOn Day of Service at Van McMurray Playground'",
+      "url": "http://volunteer.handsonneworleans.org/need/detail/handson-day-of-service-at-van-mcmurray-playground/?need_id=1324890",
+      "start": null,
+      "end": null,
+      "city_key": "new-orleans",
+      "city_matched_on": "New Orleans",
+      "age_rules": {
+        "ages": [],
+        "minimum_age": null,
+        "adults_only": false,
+        "guardian_mentioned": false,
+        "snippet": ""
+      },
+      "high_school": "needs_review",
+      "cancelled": false,
+      "review": "required"
+    },
+    {
+      "id": "916b9880dad1",
+      "source": "handson-nola-needs",
+      "org_slug": "handson-new-orleans",
+      "kind": "opportunity",
+      "title": "'HandsOn Family Volunteer Day at John Ehret High School'",
+      "url": "http://volunteer.handsonneworleans.org/need/detail/handson-family-volunteer-day-at-john-ehret-high-school/?need_id=1314766",
+      "start": null,
+      "end": null,
+      "city_key": "new-orleans",
+      "city_matched_on": "Marrero",
+      "age_rules": {
+        "ages": [],
+        "minimum_age": null,
+        "adults_only": false,
+        "guardian_mentioned": false,
+        "snippet": ""
+      },
+      "high_school": "needs_review",
+      "cancelled": false,
+      "review": "required"
+    },
+    {
+      "id": "1cb7b5a53366",
+      "source": "handson-nola-needs",
+      "org_slug": "handson-new-orleans",
+      "kind": "opportunity",
+      "title": "'Lower 9th Ward Food Pantry Truck Unload '",
+      "url": "http://volunteer.handsonneworleans.org/need/detail/lower-9th-ward-food-pantry-truck-unload-/?need_id=1335595",
+      "start": null,
+      "end": null,
+      "city_key": "new-orleans",
+      "city_matched_on": null,
+      "age_rules": {
+        "ages": [],
+        "minimum_age": null,
+        "adults_only": false,
+        "guardian_mentioned": false,
+        "snippet": ""
+      },
+      "high_school": "needs_review",
+      "cancelled": false,
+      "review": "required"
+    },
+    {
+      "id": "106c7b07ad20",
+      "source": "handson-nola-needs",
+      "org_slug": "handson-new-orleans",
+      "kind": "opportunity",
+      "title": "'Mentor Teen Leaders'",
+      "url": "http://volunteer.handsonneworleans.org/need/detail/mentor-teen-leaders/?need_id=1292809",
+      "start": null,
+      "end": null,
+      "city_key": "new-orleans",
+      "city_matched_on": null,
+      "age_rules": {
+        "ages": [],
+        "minimum_age": null,
+        "adults_only": false,
+        "guardian_mentioned": false,
+        "snippet": ""
+      },
+      "high_school": "needs_review",
+      "cancelled": false,
+      "review": "required"
+    },
+    {
+      "id": "63351ed141e4",
+      "source": "handson-nola-needs",
+      "org_slug": "handson-new-orleans",
+      "kind": "opportunity",
+      "title": "'Mindful Social Media Steward '",
+      "url": "http://volunteer.handsonneworleans.org/need/detail/mindful-social-media-steward-/?need_id=1272207",
+      "start": null,
+      "end": null,
+      "city_key": "new-orleans",
+      "city_matched_on": "New Orleans",
+      "age_rules": {
+        "ages": [],
+        "minimum_age": null,
+        "adults_only": false,
+        "guardian_mentioned": false,
+        "snippet": ""
+      },
+      "high_school": "needs_review",
+      "cancelled": false,
+      "review": "required"
+    },
+    {
+      "id": "7bdfb84caef3",
+      "source": "handson-nola-needs",
+      "org_slug": "handson-new-orleans",
+      "kind": "opportunity",
+      "title": "'Need For Volunteer Instructors  '",
+      "url": "http://volunteer.handsonneworleans.org/need/detail/need-for-volunteer-instructors-/?need_id=1309395",
+      "start": null,
+      "end": null,
+      "city_key": "hammond",
+      "city_matched_on": "Independence",
+      "age_rules": {
+        "ages": [],
+        "minimum_age": null,
+        "adults_only": false,
+        "guardian_mentioned": false,
+        "snippet": ""
+      },
+      "high_school": "needs_review",
+      "cancelled": false,
+      "review": "required"
+    },
+    {
+      "id": "53e4f96f5fc2",
+      "source": "svdp-br-needs",
+      "org_slug": "svdp-baton-rouge",
+      "kind": "opportunity",
+      "title": "'Neighbors Helping Neighbors Drive Through Donation Volunteer'",
+      "url": "http://svdpbr.galaxydigital.com/need/detail/neighbors-helping-neighbors-drive-through-donation-volunteer/?need_id=1334326",
+      "start": null,
+      "end": null,
+      "city_key": "baton-rouge",
+      "city_matched_on": "Baton Rouge",
+      "age_rules": {
+        "ages": [
+          14
+        ],
+        "minimum_age": 14,
+        "adults_only": false,
+        "guardian_mentioned": false,
+        "snippet": "nteer' ' WE NO LONGER ACCEPT COURT APPOINTED VOLUNTEERISM. Please note that all volunteers must be at least 14 years of age to participate. Overview: Help bring hope to the table! St. Vincent de Paul of"
+      },
+      "high_school": "eligible_if_confirmed",
+      "cancelled": false,
+      "review": "required"
+    },
+    {
+      "id": "d843ea9cd699",
+      "source": "svdp-br-needs",
+      "org_slug": "svdp-baton-rouge",
+      "kind": "opportunity",
+      "title": "'Santa Shop Kids' Corner '",
+      "url": "http://svdpbr.galaxydigital.com/need/detail/santa-shop-kids-corner-/?need_id=1338793",
+      "start": null,
+      "end": null,
+      "city_key": "baton-rouge",
+      "city_matched_on": "Baton Rouge",
+      "age_rules": {
+        "ages": [
+          14
+        ],
+        "minimum_age": 14,
+        "adults_only": false,
+        "guardian_mentioned": false,
+        "snippet": "rner ' ' WE NO LONGER ACCEPT COURT APPOINTED VOLUNTEERISM. Please note that all volunteers must be at least 14 years of age to participate. Overview Bring a little extra Christmas fun to our youngest vis"
+      },
+      "high_school": "eligible_if_confirmed",
+      "cancelled": false,
+      "review": "required"
+    },
+    {
+      "id": "679f0aecc735",
+      "source": "svdp-br-needs",
+      "org_slug": "svdp-baton-rouge",
+      "kind": "opportunity",
+      "title": "'Santa Shop Prep Crew '",
+      "url": "http://svdpbr.galaxydigital.com/need/detail/santa-shop-prep-crew-/?need_id=1338749",
+      "start": null,
+      "end": null,
+      "city_key": "baton-rouge",
+      "city_matched_on": "Baton Rouge",
+      "age_rules": {
+        "ages": [
+          14
+        ],
+        "minimum_age": 14,
+        "adults_only": false,
+        "guardian_mentioned": false,
+        "snippet": "Crew ' ' WE NO LONGER ACCEPT COURT APPOINTED VOLUNTEERISM. Please note that all volunteers must be at least 14 years of age to participate. Overview Help us get Santa's Shop ready for a magical Christmas"
+      },
+      "high_school": "eligible_if_confirmed",
+      "cancelled": false,
+      "review": "required"
+    },
+    {
+      "id": "0c55b2fba019",
+      "source": "svdp-br-needs",
+      "org_slug": "svdp-baton-rouge",
+      "kind": "opportunity",
+      "title": "'Santa Shop Restock Helpers'",
+      "url": "http://svdpbr.galaxydigital.com/need/detail/santa-shop-restock-helpers/?need_id=1338776",
+      "start": null,
+      "end": null,
+      "city_key": "baton-rouge",
+      "city_matched_on": "Baton Rouge",
+      "age_rules": {
+        "ages": [
+          14
+        ],
+        "minimum_age": 14,
+        "adults_only": false,
+        "guardian_mentioned": false,
+        "snippet": "lpers' ' WE NO LONGER ACCEPT COURT APPOINTED VOLUNTEERISM. Please note that all volunteers must be at least 14 years of age to participate. Overview Keep the Christmas magic going by helping Santa's Shop"
+      },
+      "high_school": "eligible_if_confirmed",
+      "cancelled": false,
+      "review": "required"
+    },
+    {
+      "id": "a57d8195c79e",
+      "source": "svdp-br-needs",
+      "org_slug": "svdp-baton-rouge",
+      "kind": "opportunity",
+      "title": "'Santa Shop Shoppers '",
+      "url": "http://svdpbr.galaxydigital.com/need/detail/santa-shop-shoppers-/?need_id=1338786",
+      "start": null,
+      "end": null,
+      "city_key": "baton-rouge",
+      "city_matched_on": "Baton Rouge",
+      "age_rules": {
+        "ages": [
+          14
+        ],
+        "minimum_age": 14,
+        "adults_only": false,
+        "guardian_mentioned": false,
+        "snippet": "pers ' ' WE NO LONGER ACCEPT COURT APPOINTED VOLUNTEERISM. Please note that all volunteers must be at least 14 years of age to participate. Overview Help parents find the perfect gifts to make their chil"
+      },
+      "high_school": "eligible_if_confirmed",
+      "cancelled": false,
+      "review": "required"
+    },
+    {
+      "id": "ec88df44108a",
+      "source": "svdp-br-needs",
+      "org_slug": "svdp-baton-rouge",
+      "kind": "opportunity",
+      "title": "'Santa Shop Vincentian Shoppers'",
+      "url": "http://svdpbr.galaxydigital.com/need/detail/santa-shop-vincentian-shoppers/?need_id=1338968",
+      "start": null,
+      "end": null,
+      "city_key": "baton-rouge",
+      "city_matched_on": "Baton Rouge",
+      "age_rules": {
+        "ages": [
+          14
+        ],
+        "minimum_age": 14,
+        "adults_only": false,
+        "guardian_mentioned": false,
+        "snippet": "ppers' ' WE NO LONGER ACCEPT COURT APPOINTED VOLUNTEERISM. Please note that all volunteers must be at least 14 years of age to participate. Overview Help spread Christmas joy by finding thoughtful gifts"
+      },
+      "high_school": "eligible_if_confirmed",
+      "cancelled": false,
+      "review": "required"
+    },
+    {
+      "id": "01787f87ce0e",
+      "source": "svdp-br-needs",
+      "org_slug": "svdp-baton-rouge",
+      "kind": "opportunity",
+      "title": "'Santa Shop Wrap-Up Crew'",
+      "url": "http://svdpbr.galaxydigital.com/need/detail/santa-shop-wrap-up-crew/?need_id=1338950",
+      "start": null,
+      "end": null,
+      "city_key": "baton-rouge",
+      "city_matched_on": "Baton Rouge",
+      "age_rules": {
+        "ages": [
+          14
+        ],
+        "minimum_age": 14,
+        "adults_only": false,
+        "guardian_mentioned": false,
+        "snippet": "Crew' ' WE NO LONGER ACCEPT COURT APPOINTED VOLUNTEERISM. Please note that all volunteers must be at least 14 years of age to participate. Help us finish the season strong and prepare for another year o"
+      },
+      "high_school": "eligible_if_confirmed",
+      "cancelled": false,
+      "review": "required"
+    },
+    {
+      "id": "0336c5d7192f",
+      "source": "handson-nola-needs",
+      "org_slug": "handson-new-orleans",
+      "kind": "opportunity",
+      "title": "'Shower Cleaning Volunteer'",
+      "url": "http://volunteer.handsonneworleans.org/need/detail/shower-cleaning-volunteer/?need_id=1339347",
+      "start": null,
+      "end": null,
+      "city_key": "new-orleans",
+      "city_matched_on": null,
+      "age_rules": {
+        "ages": [],
+        "minimum_age": null,
+        "adults_only": false,
+        "guardian_mentioned": false,
+        "snippet": ""
+      },
+      "high_school": "needs_review",
+      "cancelled": false,
+      "review": "required"
+    },
+    {
+      "id": "9948134b7a7b",
+      "source": "svdp-br-needs",
+      "org_slug": "svdp-baton-rouge",
+      "kind": "opportunity",
+      "title": "'Thanksgiving Prep Dressing- River Center'",
+      "url": "http://svdpbr.galaxydigital.com/need/detail/thanksgiving-prep-dressing-river-center/?need_id=1337624",
+      "start": null,
+      "end": null,
+      "city_key": "baton-rouge",
+      "city_matched_on": "Baton Rouge",
+      "age_rules": {
+        "ages": [
+          18
+        ],
+        "minimum_age": 18,
+        "adults_only": false,
+        "guardian_mentioned": false,
+        "snippet": "enter' ' WE NO LONGER ACCEPT COURT APPOINTED VOLUNTEERISM. Please note that all volunteers must be at least 18 years of age to participate in this program. Overview What's Thanksgiving without the dressi"
+      },
+      "high_school": "not_eligible",
+      "cancelled": false,
+      "review": "required"
+    },
+    {
+      "id": "e62547c10d03",
+      "source": "handson-nola-needs",
+      "org_slug": "handson-new-orleans",
+      "kind": "opportunity",
+      "title": "'Throw Me Something Handmade'",
+      "url": "http://volunteer.handsonneworleans.org/need/detail/throw-me-something-handmade/?need_id=1332092",
+      "start": null,
+      "end": null,
+      "city_key": "new-orleans",
+      "city_matched_on": null,
+      "age_rules": {
+        "ages": [],
+        "minimum_age": null,
+        "adults_only": false,
+        "guardian_mentioned": false,
+        "snippet": ""
+      },
+      "high_school": "needs_review",
+      "cancelled": false,
+      "review": "required"
+    },
+    {
+      "id": "2c8ffcd1bd76",
+      "source": "handson-nola-needs",
+      "org_slug": "handson-new-orleans",
+      "kind": "opportunity",
+      "title": "'United Way HandsOn Volunteer Center proudly serving with Ochsner at Rainbow Child Care Center'",
+      "url": "http://volunteer.handsonneworleans.org/need/detail/united-way-handson-volunteer-center-proudly-serving-with-ochsner-at-rainbow-child-care-center/?need_id=1314154",
+      "start": null,
+      "end": null,
+      "city_key": "new-orleans",
+      "city_matched_on": "Slidell",
+      "age_rules": {
+        "ages": [],
+        "minimum_age": null,
+        "adults_only": false,
+        "guardian_mentioned": false,
+        "snippet": ""
+      },
+      "high_school": "needs_review",
+      "cancelled": false,
+      "review": "required"
+    },
+    {
+      "id": "2a2f76d22ede",
+      "source": "handson-nola-needs",
+      "org_slug": "handson-new-orleans",
+      "kind": "opportunity",
+      "title": "'Volunteer with Recirculating Farms - Tuesday Afternoons @ Jackson Ave.'",
+      "url": "http://volunteer.handsonneworleans.org/need/detail/volunteer-with-recirculating-farms-tuesday-afternoons-jackson-ave./?need_id=1314839",
+      "start": null,
+      "end": null,
+      "city_key": "baton-rouge",
+      "city_matched_on": "Central",
+      "age_rules": {
+        "ages": [],
+        "minimum_age": null,
+        "adults_only": false,
+        "guardian_mentioned": false,
+        "snippet": ""
+      },
+      "high_school": "needs_review",
+      "cancelled": false,
+      "review": "required"
+    },
+    {
+      "id": "f2b37fb76067",
+      "source": "handson-nola-needs",
+      "org_slug": "handson-new-orleans",
+      "kind": "opportunity",
+      "title": "'Volunteer with Recirculating Farms - Wednesday Mornings @ Myrtle Banks'",
+      "url": "http://volunteer.handsonneworleans.org/need/detail/volunteer-with-recirculating-farms-wednesday-mornings-myrtle-banks/?need_id=1324396",
+      "start": null,
+      "end": null,
+      "city_key": "baton-rouge",
+      "city_matched_on": "Central",
+      "age_rules": {
+        "ages": [],
+        "minimum_age": null,
+        "adults_only": false,
+        "guardian_mentioned": false,
+        "snippet": ""
+      },
+      "high_school": "needs_review",
+      "cancelled": false,
+      "review": "required"
+    },
+    {
+      "id": "5fa5dacb4ec3",
+      "source": "klb-news",
+      "org_slug": "keep-louisiana-beautiful",
+      "kind": "event",
+      "title": "Go Plastic Free This July",
+      "url": "https://keeplouisianabeautiful.org/news/go-plastic-free-this-july/",
+      "start": null,
+      "end": null,
+      "city_key": "statewide",
+      "city_matched_on": null,
+      "age_rules": {
+        "ages": [],
+        "minimum_age": null,
+        "adults_only": false,
+        "guardian_mentioned": false,
+        "snippet": ""
+      },
+      "high_school": "needs_review",
+      "cancelled": false,
+      "review": "required"
+    },
+    {
+      "id": "35aa075223fd",
+      "source": "gbrfb-news",
+      "org_slug": "greater-baton-rouge-food-bank",
+      "kind": "event",
+      "title": "Greater Baton Rouge Food Bank Accepting Bids for 2026 Summer Food Service Program",
+      "url": "https://brfoodbank.org/blog/greater-baton-rouge-food-bank-accepting-bids-for-2026-summer-food-service-program/?utm_source=rss&utm_medium=rss&utm_campaign=greater-baton-rouge-food-bank-accepting-bids-for-2026-summer-food-service-program",
+      "start": null,
+      "end": null,
+      "city_key": "baton-rouge",
+      "city_matched_on": "Baton Rouge",
+      "age_rules": {
+        "ages": [],
+        "minimum_age": null,
+        "adults_only": false,
+        "guardian_mentioned": false,
+        "snippet": ""
+      },
+      "high_school": "needs_review",
+      "cancelled": false,
+      "review": "required"
+    },
+    {
+      "id": "335164705ef4",
+      "source": "klb-news",
+      "org_slug": "keep-louisiana-beautiful",
+      "kind": "event",
+      "title": "Keep Louisiana Beautiful Hosts Affiliate Regional Meetings Across the State",
+      "url": "https://keeplouisianabeautiful.org/news/keep-louisiana-beautiful-hosts-affiliate-regional-meetings-across-the-state/",
+      "start": null,
+      "end": null,
+      "city_key": "statewide",
+      "city_matched_on": null,
+      "age_rules": {
+        "ages": [],
+        "minimum_age": null,
+        "adults_only": false,
+        "guardian_mentioned": false,
+        "snippet": ""
+      },
+      "high_school": "needs_review",
+      "cancelled": false,
+      "review": "required"
+    },
+    {
+      "id": "11689d5a4063",
+      "source": "second-harvest-news",
+      "org_slug": "second-harvest",
+      "kind": "event",
+      "title": "Kids Helping Kids",
+      "url": "https://no-hunger.org/kids-helping-kids/",
+      "start": null,
+      "end": null,
+      "city_key": "new-orleans",
+      "city_matched_on": "New Orleans",
+      "age_rules": {
+        "ages": [],
+        "minimum_age": null,
+        "adults_only": false,
+        "guardian_mentioned": false,
+        "snippet": ""
+      },
+      "high_school": "needs_review",
+      "cancelled": false,
+      "review": "required"
+    },
+    {
+      "id": "a6a0f15a0617",
+      "source": "klb-news",
+      "org_slug": "keep-louisiana-beautiful",
+      "kind": "event",
+      "title": "Louisianans Remove 68 Tons of Litter During Inaugural Love Our Waterways Month",
+      "url": "https://keeplouisianabeautiful.org/news/klb-press-releases/louisianans-remove-68-tons-of-litter-during-inaugural-love-our-waterways-month/",
+      "start": null,
+      "end": null,
+      "city_key": "statewide",
+      "city_matched_on": null,
+      "age_rules": {
+        "ages": [],
+        "minimum_age": null,
+        "adults_only": false,
+        "guardian_mentioned": false,
+        "snippet": ""
+      },
+      "high_school": "needs_review",
+      "cancelled": false,
+      "review": "required"
+    },
+    {
+      "id": "7ae686f68198",
+      "source": "klb-news",
+      "org_slug": "keep-louisiana-beautiful",
+      "kind": "event",
+      "title": "Love the Boot Week 2026 Award Recipients Announced",
+      "url": "https://keeplouisianabeautiful.org/news/klb-press-releases/love-the-boot-week-2026-award-recipients-announced/",
+      "start": null,
+      "end": null,
+      "city_key": "baton-rouge",
+      "city_matched_on": "Baton Rouge",
+      "age_rules": {
+        "ages": [],
+        "minimum_age": null,
+        "adults_only": false,
+        "guardian_mentioned": false,
+        "snippet": ""
+      },
+      "high_school": "needs_review",
+      "cancelled": false,
+      "review": "required"
+    },
+    {
+      "id": "a7294af77842",
+      "source": "klb-news",
+      "org_slug": "keep-louisiana-beautiful",
+      "kind": "event",
+      "title": "More Than 50 Litter Citations Issued Through Statewide Reporting Effort",
+      "url": "https://keeplouisianabeautiful.org/news/more-than-50-litter-citations-issued-through-statewide-reporting-effort/",
+      "start": null,
+      "end": null,
+      "city_key": "baton-rouge",
+      "city_matched_on": "Baton Rouge",
+      "age_rules": {
+        "ages": [],
+        "minimum_age": null,
+        "adults_only": false,
+        "guardian_mentioned": false,
+        "snippet": ""
+      },
+      "high_school": "needs_review",
+      "cancelled": false,
+      "review": "required"
+    },
+    {
+      "id": "9b7c69c9e7ba",
+      "source": "gbrfb-news",
+      "org_slug": "greater-baton-rouge-food-bank",
+      "kind": "event",
+      "title": "The Role of CF Industries and Albertsons in the Fight Against Hunger",
+      "url": "https://brfoodbank.org/blog/the-role-of-cf-industries-and-albertsons-in-the-fight-against-hunger/?utm_source=rss&utm_medium=rss&utm_campaign=the-role-of-cf-industries-and-albertsons-in-the-fight-against-hunger",
+      "start": null,
+      "end": null,
+      "city_key": "baton-rouge",
+      "city_matched_on": "Baton Rouge",
+      "age_rules": {
+        "ages": [],
+        "minimum_age": null,
+        "adults_only": false,
+        "guardian_mentioned": false,
+        "snippet": ""
+      },
+      "high_school": "needs_review",
+      "cancelled": false,
+      "review": "required"
+    },
+    {
+      "id": "68a0720ba375",
+      "source": "gbrfb-news",
+      "org_slug": "greater-baton-rouge-food-bank",
+      "kind": "event",
+      "title": "The Role of Entergy and Mosaic in the Fight Against Hunger",
+      "url": "https://brfoodbank.org/blog/the-role-of-entergy-and-mosaic-in-the-fight-against-hunger/?utm_source=rss&utm_medium=rss&utm_campaign=the-role-of-entergy-and-mosaic-in-the-fight-against-hunger",
+      "start": null,
+      "end": null,
+      "city_key": "baton-rouge",
+      "city_matched_on": "Baton Rouge",
+      "age_rules": {
+        "ages": [],
+        "minimum_age": null,
+        "adults_only": false,
+        "guardian_mentioned": false,
+        "snippet": ""
+      },
+      "high_school": "needs_review",
+      "cancelled": false,
+      "review": "required"
+    }
+  ],
+  "sources": [
+    {
+      "id": "crcl-events",
+      "status": "ok",
+      "code": 200,
+      "items_seen": 10,
+      "candidates": 10
+    },
+    {
+      "id": "handson-nola-needs",
+      "status": "ok",
+      "code": 200,
+      "items_seen": 15,
+      "candidates": 15
+    },
+    {
+      "id": "svdp-br-needs",
+      "status": "ok",
+      "code": 200,
+      "items_seen": 15,
+      "candidates": 15
+    },
+    {
+      "id": "klb-news",
+      "status": "ok",
+      "code": 200,
+      "items_seen": 10,
+      "candidates": 5
+    },
+    {
+      "id": "gbrfb-news",
+      "status": "ok",
+      "code": 200,
+      "items_seen": 10,
+      "candidates": 3
+    },
+    {
+      "id": "second-harvest-news",
+      "status": "ok",
+      "code": 200,
+      "items_seen": 10,
+      "candidates": 1
+    }
+  ]
+}
