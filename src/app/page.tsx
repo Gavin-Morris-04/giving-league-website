@@ -9,12 +9,13 @@ import { site } from "@/config/site";
 import { universities } from "@/data/reference/geography";
 import { serviceAreas } from "@/data/reference/locations";
 import { charityEvents } from "@/data/verified/charity-events";
-import { localOpportunitiesNearCampus, opportunities } from "@/lib/directory";
+import { localOpportunitiesNearCampus, opportunities, opportunitiesNearCity } from "@/lib/directory";
 
 export default function HomePage() {
   const statewide = opportunities.filter((o) => o.cityKey === "statewide").length;
   const counts = Object.fromEntries(universities.map((u) => [u.slug, { local: localOpportunitiesNearCampus(u.slug).length, statewide }]));
-  const cityCount = new Set(opportunities.filter((o) => o.cityKey !== "statewide").map((o) => o.cityKey)).size;
+  // City areas (the same 10 used by College Campuses and High Schools) with at least one local listing nearby.
+  const citiesServed = serviceAreas.filter((a) => opportunitiesNearCity(a.cityKey).some((o) => o.cityKey !== "statewide")).length;
 
   return (
     <>
@@ -66,8 +67,8 @@ export default function HomePage() {
             body: <p>Discover local organizations and service opportunities near your school, with age rules from each organization.</p>,
             extra: (
               <p className="text-[0.9375rem] text-navy-muted">
-                <span className="font-semibold text-ivory tabular">{opportunities.length}</span> verified listings across{" "}
-                <span className="font-semibold text-ivory tabular">{cityCount}</span> Louisiana cities and statewide programs
+                <span className="font-semibold text-ivory tabular">{opportunities.length}</span> verified listings serving{" "}
+                <span className="font-semibold text-ivory tabular">{citiesServed}</span> Louisiana cities, plus statewide programs
               </p>
             ),
             cta: { label: "Explore Opportunities", href: "/volunteer" },
