@@ -9,6 +9,8 @@ Live: https://thecausekrewe.vercel.app · Instagram: [@thecausekrewe](https://ww
 - Product truth: [`PRODUCT.md`](PRODUCT.md) · Design system: [`DESIGN.md`](DESIGN.md)
 - Brand strings, contacts, legal status: [`src/config/site.ts`](src/config/site.ts) · Emblem: `src/assets/brand/`
 - **Operating budget: $0/month** — Vercel Hobby, GitHub Actions (free on public repos), optional Supabase free tier.
+- **Visitor stats:** Vercel Web Analytics (`<Analytics />` in `src/app/layout.tsx`): cookieless, 50,000 events/month free on Hobby —
+  collection pauses (no charge) if the limit is reached. View it in the Vercel dashboard → project → Analytics.
 
 ## Pages
 

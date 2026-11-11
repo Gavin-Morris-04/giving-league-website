@@ -53,10 +53,16 @@ export default function PrivacyPage() {
 
       <h2>Cookies and analytics</h2>
       <p>
-        This site does not set advertising or tracking cookies and does not use third-party analytics. On the Donations page we count clicks on
-        outbound charity links as anonymous daily totals per charity — no cookies, IP addresses, device details or identifiers are stored, and
-        nothing is counted if your browser sends Do Not Track or Global Privacy Control. These counts are internal statistics, never donations.
-        <Review />
+        This site does not set advertising or tracking cookies. To see which pages are useful, we use{" "}
+        <a className="link" href="https://vercel.com/docs/analytics/privacy-policy">
+          Vercel Web Analytics
+        </a>
+        , the privacy-focused visitor statistics from our hosting provider. It sets no cookies and isn&apos;t tied to your IP address or
+        identity. Each page view records the page address, the site you came from, approximate location, browser, operating system and device
+        type; visits are grouped by an anonymous code that Vercel discards after 24 hours, and we only see totals. On the Donations page we
+        also count clicks on outbound charity links as anonymous daily totals per charity — no cookies, IP addresses, device details or
+        identifiers are stored, and nothing is counted if your browser sends Do Not Track or Global Privacy Control. These counts are internal
+        statistics, never donations. <Review />
       </p>
 
       <h2>Links to other sites</h2>
