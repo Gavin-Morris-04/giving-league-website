@@ -105,7 +105,7 @@ Week) that unites rival schools around one cause.
   Client + server validation. Persist only when Supabase is configured; never claim otherwise.
 - No public admin interface. A secure admin dashboard is planned later.
 - **Contact email:** thecausekrewe@gmail.com
-- **OPEN:** domain, founder name/bio/photo, leadership,
+- **OPEN:** domain, leadership,
   legal entity, beneficiary charity, Geaux Give Week dates, any partner.
 
 ## Brand Commitments

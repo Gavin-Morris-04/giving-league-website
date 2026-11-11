@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { Suspense } from "react";
 import { BadgeCheck, CalendarClock, ExternalLink } from "lucide-react";
 import { EventsDirectory, EventsDirectorySkeleton } from "@/components/events/EventsDirectory";
@@ -54,38 +53,8 @@ export default function EventsPage() {
         </div>
       </section>
 
-      <section className="border-t border-hairline bg-sand section-y" aria-labelledby="events-vs-heading">
-        <div className="container-line grid gap-12 lg:grid-cols-12">
-          <div className="lg:col-span-5">
-            <h2 id="events-vs-heading" className="text-h2 text-navy">
-              Events or volunteering?
-            </h2>
-            <p className="text-lead mt-5 text-ink-muted">Two directories, because they answer different questions.</p>
-          </div>
-          <dl className="grid gap-8 sm:grid-cols-2 lg:col-span-7">
-            <div>
-              <dt className="text-h3 text-navy">Charity events</dt>
-              <dd className="mt-2 text-ink-muted">
-                Scheduled or recurring gatherings and campaigns — walks, runs, rides, toy drives, cleanup days, galas and fundraisers. Annual
-                events stay listed between editions, marked &ldquo;next date not yet confirmed&rdquo; until the organizer announces it.
-              </dd>
-            </div>
-            <div>
-              <dt className="text-h3 text-navy">Volunteer opportunities</dt>
-              <dd className="mt-2 text-ink-muted">
-                Ongoing ways to serve an organization on your own schedule — sorting food, shelter care, home builds.{" "}
-                <Link href="/volunteer" className="link">
-                  Open the Volunteer Finder
-                </Link>
-                .
-              </dd>
-            </div>
-          </dl>
-        </div>
-      </section>
-
-      <section className="section-y" aria-labelledby="submit-event-heading">
-        <div className="container-line flex flex-col items-start justify-between gap-8 border-t-2 border-navy pt-12 md:flex-row md:items-end">
+      <section className="border-t border-hairline bg-sand section-y" aria-labelledby="submit-event-heading">
+        <div className="container-line flex flex-col items-start justify-between gap-8 md:flex-row md:items-end">
           <div className="max-w-2xl">
             <h2 id="submit-event-heading" className="text-h2 text-navy">
               Hosting a charity event in Louisiana?

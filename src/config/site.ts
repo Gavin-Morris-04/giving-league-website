@@ -67,19 +67,6 @@ export const site = {
   },
 
   /**
-   * Founder profile. Kept unpublished until the founder approves the text and photo.
-   * Set `published: true` and fill the fields to show it on /about.
-   */
-  founder: {
-    published: false as boolean,
-    name: "" as string,
-    role: "Founder",
-    school: "Louisiana State University",
-    bio: "" as string,
-    photo: null as string | null,
-  },
-
-  /**
    * Geaux Give Week — a FUTURE, college-only statewide fundraising competition. High schools and high school
    * students do not take part. Nothing here is confirmed; the UI labels it "Coming Soon".
    */

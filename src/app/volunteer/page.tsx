@@ -102,14 +102,9 @@ export default function VolunteerPage() {
               your way.
             </p>
           </div>
-          <div className="flex flex-col gap-3 sm:flex-row">
-            <ButtonLink href="/volunteer/submit" size="lg" icon="arrow">
-              Submit an opportunity
-            </ButtonLink>
-            <ButtonLink href="/campuses" variant="secondary" size="lg">
-              Explore Participating Campuses
-            </ButtonLink>
-          </div>
+          <ButtonLink href="/volunteer/submit" size="lg" icon="arrow" className="shrink-0">
+            Submit an opportunity
+          </ButtonLink>
         </div>
       </section>
     </>

@@ -1,16 +1,13 @@
 import type { Metadata } from "next";
-import Link from "next/link";
-import { ArrowRight, Eye, FileCheck2, Scale, Target } from "lucide-react";
-import { FounderProfile } from "@/components/about/FounderProfile";
+import { Eye, FileCheck2, Scale, Target } from "lucide-react";
 import { PageHero } from "@/components/layout/PageHero";
 import { MotionLayer } from "@/components/motion/MotionLayer";
-import { ButtonLink } from "@/components/ui/Button";
-import { Photo, SectionHeading } from "@/components/ui/primitives";
+import { SectionHeading } from "@/components/ui/primitives";
 import { site } from "@/config/site";
 
 export const metadata: Metadata = {
   title: "About Us",
-  description: `${site.name} is an emerging, student-led initiative connecting Louisiana high school and college students with ways to volunteer, attend charity events and give. Our mission, story, programs and values.`,
+  description: `${site.name} is an emerging, student-led initiative connecting Louisiana high school and college students with ways to volunteer, attend charity events and give. Our story, mission and values.`,
   alternates: { canonical: "/about" },
 };
 
@@ -77,82 +74,6 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Programs */}
-      <section className="section-y" aria-labelledby="programs-heading">
-        <div className="container-line">
-          <SectionHeading id="programs-heading" title="Our three programs" lead="Volunteering, charity events and giving — all year, for high school and college students. Plus one future, college-only flagship." />
-          <div className="mt-14 grid gap-14">
-            <article className="grid items-center gap-10 lg:grid-cols-12" data-reveal>
-              <Photo name="foodBankSorting" sizes="(min-width: 1024px) 45vw, 100vw" className="aspect-[16/10] rounded-md lg:col-span-6" />
-              <div className="lg:col-span-5 lg:col-start-8">
-                <p className="text-[0.9375rem] font-semibold text-forest">Find Volunteering</p>
-                <h3 className="text-h2 mt-2 text-navy">Find Your Way to Give Back.</h3>
-                <p className="mt-4 text-ink-muted">
-                  Discover meaningful volunteer opportunities in your community, explore causes that matter to you, and start making a
-                  difference.
-                </p>
-                <div className="mt-7 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-                  <ButtonLink href="/volunteer" icon="arrow">
-                    Find Volunteer Opportunities
-                  </ButtonLink>
-                  <ButtonLink href="/high-schools" variant="secondary">
-                    High Schools
-                  </ButtonLink>
-                  <ButtonLink href="/campuses" variant="secondary">
-                    College Campuses
-                  </ButtonLink>
-                </div>
-              </div>
-            </article>
-            <article className="grid items-center gap-10 lg:grid-cols-12" data-reveal>
-              <div className="lg:order-2 lg:col-span-6 lg:col-start-7">
-                <Photo name="cleanupSmile" sizes="(min-width: 1024px) 45vw, 100vw" className="aspect-[16/10] rounded-md" />
-              </div>
-              <div className="lg:order-1 lg:col-span-5">
-                <p className="text-[0.9375rem] font-semibold text-forest">Charity Events</p>
-                <h3 className="text-h2 mt-2 text-navy">Making a Difference, All Year Long.</h3>
-                <p className="mt-4 text-ink-muted">
-                  Charity walks, toy drives, cleanup days and fundraisers hosted by organizations across Louisiana — with dates shown only when the
-                  organizer confirms them.
-                </p>
-                <ButtonLink href="/events" icon="arrow" className="mt-7">
-                  Explore Charity Events
-                </ButtonLink>
-              </div>
-            </article>
-            <article className="grid items-center gap-10 lg:grid-cols-12" data-reveal>
-              <Photo name="shelterDog" sizes="(min-width: 1024px) 45vw, 100vw" className="aspect-[16/10] rounded-md lg:col-span-6" />
-              <div className="lg:col-span-5 lg:col-start-8">
-                <p className="text-[0.9375rem] font-semibold text-forest">Donate</p>
-                <h3 className="text-h2 mt-2 text-navy">A Little Generosity Goes a Long Way.</h3>
-                <p className="mt-4 text-ink-muted">
-                  A directory of trusted charities with links to their own official donation pages, plus business giving resources. We never process
-                  donations ourselves.
-                </p>
-                <ButtonLink href="/donations" icon="arrow" className="mt-7">
-                  Explore Charities
-                </ButtonLink>
-              </div>
-            </article>
-            <article className="on-dark grid gap-10 rounded-md bg-navy-deep p-8 text-ivory sm:p-12 lg:grid-cols-12" data-reveal>
-              <div className="lg:col-span-7">
-                <p className="text-label text-gold">Coming soon · colleges only</p>
-                <h3 className="text-event mt-4 text-6xl text-gold sm:text-7xl">Geaux Give Week</h3>
-              </div>
-              <div className="lg:col-span-5">
-                <p className="text-ivory/85">
-                  A future annual statewide fundraising competition exclusively for Louisiana colleges and universities. Details will be announced as
-                  plans and partnerships are finalized.
-                </p>
-                <ButtonLink href="/geaux-give-week" variant="dark" icon="arrow" className="mt-7">
-                  Learn About Geaux Give Week
-                </ButtonLink>
-              </div>
-            </article>
-          </div>
-        </div>
-      </section>
-
       {/* Values */}
       <section className="border-y border-hairline bg-sand section-y" aria-labelledby="values-heading">
         <div className="container-line">
@@ -168,33 +89,8 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Founder & leadership */}
-      <section className="section-y" aria-labelledby="team-heading">
-        <div className="container-line grid gap-12 lg:grid-cols-12">
-          <div className="lg:col-span-5">
-            <SectionHeading
-              id="team-heading"
-              title="Founder and future leadership"
-              lead="Founded by an LSU student in Baton Rouge. As we grow across Louisiana, we'll add college campus representatives, school advisors and a leadership team — and introduce adult leaders here. We don't publish profiles or photos of minors."
-            />
-          </div>
-          <div className="space-y-6 lg:col-span-7">
-            <FounderProfile />
-            <div className="rounded-md border border-hairline bg-paper p-6 sm:p-8">
-              <p className="text-h3 text-navy">Future leadership</p>
-              <p className="mt-2 text-ink-muted">
-                We&apos;re looking for students who want to help lead — from campus representatives to statewide program roles.
-              </p>
-              <Link href="/contact" className="link mt-5 inline-flex items-center gap-2 font-semibold">
-                Contact us about getting involved <ArrowRight aria-hidden className="size-4" />
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* Transparency */}
-      <section className="border-t border-hairline bg-sand section-y" aria-labelledby="transparency-heading">
+      <section className="section-y" aria-labelledby="transparency-heading">
         <div className="container-line grid gap-12 lg:grid-cols-12">
           <div className="lg:col-span-5">
             <SectionHeading id="transparency-heading" title="Transparency and impact" lead="Accountability is one of our values, so here's exactly where things stand." />
@@ -230,20 +126,6 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Contact */}
-      <section className="section-y" aria-labelledby="contact-heading">
-        <div className="container-line flex flex-col items-start justify-between gap-8 border-t-2 border-navy pt-12 md:flex-row md:items-end">
-          <div className="max-w-2xl">
-            <h2 id="contact-heading" className="text-h2 text-navy">
-              Contact
-            </h2>
-            <p className="text-lead mt-4 text-ink-muted">Questions, ideas, or want to help? We read every message.</p>
-          </div>
-          <ButtonLink href="/contact" size="lg" icon="arrow">
-            Send us a message
-          </ButtonLink>
-        </div>
-      </section>
       <MotionLayer />
     </>
   );

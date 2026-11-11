@@ -1,16 +1,13 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { Suspense } from "react";
 import { ArrowLeft, MapPin } from "lucide-react";
-import { FinderSkeleton, OpportunityFinder } from "@/components/directory/OpportunityFinder";
 import { OpportunityCard } from "@/components/directory/OpportunityCard";
 import { CharityEventCard } from "@/components/events/CharityEventCard";
-import { AgeRequirementsGuide, SchoolInvolvement } from "@/components/high-schools/HighSchoolSections";
-import { ExternalLink, Station } from "@/components/ui/primitives";
+import { ButtonLink } from "@/components/ui/Button";
+import { Station } from "@/components/ui/primitives";
 import { getServiceArea, serviceAreas } from "@/data/reference/locations";
 import { charityEvents } from "@/data/verified/charity-events";
-import { getOrganization } from "@/data/verified/organizations";
 import { eventsNearCity, openToHighSchool } from "@/lib/charity-events";
 import { fitsHighSchool, opportunitiesNearCity, orgName } from "@/lib/directory";
 
@@ -42,7 +39,6 @@ export default async function HighSchoolCityPage({ params }: Props) {
   const events = eventsNearCity(charityEvents, a.cityKey);
   const teenEvents = events.filter(openToHighSchool);
   const otherEvents = events.filter((e) => !openToHighSchool(e));
-  const orgs = [...new Set(nearby.map((o) => o.orgSlug))].map((s) => getOrganization(s)).filter((o) => o !== undefined);
 
   return (
     <>
@@ -144,40 +140,31 @@ export default async function HighSchoolCityPage({ params }: Props) {
         </div>
       </section>
 
-      <section className="section-y" aria-labelledby="city-finder-heading">
-        <div className="container-line">
-          <h2 id="city-finder-heading" className="text-h2 text-navy">
-            Search and filter
-          </h2>
-          <p className="text-lead mt-4 mb-10 max-w-2xl text-ink-muted">Narrow by cause, age, days, group volunteering, service hours and guardian rules.</p>
-          <Suspense fallback={<FinderSkeleton />}>
-            <OpportunityFinder mode="high_school" defaultCity={a.cityKey} />
-          </Suspense>
+      <section className="section-y" aria-labelledby="hs-more-heading">
+        <div className="container-line grid gap-8 md:grid-cols-2">
+          <div className="border-t-2 border-navy pt-6">
+            <h2 id="hs-more-heading" className="text-h3 text-navy">
+              Search and filter
+            </h2>
+            <p className="mt-2 text-ink-muted">Narrow by cause, age, days, group volunteering, service hours and guardian rules.</p>
+            <ButtonLink href={`/high-schools?city=${a.cityKey}#finder`} variant="secondary" icon="arrow" className="mt-6">
+              Open the high school finder
+            </ButtonLink>
+          </div>
+          <div className="border-t-2 border-navy pt-6">
+            <h2 className="text-h3 text-navy">Teachers, staff and parents</h2>
+            <p className="mt-2 text-ink-muted">Bring service projects to a school in {a.name}, or read how age requirements work.</p>
+            <div className="mt-6 flex flex-col items-start gap-3 sm:flex-row sm:flex-wrap sm:items-center">
+              <ButtonLink href="/high-schools#school-involvement" variant="secondary" icon="arrow">
+                Get your school involved
+              </ButtonLink>
+              <ButtonLink href="/high-schools#age-guide" variant="quiet">
+                Age requirements guide
+              </ButtonLink>
+            </div>
+          </div>
         </div>
       </section>
-
-      {orgs.length ? (
-        <section className="border-t border-hairline section-y" aria-labelledby="orgs-heading">
-          <div className="container-line">
-            <h2 id="orgs-heading" className="text-h2 text-navy">
-              Local nonprofit organizations
-            </h2>
-            <ul className="mt-8 grid gap-x-10 gap-y-5 sm:grid-cols-2 lg:grid-cols-3">
-              {orgs.map((o) => (
-                <li key={o.slug}>
-                  <ExternalLink href={o.website} className="font-semibold">
-                    {o.name}
-                  </ExternalLink>
-                  <p className="mt-0.5 text-[0.875rem] text-ink-muted">{o.summary}</p>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </section>
-      ) : null}
-
-      <AgeRequirementsGuide />
-      <SchoolInvolvement cityName={a.name} />
     </>
   );
 }

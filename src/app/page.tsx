@@ -3,29 +3,18 @@ import { ArrowRight, CalendarPlus, HandHeart, MapPin, MessageSquare, School } fr
 import { CampusPicker } from "@/components/home/CampusPicker";
 import { ScrollStory } from "@/components/home/ScrollStory";
 import { MotionLayer } from "@/components/motion/MotionLayer";
-import { OpportunityCard } from "@/components/directory/OpportunityCard";
-import { CharityEventCard } from "@/components/events/CharityEventCard";
-import { CharityCard } from "@/components/donations/CharityDirectory";
 import { ButtonLink } from "@/components/ui/Button";
 import { Badge, Photo, SectionHeading } from "@/components/ui/primitives";
 import { site } from "@/config/site";
 import { universities } from "@/data/reference/geography";
 import { serviceAreas } from "@/data/reference/locations";
-import { charityEvents, getCharityEvent } from "@/data/verified/charity-events";
-import { getCharity } from "@/data/verified/charities";
-import { getOpportunity, localOpportunitiesNearCampus, opportunities, orgName } from "@/lib/directory";
-
-const FEATURED_LISTINGS = ["greater-baton-rouge-food-bank-volunteer-shifts", "louisiana-spca-volunteer", "habitat-lafayette-build-and-restore"];
-const FEATURED_EVENTS = ["love-the-boot-week-2027", "toys-for-tots-baton-rouge", "st-jude-walk-baton-rouge"];
-const FEATURED_CHARITIES = ["st-jude", "make-a-wish", "team-gleason"];
+import { charityEvents } from "@/data/verified/charity-events";
+import { localOpportunitiesNearCampus, opportunities } from "@/lib/directory";
 
 export default function HomePage() {
   const statewide = opportunities.filter((o) => o.cityKey === "statewide").length;
   const counts = Object.fromEntries(universities.map((u) => [u.slug, { local: localOpportunitiesNearCampus(u.slug).length, statewide }]));
   const cityCount = new Set(opportunities.filter((o) => o.cityKey !== "statewide").map((o) => o.cityKey)).size;
-  const listings = FEATURED_LISTINGS.map(getOpportunity).filter((o) => o !== undefined);
-  const events = FEATURED_EVENTS.map(getCharityEvent).filter((e) => e !== undefined);
-  const featuredCharities = FEATURED_CHARITIES.map(getCharity).filter((c) => c !== undefined);
 
   return (
     <>
@@ -104,82 +93,8 @@ export default function HomePage() {
         ]}
       />
 
-      {/* 3. Find volunteering near you */}
-      <section className="section-y" aria-labelledby="near-heading">
-        <div className="container-line">
-          <div className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
-            <SectionHeading
-              id="near-heading"
-              title="Find Volunteering Near You."
-              lead="Real organizations, real sign-up pages. We check every link and age rule by hand, then send you straight to the organization to register."
-            />
-            <ButtonLink href="/volunteer" variant="secondary" icon="arrow" className="shrink-0">
-              See all {opportunities.length} listings
-            </ButtonLink>
-          </div>
-          <ul className="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-3" data-reveal-group>
-            {listings.map((o) => (
-              <li key={o.slug} data-reveal-item>
-                <OpportunityCard o={o} org={orgName(o)} />
-              </li>
-            ))}
-          </ul>
-        </div>
-      </section>
-
-      {/* 4. Upcoming and annual charity events */}
-      <section className="border-t border-hairline bg-sand section-y" aria-labelledby="events-heading">
-        <div className="container-line">
-          <div className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
-            <SectionHeading
-              id="events-heading"
-              title="Discover Upcoming and Annual Charity Events."
-              lead="Dates appear only when the organizer confirms them. Annual events stay listed with when they usually happen."
-            />
-            <ButtonLink href="/events" variant="secondary" icon="arrow" className="shrink-0">
-              Explore Charity Events
-            </ButtonLink>
-          </div>
-          <ul className="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-3" data-reveal-group>
-            {events.map((e) => (
-              <li key={e.slug} data-reveal-item>
-                <CharityEventCard e={e} />
-              </li>
-            ))}
-          </ul>
-        </div>
-      </section>
-
-      {/* 5. Support a cause */}
-      <section className="section-y" aria-labelledby="give-heading">
-        <div className="container-line">
-          <div className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
-            <SectionHeading
-              id="give-heading"
-              title="Support a Cause."
-              lead="Give directly through each charity's official donation page. Suggested resources — not official partners."
-            />
-            <div className="flex shrink-0 flex-col gap-3 sm:flex-row">
-              <ButtonLink href="/donations" variant="secondary" icon="arrow">
-                See all charities
-              </ButtonLink>
-              <ButtonLink href="/donations#corporate-giving" variant="quiet">
-                Business giving
-              </ButtonLink>
-            </div>
-          </div>
-          <ul className="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-3" data-reveal-group>
-            {featuredCharities.map((c) => (
-              <li key={c.id} data-reveal-item>
-                <CharityCard c={c} />
-              </li>
-            ))}
-          </ul>
-        </div>
-      </section>
-
-      {/* 6. Browse by school or city */}
-      <section className="border-t border-hairline bg-sand section-y" aria-labelledby="browse-heading">
+      {/* 3. Browse by school or city */}
+      <section className="section-y" aria-labelledby="browse-heading">
         <div className="container-line">
           <SectionHeading
             id="browse-heading"
@@ -216,7 +131,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 7. Geaux Give Week — coming soon (deliberately secondary) */}
+      {/* 4. Geaux Give Week — coming soon (deliberately secondary) */}
       <section className="on-dark bg-navy-deep text-ivory" aria-labelledby="ggw-heading">
         <div className="container-line flex flex-col items-start justify-between gap-8 py-16 md:flex-row md:items-center md:py-20">
           <div className="max-w-2xl">
@@ -237,7 +152,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 8. Get involved */}
+      {/* 5. Get involved */}
       <section className="section-y" aria-labelledby="involved-heading">
         <div className="container-line">
           <SectionHeading
@@ -292,23 +207,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="on-dark relative isolate overflow-hidden bg-forest-deep text-ivory" aria-labelledby="final-heading">
-        <div className="absolute inset-x-0 -top-[25%] -bottom-[5%] -z-10" data-rellax data-rellax-speed="-1.5" data-rellax-percentage="0.5">
-          <Photo name="cypressSwamp" sizes="100vw" className="h-full w-full" alt="" />
-        </div>
-        <div aria-hidden className="absolute inset-0 -z-10 bg-[linear-gradient(100deg,rgb(11_48_51/0.95)_0%,rgb(11_48_51/0.82)_50%,rgb(11_48_51/0.55)_100%)]" />
-        <div className="container-line py-28 md:py-40">
-          <div className="max-w-2xl" data-reveal>
-            <h2 id="final-heading" className="text-display-lg text-ivory">
-              There&apos;s Always a Way to Make a Difference.
-            </h2>
-            <p className="text-lead mt-6 text-ivory/85">Find your opportunity, connect with your community, and be part of something bigger.</p>
-            <ButtonLink href="/volunteer" variant="dark" size="lg" icon="arrow" className="mt-10">
-              Find Volunteer Opportunities
-            </ButtonLink>
-          </div>
-        </div>
-      </section>
       <MotionLayer />
     </>
   );

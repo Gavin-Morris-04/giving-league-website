@@ -3,7 +3,6 @@ import Link from "next/link";
 import { GraduationCap, Sparkles, Trophy } from "lucide-react";
 import { CampusRepForm } from "@/components/forms/Forms";
 import { MotionLayer } from "@/components/motion/MotionLayer";
-import { site } from "@/config/site";
 
 export const metadata: Metadata = {
   title: "Geaux Give Week — Coming Soon",
@@ -35,10 +34,6 @@ export default function GeauxGiveWeekPage() {
               Something big is coming to Louisiana. We&apos;re developing an annual statewide fundraising competition bringing colleges and
               universities together to support meaningful charitable causes.
             </p>
-            <p className="text-navy-muted">
-              This competition will be exclusively for Louisiana college students and universities. Details will be announced as plans and
-              partnerships are finalized.
-            </p>
           </div>
         </div>
       </section>
@@ -53,7 +48,15 @@ export default function GeauxGiveWeekPage() {
               {
                 icon: GraduationCap,
                 title: "Colleges and universities only",
-                body: "Geaux Give Week is for Louisiana college students and universities. High schools take part in our other programs all year.",
+                body: (
+                  <>
+                    Geaux Give Week is for Louisiana college students and universities. High school students can{" "}
+                    <Link href="/high-schools" className="link">
+                      volunteer and join charity events
+                    </Link>{" "}
+                    all year.
+                  </>
+                ),
               },
               {
                 icon: Trophy,
@@ -73,13 +76,6 @@ export default function GeauxGiveWeekPage() {
               </li>
             ))}
           </ul>
-          <p className="mt-12 text-ink-muted">
-            High school students: you&apos;re part of {site.name} too —{" "}
-            <Link href="/high-schools" className="link">
-              find volunteer opportunities and charity events near you
-            </Link>
-            .
-          </p>
         </div>
       </section>
 

@@ -40,7 +40,7 @@ export function AgeRequirementsGuide() {
     { icon: ClipboardCheck, title: "Service hours", body: "Some organizations record volunteer hours. Bring your school's service-hour form and ask the organizer to sign it." },
   ];
   return (
-    <section className="section-y" aria-labelledby="age-guide-heading">
+    <section id="age-guide" className="scroll-mt-20 section-y" aria-labelledby="age-guide-heading">
       <div className="container-line">
         <SectionHeading id="age-guide-heading" title="Understanding age requirements" lead="Every label comes from the organization's own published rules." />
         <ul className="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-4" data-reveal-group>

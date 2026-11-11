@@ -1,15 +1,13 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ArrowLeft, CalendarX2, Globe2, MapPin, UserRound } from "lucide-react";
+import { ArrowLeft, Globe2, MapPin } from "lucide-react";
 import { CampusStatusBadge } from "@/components/campuses/CampusStatusBadge";
 import { OpportunityCard } from "@/components/directory/OpportunityCard";
-import { CampusRepForm } from "@/components/forms/Forms";
 import { ButtonLink } from "@/components/ui/Button";
 import { ExternalLink, Station } from "@/components/ui/primitives";
 import { site } from "@/config/site";
 import { getUniversity, universities } from "@/data/reference/geography";
-import { getOrganization } from "@/data/verified/organizations";
 import { distanceFromCampus, opportunitiesNearCampus, orgName } from "@/lib/directory";
 
 type Props = { params: Promise<{ slug: string }> };
@@ -41,7 +39,6 @@ export default async function CampusPage({ params }: Props) {
   });
   const local = near.filter((o) => o.cityKey !== "statewide");
   const statewide = near.filter((o) => o.cityKey === "statewide");
-  const orgs = [...new Set(local.map((o) => o.orgSlug))].map((s) => getOrganization(s)!).filter(Boolean);
 
   return (
     <>
@@ -75,7 +72,7 @@ export default async function CampusPage({ params }: Props) {
               Search all opportunities near {u.shortName}
             </ButtonLink>
             {u.status !== "participating" ? (
-              <ButtonLink href="#bring-to-campus" variant="secondary" size="lg">
+              <ButtonLink href="/campuses#bring-to-campus" variant="secondary" size="lg">
                 Bring This to Your Campus
               </ButtonLink>
             ) : null}
@@ -117,82 +114,20 @@ export default async function CampusPage({ params }: Props) {
         </div>
       </section>
 
-      <section className="border-y border-hairline bg-sand section-y" aria-label="Campus details">
-        <div className="container-line grid gap-12 lg:grid-cols-3">
-          <div>
-            <h2 className="text-h3 text-navy">Local nonprofit resources</h2>
-            {orgs.length ? (
-              <ul className="mt-5 space-y-3">
-                {orgs.map((o) => (
-                  <li key={o.slug}>
-                    <ExternalLink href={o.website} className="font-semibold">
-                      {o.name}
-                    </ExternalLink>
-                    <p className="mt-0.5 text-[0.875rem] text-ink-muted">{o.summary}</p>
-                  </li>
-                ))}
-              </ul>
-            ) : (
-              <p className="mt-4 text-ink-muted">None verified yet within about 55 miles. Statewide programs are listed above.</p>
-            )}
-          </div>
-          <div>
-            <h2 className="text-h3 text-navy">Upcoming {site.shortName} events</h2>
-            <div className="mt-5 flex gap-3 rounded-md border border-dashed border-hairline-strong bg-paper/60 p-5">
-              <CalendarX2 aria-hidden className="size-6 shrink-0 text-ink-muted" strokeWidth={1.5} />
-              <p className="text-[0.9375rem] text-ink-muted">
-                No events scheduled at {u.shortName} yet.{" "}
-                <Link href="/events" className="link">
-                  See what we&apos;re planning
-                </Link>
-                .
-              </p>
-            </div>
-          </div>
-          <div>
-            <h2 className="text-h3 text-navy">Student leadership contact</h2>
-            <div className="mt-5 flex gap-3 rounded-md border border-hairline bg-paper p-5">
-              <UserRound aria-hidden className="size-6 shrink-0 text-ink-muted" strokeWidth={1.5} />
-              {u.studentContact ? (
-                <p className="text-[0.9375rem]">
-                  <span className="font-semibold">{u.studentContact.name}</span>, {u.studentContact.role}
-                </p>
-              ) : (
-                <p className="text-[0.9375rem] text-ink-muted">
-                  Not yet confirmed. We only list a campus contact after they&apos;ve agreed to represent the initiative.
-                </p>
-              )}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="bring-to-campus" className="section-y" aria-labelledby="involve-heading">
-        <div className="container-line grid gap-12 lg:grid-cols-12">
-          <div className="lg:col-span-5">
+      <section className="border-t border-hairline bg-sand section-y" aria-labelledby="involve-heading">
+        <div className="container-line flex flex-col items-start justify-between gap-8 md:flex-row md:items-end">
+          <div className="max-w-2xl">
             <h2 id="involve-heading" className="text-h2 text-navy">
-              How to get involved at {u.shortName}
+              Help start a team at {u.shortName}
             </h2>
-            <ul className="mt-8 space-y-5">
-              <li>
-                <p className="font-semibold text-navy">Volunteer now</p>
-                <p className="mt-1 text-ink-muted">Use the listings above — every one links to the organization&apos;s official sign-up.</p>
-              </li>
-              <li>
-                <p className="font-semibold text-navy">Represent your campus</p>
-                <p className="mt-1 text-ink-muted">Help organize service and bring Geaux Give Week (coming soon, college-only) to {u.shortName}.</p>
-              </li>
-              <li>
-                <p className="font-semibold text-navy">Bring your organization</p>
-                <p className="mt-1 text-ink-muted">Student governments, Greek chapters, clubs and service groups are all welcome.</p>
-              </li>
-            </ul>
+            <p className="text-lead mt-4 text-ink-muted">
+              Student governments, Greek chapters, clubs and service groups can help organize service on campus — and bring Geaux Give Week
+              (coming soon, college-only) to {u.shortName}.
+            </p>
           </div>
-          <div className="rounded-md border border-hairline bg-paper p-6 sm:p-10 lg:col-span-7">
-            <h3 className="text-h3 text-navy">Interested in representing {u.shortName}?</h3>
-            <p className="mt-2 mb-8 text-[0.9375rem] text-ink-muted">Tell us about yourself. We reply to every inquiry by email.</p>
-            <CampusRepForm mode="college" defaultCampus={u.slug} submitLabel="Send campus interest" />
-          </div>
+          <ButtonLink href="/campuses#bring-to-campus" size="lg" icon="arrow" className="shrink-0">
+            Bring This to Your Campus
+          </ButtonLink>
         </div>
       </section>
     </>

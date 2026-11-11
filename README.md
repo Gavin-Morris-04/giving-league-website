@@ -14,11 +14,11 @@ Live: https://giving-league-website.vercel.app · Instagram: [@thecausekrewe](ht
 
 | Route | What it is |
 |---|---|
-| `/` | Hero, mission scroll story, volunteering, charity events, support a cause, browse by school or city, Geaux Give Week (coming soon), get involved |
+| `/` | Hero, scroll story (mission, volunteering, charity events, giving), browse by school or city, Geaux Give Week (coming soon), get involved |
 | `/volunteer` · `/volunteer/[slug]` · `/volunteer/submit` | Volunteer Finder (keyword, school, city & area, student level, age, guardian rules, cause, groups, commitment, remote), listing pages, nonprofit submission form |
 | `/events` · `/events/[slug]` · `/events/submit` | Charity Events directory (city, region, month, cause, type, high school/college, cost, upcoming vs. awaiting next date), event pages, submission form |
 | `/campuses` · `/campuses/[slug]` | College Campuses directory and campus pages |
-| `/high-schools` · `/high-schools/[city]` | High Schools: city areas (incl. surrounding communities), high school finder, teen-eligible events, school involvement form |
+| `/high-schools` · `/high-schools/[city]` | High Schools: city areas (incl. surrounding communities), high school finder, teen-eligible events, age guide and school involvement form; each city page lists what's allowed, what to check first, and nearby events |
 | `/donations` | Impact counter (verified only), charity directory, Business & Corporate Giving, tax-benefit information |
 | `/geaux-give-week` | Coming-soon page with a university-only interest form |
 | `/about` · `/contact` · `/privacy` · `/terms` · `/credits` | About, contact (subjects include "Partnership"), legal (needs legal review), photo credits |
@@ -145,7 +145,6 @@ npx impeccable install --providers=claude --project
 - [ ] GitHub setting allowing Actions to open PRs (discovery) and Vercel GitHub App access (auto-deploys)
 - [x] Contact email: thecausekrewe@gmail.com (`site.contact.email`)
 - [ ] An email provider for automatic confirmations (optional; replies can come from the Gmail inbox)
-- [ ] Founder profile (name, bio, approved photo)
 - [ ] Legal review of `/privacy` and `/terms` (incl. COPPA/teen privacy before any youth registration feature); entity and 501(c)(3) status
 - [ ] Any charity's dedicated fundraising campaign + reporting access (required before a donation total can appear)
 - [ ] Geaux Give Week beneficiary, dates and rules
