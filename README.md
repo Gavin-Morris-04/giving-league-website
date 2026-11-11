@@ -4,7 +4,7 @@ Website for **The Cause Krewe**, a student-led Louisiana service initiative conn
 students** with volunteer opportunities, charity events and trusted charities — plus **Geaux Give Week**, a future
 statewide fundraising competition for Louisiana colleges and universities (coming soon, college-only).
 
-Live: https://giving-league-website.vercel.app · Instagram: [@thecausekrewe](https://www.instagram.com/thecausekrewe/)
+Live: https://thecausekrewe.vercel.app · Instagram: [@thecausekrewe](https://www.instagram.com/thecausekrewe/)
 
 - Product truth: [`PRODUCT.md`](PRODUCT.md) · Design system: [`DESIGN.md`](DESIGN.md)
 - Brand strings, contacts, legal status: [`src/config/site.ts`](src/config/site.ts) · Emblem: `src/assets/brand/`
