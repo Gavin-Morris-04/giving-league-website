@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-11-06T22:50:22+00:00",
-  "generatedOn": "2026-11-06",
+  "generatedAt": "2026-11-12T18:44:45+00:00",
+  "generatedOn": "2026-11-12",
   "listings": {
     "event:habitat-baton-rouge-women-build": {
       "url": "https://habitatbrla.org/women-build/",
@@ -119,7 +119,12 @@
       "status": "ok",
       "code": 200,
       "consecutive_failures": 0,
-      "flags": [],
+      "flags": [
+        {
+          "type": "possible_cancellation",
+          "evidence": "RCL Main menu Home You are here Home Current and Upcoming Events Event When Location Category Email CANCELLED! CWRC Tree Planting 11.13.26 November 13th, 2026 9:00 AM through 3:00 PM Paris Rd Chalmette, LA 701"
+        }
+      ],
       "reviewed_flags": 0
     },
     "opportunity:ebr-council-on-aging-volunteer": {
@@ -293,14 +298,14 @@
   },
   "candidates": [
     {
-      "id": "46980019a04b",
+      "id": "ee67a05c604a",
       "source": "crcl-events",
       "org_slug": "crcl",
       "kind": "event",
-      "title": "CWRC Tree Planting 11.7.26",
-      "url": "https://connect.crcl.org/civicrm/event/info?reset=1&id=1006",
-      "start": "2026-11-07",
-      "end": "2026-11-07",
+      "title": "CANCELLED! CWRC Tree Planting 11.13.26",
+      "url": "https://connect.crcl.org/civicrm/event/info?reset=1&id=1007",
+      "start": "2026-11-13",
+      "end": "2026-11-13",
       "city_key": "new-orleans",
       "city_matched_on": "Chalmette",
       "age_rules": {
@@ -315,21 +320,21 @@
       "review": "required"
     },
     {
-      "id": "5a87810dbdf5",
+      "id": "c9c05297a2b6",
       "source": "crcl-events",
       "org_slug": "crcl",
       "kind": "event",
-      "title": "CRCLecture - Standing Through the Storms: The History and Preservation of the Sabine Pass Lighthouse",
-      "url": "https://connect.crcl.org/civicrm/event/info?reset=1&id=1029",
-      "start": "2026-11-10",
-      "end": "2026-11-10",
-      "city_key": "lake-charles",
-      "city_matched_on": "Lake Charles",
+      "title": "CANCELLED! CWRC Tree Planting 11.14.26",
+      "url": "https://connect.crcl.org/civicrm/event/info?reset=1&id=1008",
+      "start": "2026-11-14",
+      "end": "2026-11-14",
+      "city_key": "new-orleans",
+      "city_matched_on": "Chalmette",
       "age_rules": {
         "ages": [],
         "minimum_age": null,
         "adults_only": false,
-        "guardian_mentioned": false,
+        "guardian_mentioned": true,
         "snippet": ""
       },
       "high_school": "needs_review",
@@ -513,6 +518,30 @@
       "review": "required"
     },
     {
+      "id": "a407b2e55141",
+      "source": "handson-nola-needs",
+      "org_slug": "handson-new-orleans",
+      "kind": "opportunity",
+      "title": "'Art Activities Volunteer — Thanksgiving Holiday Camp (Nov 23–25)'",
+      "url": "http://volunteer.handsonneworleans.org/need/detail/art-activities-volunteer-thanksgiving-holiday-camp-nov-2325/?need_id=1339852",
+      "start": null,
+      "end": null,
+      "city_key": "new-orleans",
+      "city_matched_on": "New Orleans",
+      "age_rules": {
+        "ages": [
+          18
+        ],
+        "minimum_age": 18,
+        "adults_only": false,
+        "guardian_mentioned": false,
+        "snippet": "groups - Help display camper artwork for Wednesday's Family Share Requirements: Age 18+, college degree, experience working with children, background check required. '"
+      },
+      "high_school": "not_eligible",
+      "cancelled": false,
+      "review": "required"
+    },
+    {
       "id": "0d26e4f27609",
       "source": "handson-nola-needs",
       "org_slug": "handson-new-orleans",
@@ -559,56 +588,12 @@
       "review": "required"
     },
     {
-      "id": "1b20f228a891",
-      "source": "handson-nola-needs",
-      "org_slug": "handson-new-orleans",
-      "kind": "opportunity",
-      "title": "'Daily Garden Support '",
-      "url": "http://volunteer.handsonneworleans.org/need/detail/daily-garden-support-/?need_id=1272205",
-      "start": null,
-      "end": null,
-      "city_key": "new-orleans",
-      "city_matched_on": null,
-      "age_rules": {
-        "ages": [],
-        "minimum_age": null,
-        "adults_only": false,
-        "guardian_mentioned": false,
-        "snippet": ""
-      },
-      "high_school": "needs_review",
-      "cancelled": false,
-      "review": "required"
-    },
-    {
       "id": "09f1cb52e99e",
       "source": "handson-nola-needs",
       "org_slug": "handson-new-orleans",
       "kind": "opportunity",
       "title": "'Day of Action: Holiday Gift Wrapping'",
       "url": "http://volunteer.handsonneworleans.org/need/detail/day-of-action-holiday-gift-wrapping/?need_id=1312791",
-      "start": null,
-      "end": null,
-      "city_key": "new-orleans",
-      "city_matched_on": null,
-      "age_rules": {
-        "ages": [],
-        "minimum_age": null,
-        "adults_only": false,
-        "guardian_mentioned": false,
-        "snippet": ""
-      },
-      "high_school": "needs_review",
-      "cancelled": false,
-      "review": "required"
-    },
-    {
-      "id": "6a9fa8264d69",
-      "source": "handson-nola-needs",
-      "org_slug": "handson-new-orleans",
-      "kind": "opportunity",
-      "title": "'Event Support: Art Supply Giveaway'",
-      "url": "http://volunteer.handsonneworleans.org/need/detail/event-support-art-supply-giveaway/?need_id=1314185",
       "start": null,
       "end": null,
       "city_key": "new-orleans",
@@ -669,6 +654,52 @@
       "review": "required"
     },
     {
+      "id": "1a39d99b86f6",
+      "source": "handson-nola-needs",
+      "org_slug": "handson-new-orleans",
+      "kind": "opportunity",
+      "title": "'HandsOn Winter Gift Giveaway'",
+      "url": "http://volunteer.handsonneworleans.org/need/detail/handson-winter-gift-giveaway/?need_id=1314782",
+      "start": null,
+      "end": null,
+      "city_key": "new-orleans",
+      "city_matched_on": "New Orleans",
+      "age_rules": {
+        "ages": [],
+        "minimum_age": null,
+        "adults_only": false,
+        "guardian_mentioned": false,
+        "snippet": ""
+      },
+      "high_school": "needs_review",
+      "cancelled": false,
+      "review": "required"
+    },
+    {
+      "id": "7cc3acb9daf0",
+      "source": "handson-nola-needs",
+      "org_slug": "handson-new-orleans",
+      "kind": "opportunity",
+      "title": "'Holiday Camp Counselor — Thanksgiving Break (Nov 23–25)'",
+      "url": "http://volunteer.handsonneworleans.org/need/detail/holiday-camp-counselor-thanksgiving-break-nov-2325/?need_id=1339851",
+      "start": null,
+      "end": null,
+      "city_key": "new-orleans",
+      "city_matched_on": "New Orleans",
+      "age_rules": {
+        "ages": [
+          18
+        ],
+        "minimum_age": 18,
+        "adults_only": false,
+        "guardian_mentioned": false,
+        "snippet": "ience, encouragement, and inclusion for children of all abilities Requirements: Age 18+, college degree, experience working with children, background check required. '"
+      },
+      "high_school": "not_eligible",
+      "cancelled": false,
+      "review": "required"
+    },
+    {
       "id": "1cb7b5a53366",
       "source": "handson-nola-needs",
       "org_slug": "handson-new-orleans",
@@ -691,92 +722,26 @@
       "review": "required"
     },
     {
-      "id": "106c7b07ad20",
+      "id": "a769af80ce96",
       "source": "handson-nola-needs",
       "org_slug": "handson-new-orleans",
       "kind": "opportunity",
-      "title": "'Mentor Teen Leaders'",
-      "url": "http://volunteer.handsonneworleans.org/need/detail/mentor-teen-leaders/?need_id=1292809",
-      "start": null,
-      "end": null,
-      "city_key": "new-orleans",
-      "city_matched_on": null,
-      "age_rules": {
-        "ages": [],
-        "minimum_age": null,
-        "adults_only": false,
-        "guardian_mentioned": false,
-        "snippet": ""
-      },
-      "high_school": "needs_review",
-      "cancelled": false,
-      "review": "required"
-    },
-    {
-      "id": "63351ed141e4",
-      "source": "handson-nola-needs",
-      "org_slug": "handson-new-orleans",
-      "kind": "opportunity",
-      "title": "'Mindful Social Media Steward '",
-      "url": "http://volunteer.handsonneworleans.org/need/detail/mindful-social-media-steward-/?need_id=1272207",
+      "title": "'Recreation & Games Volunteer — Thanksgiving Holiday Camp (Nov 23–25)'",
+      "url": "http://volunteer.handsonneworleans.org/need/detail/recreation-games-volunteer-thanksgiving-holiday-camp-nov-2325/?need_id=1339854",
       "start": null,
       "end": null,
       "city_key": "new-orleans",
       "city_matched_on": "New Orleans",
       "age_rules": {
-        "ages": [],
-        "minimum_age": null,
-        "adults_only": false,
-        "guardian_mentioned": false,
-        "snippet": ""
-      },
-      "high_school": "needs_review",
-      "cancelled": false,
-      "review": "required"
-    },
-    {
-      "id": "7bdfb84caef3",
-      "source": "handson-nola-needs",
-      "org_slug": "handson-new-orleans",
-      "kind": "opportunity",
-      "title": "'Need For Volunteer Instructors  '",
-      "url": "http://volunteer.handsonneworleans.org/need/detail/need-for-volunteer-instructors-/?need_id=1309395",
-      "start": null,
-      "end": null,
-      "city_key": "new-orleans",
-      "city_matched_on": null,
-      "age_rules": {
-        "ages": [],
-        "minimum_age": null,
-        "adults_only": false,
-        "guardian_mentioned": false,
-        "snippet": ""
-      },
-      "high_school": "needs_review",
-      "cancelled": false,
-      "review": "required"
-    },
-    {
-      "id": "53e4f96f5fc2",
-      "source": "svdp-br-needs",
-      "org_slug": "svdp-baton-rouge",
-      "kind": "opportunity",
-      "title": "'Neighbors Helping Neighbors Drive Through Donation Volunteer'",
-      "url": "http://svdpbr.galaxydigital.com/need/detail/neighbors-helping-neighbors-drive-through-donation-volunteer/?need_id=1334326",
-      "start": null,
-      "end": null,
-      "city_key": "baton-rouge",
-      "city_matched_on": "Baton Rouge",
-      "age_rules": {
         "ages": [
-          14
+          18
         ],
-        "minimum_age": 14,
+        "minimum_age": 18,
         "adults_only": false,
         "guardian_mentioned": false,
-        "snippet": "nteer' ' WE NO LONGER ACCEPT COURT APPOINTED VOLUNTEERISM. Please note that all volunteers must be at least 14 years of age to participate. Overview: Help bring hope to the table! St. Vincent de Paul of"
+        "snippet": "can join in - Support counselors during outdoor/transition times Requirements: Age 18+, college degree, experience working with children, background check required. S"
       },
-      "high_school": "eligible_if_confirmed",
+      "high_school": "not_eligible",
       "cancelled": false,
       "review": "required"
     },
@@ -799,6 +764,53 @@
         "snippet": ""
       },
       "high_school": "needs_review",
+      "cancelled": false,
+      "review": "required"
+    },
+    {
+      "id": "0622c6259d44",
+      "source": "handson-nola-needs",
+      "org_slug": "handson-new-orleans",
+      "kind": "opportunity",
+      "title": "'Sort Books at the Bienville Basin Children's Library'",
+      "url": "http://volunteer.handsonneworleans.org/need/detail/sort-books-at-the-bienville-basin-childrens-library/?need_id=1341541",
+      "start": null,
+      "end": null,
+      "city_key": "new-orleans",
+      "city_matched_on": null,
+      "age_rules": {
+        "ages": [],
+        "minimum_age": null,
+        "adults_only": false,
+        "guardian_mentioned": false,
+        "snippet": ""
+      },
+      "high_school": "needs_review",
+      "cancelled": false,
+      "review": "required"
+    },
+    {
+      "id": "42374a590df8",
+      "source": "svdp-br-needs",
+      "org_slug": "svdp-baton-rouge",
+      "kind": "opportunity",
+      "title": "'Thanksgiving Day Table Helper- River Center'",
+      "url": "http://svdpbr.galaxydigital.com/need/detail/thanksgiving-day-table-helper-river-center/?need_id=1325131",
+      "start": null,
+      "end": null,
+      "city_key": "baton-rouge",
+      "city_matched_on": "Baton Rouge",
+      "age_rules": {
+        "ages": [
+          14,
+          18
+        ],
+        "minimum_age": 14,
+        "adults_only": false,
+        "guardian_mentioned": false,
+        "snippet": "enter' ' WE NO LONGER ACCEPT COURT APPOINTED VOLUNTEERISM. Please note that all volunteers must be at least 18 years of age to participate in this program. Overview Help us to serve a delicious Thanksgiv"
+      },
+      "high_school": "eligible_if_confirmed",
       "cancelled": false,
       "review": "required"
     },
@@ -849,24 +861,26 @@
       "review": "required"
     },
     {
-      "id": "2c8ffcd1bd76",
+      "id": "4b4e1721f2cc",
       "source": "handson-nola-needs",
       "org_slug": "handson-new-orleans",
       "kind": "opportunity",
-      "title": "'United Way HandsOn Volunteer Center proudly serving with Ochsner at Rainbow Child Care Center'",
-      "url": "http://volunteer.handsonneworleans.org/need/detail/united-way-handson-volunteer-center-proudly-serving-with-ochsner-at-rainbow-child-care-center/?need_id=1314154",
+      "title": "'Volunteer Tutor — After-School Reading & Math (Recurring Shifts)'",
+      "url": "http://volunteer.handsonneworleans.org/need/detail/volunteer-tutor-after-school-reading-math-recurring-shifts/?need_id=1339856",
       "start": null,
       "end": null,
       "city_key": "new-orleans",
-      "city_matched_on": "Slidell",
+      "city_matched_on": "New Orleans",
       "age_rules": {
-        "ages": [],
-        "minimum_age": null,
+        "ages": [
+          18
+        ],
+        "minimum_age": 18,
         "adults_only": false,
         "guardian_mentioned": false,
-        "snippet": ""
+        "snippet": "e session tutor - Arrive reliably for your chosen weekly shift(s) Requirements: Age 18+, college degree, experience working with children, background check required. '"
       },
-      "high_school": "needs_review",
+      "high_school": "not_eligible",
       "cancelled": false,
       "review": "required"
     },
