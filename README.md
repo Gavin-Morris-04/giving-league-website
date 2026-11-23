@@ -122,7 +122,7 @@ gh secret set CLAUDE_CODE_OAUTH_TOKEN --repo Gavin-Morris-04/giving-league-websi
 
 The first command opens a browser to sign in and prints a token; paste it when the second command asks. If a
 morning run ever fails with an authentication error, run both commands again. The model is set
-in `claude_args` in the workflow (`--model claude-opus-5-5`); Sonnet uses less of your plan.
+in `claude_args` in the workflow (`--model claude-sonnet-5-5`, chosen to use less of the plan than Opus).
 
 **Timing:** the job is scheduled for 10:23 PM Louisiana time because GitHub starts this repository's scheduled runs
 6–10 hours late; the review issue is there by morning either way.
