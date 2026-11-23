@@ -1,5 +1,6 @@
 import type { CharityEvent } from "@/lib/types";
 import report from "../discovery/report.json" with { type: "json" };
+import { approved } from "../discovered/approved.ts";
 
 /**
  * VERIFIED LIVE DATA — charity events. Separate from volunteer opportunities on purpose.
@@ -12,7 +13,7 @@ import report from "../discovery/report.json" with { type: "json" };
  */
 const V = "2026-11-06";
 
-const allCharityEvents: CharityEvent[] = [
+const handVerifiedCharityEvents: CharityEvent[] = [
   {
     slug: "love-the-boot-week-2027",
     name: "Love the Boot Week",
@@ -248,6 +249,12 @@ const allCharityEvents: CharityEvent[] = [
     lastVerified: V,
     provenance: "verified",
   },
+];
+
+/** Hand-verified events plus events approved on a review issue (see scripts/review and src/data/discovered). */
+export const allCharityEvents: CharityEvent[] = [
+  ...handVerifiedCharityEvents,
+  ...approved.events.map((e) => e.listing).filter((x) => !handVerifiedCharityEvents.some((h) => h.slug === x.slug)),
 ];
 
 /** Events whose official link failed two consecutive reviewed daily checks are hidden until fixed. */

@@ -9,6 +9,7 @@ Live: https://thecausekrewe.vercel.app · Instagram: [@thecausekrewe](https://ww
 - Product truth: [`PRODUCT.md`](PRODUCT.md) · Design system: [`DESIGN.md`](DESIGN.md)
 - Brand strings, contacts, legal status: [`src/config/site.ts`](src/config/site.ts) · Emblem: `src/assets/brand/`
 - **Operating budget: $0/month** — Vercel Hobby, GitHub Actions (free on public repos), optional Supabase free tier.
+  The morning listings search runs Claude through the owner's existing Claude Pro/Max plan, not a paid API key.
 - **Visitor stats:** Vercel Web Analytics (`<Analytics />` in `src/app/layout.tsx`): cookieless, 50,000 events/month free on Hobby —
   collection pauses (no charge) if the limit is reached. View it in the Vercel dashboard → project → Analytics.
 
@@ -60,6 +61,7 @@ for interaction testing (Safari in the simulator can be unreliable with the dev 
 | `src/data/reference/geography.ts` · `locations.ts` | Cities, regions, universities, and the **shared service-area config** for College Campuses and High Schools |
 | `src/data/programs/fundraising.ts` | Verified fundraising campaigns/reports (empty until a charity provides attributable reporting) |
 | `src/data/discovery/report.json` | Latest reviewed discovery report (merged via PR) |
+| `src/data/discovered/approved.json` | Listings approved with a ✅ on a morning review issue (written by `scripts/review/cli.ts`; merged into the verified lists above) |
 
 **Adding a college city** to `universities` automatically creates its high school area and `/high-schools/<city>` page.
 
@@ -84,7 +86,49 @@ called high-school-eligible only when the organizer's published policy supports 
 
 One-time GitHub setting for the PR step: **Settings → Actions → General → Workflow permissions → "Allow GitHub Actions
 to create and approve pull requests."** Without it, the job opens an issue linking to the findings branch instead.
-No paid search APIs or AI services are used.
+This feed job uses no paid APIs and no AI.
+
+## Morning listings (Claude search, ✅ / ❌ review)
+
+`.github/workflows/morning-listings.yml` runs once a day (and on demand from the Actions tab):
+
+1. Exports the site's listings and reads the organizations' feeds above for leads.
+2. **Claude searches the web** for new Louisiana volunteer opportunities and charity events, following
+   [`discovery/claude/INSTRUCTIONS.md`](discovery/claude/INSTRUCTIONS.md): facts only from the organizer's own page,
+   age rules never guessed, nothing already listed, queued or decided. It can only read, search and write one file:
+   no shell, no git.
+3. `scripts/review/cli.ts add` checks every find against `scripts/review/schema.ts`, drops duplicates and anything
+   already over, and adds the rest to `discovery/review/queue.json`.
+4. A GitHub issue labelled `listing-review` and assigned to you lists each find with **✅ Publish** and **❌ Skip**
+   boxes. Yesterday's issue is replaced; anything you hadn't ticked carries over.
+
+`.github/workflows/publish-reviewed.yml` runs when you tick a box (about 30 seconds later, so quick ticks are batched):
+✅ adds the listing to `src/data/discovered/approved.json` and commits to `main`, which Vercel deploys; ❌ records it so
+it's never suggested again; unticking ✅ takes a listing back down while the issue is open. The issue closes itself
+when every listing has a ✅ or ❌. Only the repository owner's ticks count. Open the official page before you tick ✅:
+that check is what makes a listing "verified" on the site.
+
+**How it runs on your Claude plan:** Claude runs through
+[Claude Code's GitHub Action](https://github.com/anthropics/claude-code-action) with a Claude Code sign-in token, so it
+uses your Pro/Max plan's usage instead of billed API credits. One-time setup on this computer:
+
+```bash
+claude setup-token
+```
+
+```bash
+gh secret set CLAUDE_CODE_OAUTH_TOKEN --repo Gavin-Morris-04/giving-league-website
+```
+
+The first command opens a browser to sign in and prints a token; paste it when the second command asks. If a
+morning run ever fails with an authentication error, run both commands again. The model is set
+in `claude_args` in the workflow (`--model claude-opus-5-5`); Sonnet uses less of your plan.
+
+**Timing:** the job is scheduled for 10:23 PM Louisiana time because GitHub starts this repository's scheduled runs
+6–10 hours late; the review issue is there by morning either way.
+
+`vercel.json` skips Vercel builds for commits that only touch `discovery/` or `.github/` (the review queue), so only
+published listings trigger a deploy.
 
 ## Donations & verified fundraising
 
@@ -152,3 +196,4 @@ npx impeccable install --providers=claude --project
 - [ ] Geaux Give Week beneficiary, dates and rules
 - [ ] Custom domain; ScrollReveal license decision
 - [ ] Review the discovery pull requests as they arrive
+- [ ] `CLAUDE_CODE_OAUTH_TOKEN` secret for the morning listings search (`claude setup-token`, see above)

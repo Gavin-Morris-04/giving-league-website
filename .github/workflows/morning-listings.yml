@@ -1,0 +1,142 @@
+# Morning listings: Claude searches the web for new Louisiana volunteer opportunities and charity events, then a
+# GitHub issue lists each find with a ✅ Publish / ❌ Skip box. Nothing reaches the site until you tick ✅
+# (publish-reviewed.yml does the publishing).
+#
+# Claude runs through Claude Code on your Claude Pro/Max plan, not a paid API key: the CLAUDE_CODE_OAUTH_TOKEN
+# secret comes from running `claude setup-token` once. GitHub Actions itself is free on public repositories.
+name: Morning listings
+
+on:
+  schedule:
+    # 04:23 UTC = 10:23 PM in Louisiana (CST). GitHub has been starting this repo's scheduled runs 6–10 hours late,
+    # so the review lands overnight or by mid-morning either way.
+    - cron: "23 4 * * *"
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+
+jobs:
+  search:
+    name: Search with Claude
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 22
+
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+
+      - name: Note today's date in Louisiana
+        run: echo "TODAY=$(TZ=America/Chicago date +%F)" >> "$GITHUB_ENV"
+
+      - name: Export the site's current listings
+        run: node --experimental-strip-types --no-warnings scripts/export-snapshot.ts
+
+      - name: Read organizations' public feeds for leads
+        continue-on-error: true
+        run: python -m discovery.run
+
+      - name: Search for new listings
+        uses: anthropics/claude-code-action@v1
+        with:
+          claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          prompt: |
+            Today is ${{ env.TODAY }} in Louisiana. Follow the instructions in discovery/claude/INSTRUCTIONS.md.
+          # Read, search and write one file only: no shell, no git. Pages Claude reads can't make it run anything.
+          claude_args: |
+            --model claude-opus-5-5
+            --max-turns 80
+            --permission-mode default
+            --allowedTools Read,Glob,Grep,Write,WebSearch,WebFetch
+
+      - name: Keep Claude's finds for the next job
+        uses: actions/upload-artifact@v7
+        with:
+          name: claude-candidates
+          path: discovery/.cache/claude-candidates.json
+          if-no-files-found: warn
+          retention-days: 14
+
+  queue:
+    name: Open the review issue
+    needs: search
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    # Shared with publish-reviewed.yml so the two never write the queue at the same time.
+    concurrency:
+      group: listing-review
+      cancel-in-progress: false
+    permissions:
+      contents: write
+      issues: write
+    env:
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      REPO: ${{ github.repository }}
+      OWNER: ${{ github.repository_owner }}
+      CLI: node --experimental-strip-types --no-warnings scripts/review/cli.ts
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 22
+          cache: npm
+
+      - run: npm ci --no-audit --no-fund
+
+      - name: Fetch Claude's finds
+        continue-on-error: true
+        uses: actions/download-artifact@v8
+        with:
+          name: claude-candidates
+          path: discovery/.cache
+
+      - name: Check them and add them to the review queue
+        id: add
+        run: $CLI add discovery/.cache/claude-candidates.json
+
+      - name: Replace the open review issue with today's
+        if: steps.add.outputs.unassigned != '0'
+        run: |
+          set -euo pipefail
+          mkdir -p discovery/.cache
+          gh label create listing-review --repo "$REPO" --color 2E7D32 --description "Morning listings waiting for ✅ or ❌" 2>/dev/null || true
+
+          # Apply the last ticks on any open review, log what was decided, and carry the rest over.
+          old=$(gh issue list --repo "$REPO" --label listing-review --state open --json number,author \
+                  --jq '.[] | select(.author.login == "app/github-actions" or .author.login == "github-actions") | .number')
+          for n in $old; do
+            gh api "repos/$REPO/issues/$n" --jq .body > "discovery/.cache/old-$n.md"
+            $CLI apply --issue "$n" --body "discovery/.cache/old-$n.md"
+            $CLI finalize --issue "$n" --body "discovery/.cache/old-$n.md"
+          done
+
+          $CLI render --out discovery/.cache/issue.md --title-out discovery/.cache/issue-title.txt
+          url=$(gh issue create --repo "$REPO" --title "$(cat discovery/.cache/issue-title.txt)" \
+                  --body-file discovery/.cache/issue.md --label listing-review --assignee "$OWNER")
+          new="${url##*/}"
+          $CLI assign --issue "$new"
+
+          for n in $old; do
+            gh issue close "$n" --repo "$REPO" --comment "Replaced by #$new. Anything you hadn't ticked here is listed there."
+          done
+
+      - name: Save the queue
+        run: |
+          git add discovery/review src/data/discovered
+          if git diff --cached --quiet; then echo "Nothing to save."; exit 0; fi
+          git config user.name "cause-krewe-listings[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "Review queue: ${{ steps.add.outputs.added }} new listing(s) for $(TZ=America/Chicago date +%F)"
+          for attempt in 1 2 3; do
+            git pull --rebase origin main && git push origin HEAD:main && exit 0
+            sleep 5
+          done
+          exit 1

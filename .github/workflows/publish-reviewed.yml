@@ -1,0 +1,92 @@
+# Publishes listings you tick ✅ on a morning review issue (see morning-listings.yml) and records the ones you
+# tick ❌. Unticking ✅ while the issue is open takes a listing back down. Each change is committed to main, which
+# Vercel deploys automatically.
+name: Publish reviewed listings
+
+on:
+  issues:
+    types: [edited, closed]
+
+permissions:
+  contents: read
+
+jobs:
+  apply:
+    # Only review issues opened by this repo's workflow, and only ticks made by the repository owner.
+    if: >-
+      contains(github.event.issue.labels.*.name, 'listing-review') &&
+      github.event.issue.user.login == 'github-actions[bot]' &&
+      github.event.sender.login == github.repository_owner
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    concurrency:
+      group: listing-review
+      cancel-in-progress: false
+    permissions:
+      contents: write
+      issues: write
+    env:
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      REPO: ${{ github.repository }}
+      ISSUE: ${{ github.event.issue.number }}
+      CLI: node --experimental-strip-types --no-warnings scripts/review/cli.ts
+    steps:
+      - name: Wait briefly so ticks made close together are applied together
+        if: github.event.action == 'edited'
+        run: sleep 30
+
+      - uses: actions/checkout@v7
+
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 22
+          cache: npm
+
+      - run: npm ci --no-audit --no-fund
+
+      - name: Read the issue as it is now
+        id: issue
+        run: |
+          mkdir -p discovery/.cache
+          gh api "repos/$REPO/issues/$ISSUE" > discovery/.cache/issue.json
+          jq -r '.body // ""' discovery/.cache/issue.json > discovery/.cache/body.md
+          echo "state=$(jq -r .state discovery/.cache/issue.json)" >> "$GITHUB_OUTPUT"
+
+      - name: Apply the ticks
+        id: apply
+        run: $CLI apply --issue "$ISSUE" --body discovery/.cache/body.md --status-out discovery/.cache/status.md --finalize-if-done
+
+      - name: Carry unticked listings over (issue closed by hand)
+        if: steps.issue.outputs.state == 'closed'
+        run: $CLI finalize --issue "$ISSUE" --body discovery/.cache/body.md
+
+      - name: Commit to main (Vercel deploys it)
+        env:
+          TITLES: ${{ steps.apply.outputs.published_titles }}
+        run: |
+          git add src/data/discovered discovery/review
+          if git diff --cached --quiet; then echo "Nothing changed."; exit 0; fi
+          git config user.name "cause-krewe-listings[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          if [ -n "$TITLES" ]; then msg="Publish from review #$ISSUE: $TITLES"; else msg="Update listings from review #$ISSUE"; fi
+          git commit -m "${msg:0:200}"
+          for attempt in 1 2 3; do
+            git pull --rebase origin main && git push origin HEAD:main && exit 0
+            sleep 5
+          done
+          exit 1
+
+      - name: Update the status comment
+        if: steps.apply.outputs.changed == 'true' || steps.apply.outputs.conflicts != '0'
+        run: |
+          id=$(gh api "repos/$REPO/issues/$ISSUE/comments" --paginate \
+                 --jq '[.[] | select(.user.login == "github-actions[bot]" and (.body | contains("<!-- review-status -->")))][0].id // empty')
+          if [ -n "$id" ]; then
+            gh api -X PATCH "repos/$REPO/issues/comments/$id" -F body=@discovery/.cache/status.md > /dev/null
+          else
+            gh issue comment "$ISSUE" --repo "$REPO" --body-file discovery/.cache/status.md
+          fi
+
+      - name: Close the issue once every listing has a ✅ or ❌
+        if: steps.apply.outputs.all_decided == 'true' && steps.issue.outputs.state == 'open'
+        run: gh issue close "$ISSUE" --repo "$REPO" --reason completed

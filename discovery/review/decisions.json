@@ -1,0 +1,4 @@
+{
+  "_comment": "Every listing a person published or skipped on a review issue, so the morning job never suggests it again. Written by scripts/review/cli.ts.",
+  "decisions": []
+}

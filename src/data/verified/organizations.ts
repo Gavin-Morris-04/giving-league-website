@@ -1,10 +1,11 @@
 import type { Organization } from "@/lib/types";
+import { approved } from "../discovered/approved.ts";
 
 /**
  * VERIFIED LIVE DATA — organizations whose official websites and volunteer pages were checked on the date in
  * each opportunity's `lastVerified` field. Listing an organization here does NOT mean it partners with us.
  */
-export const organizations: Organization[] = [
+const handVerifiedOrganizations: Organization[] = [
   {
     slug: "greater-baton-rouge-food-bank",
     name: "Greater Baton Rouge Food Bank",
@@ -131,6 +132,12 @@ export const organizations: Organization[] = [
     website: "https://www.ochsner.org",
     summary: "Louisiana health system with a hospital volunteer program.",
   },
+];
+
+/** Hand-verified organizations plus hosts of listings approved on a review issue. */
+export const organizations: Organization[] = [
+  ...handVerifiedOrganizations,
+  ...approved.organizations.filter((o) => !handVerifiedOrganizations.some((h) => h.slug === o.slug)),
 ];
 
 export function getOrganization(slug: string) {

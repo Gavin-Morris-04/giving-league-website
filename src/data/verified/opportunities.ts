@@ -1,4 +1,5 @@
 import type { Opportunity } from "@/lib/types";
+import { approved } from "../discovered/approved.ts";
 
 /**
  * VERIFIED LIVE DATA — every fact and link below was checked against the organization's own website on
@@ -14,7 +15,7 @@ export type OpportunityInput = Omit<Opportunity, "nearbyCampuses"> & { nearbyCam
 
 const V = "2026-11-06";
 
-export const verifiedOpportunities: OpportunityInput[] = [
+const handVerifiedOpportunities: OpportunityInput[] = [
   {
     slug: "greater-baton-rouge-food-bank-volunteer-shifts",
     orgSlug: "greater-baton-rouge-food-bank",
@@ -797,4 +798,10 @@ export const verifiedOpportunities: OpportunityInput[] = [
     lastVerified: V,
     provenance: "verified",
   },
+];
+
+/** Hand-verified listings plus listings approved on a review issue (see scripts/review and src/data/discovered). */
+export const verifiedOpportunities: OpportunityInput[] = [
+  ...handVerifiedOpportunities,
+  ...approved.opportunities.map((e) => e.listing).filter((o) => !handVerifiedOpportunities.some((h) => h.slug === o.slug)),
 ];
