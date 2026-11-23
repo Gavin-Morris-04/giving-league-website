@@ -1,4 +1,85 @@
 {
   "_comment": "Every listing a person published or skipped on a review issue, so the morning job never suggests it again. Written by scripts/review/cli.ts.",
-  "decisions": []
+  "decisions": [
+    {
+      "id": "1b0a108fae",
+      "type": "opportunity",
+      "title": "Central Wetlands tree planting in Chalmette",
+      "url": "https://connect.crcl.org/civicrm/event/info?reset=1&id=1011",
+      "lastDay": "2026-12-04",
+      "decision": "published",
+      "decidedOn": "2026-11-23",
+      "issue": 4
+    },
+    {
+      "id": "dfbdd7bb41",
+      "type": "opportunity",
+      "title": "Maurepas swamp tree planting at Port Manchac",
+      "url": "https://connect.crcl.org/civicrm/event/info?reset=1&id=1013",
+      "lastDay": "2026-12-18",
+      "decision": "published",
+      "decidedOn": "2026-11-23",
+      "issue": 4
+    },
+    {
+      "id": "b26baad52e",
+      "type": "opportunity",
+      "title": "Atchafalaya Basin tree planting near Berwick",
+      "url": "https://connect.crcl.org/civicrm/event/info?reset=1&id=1032",
+      "lastDay": "2027-01-15",
+      "decision": "published",
+      "decidedOn": "2026-11-23",
+      "issue": 4
+    },
+    {
+      "id": "e95bbddf82",
+      "type": "event",
+      "title": "Cajun Country Run",
+      "url": "https://runscore.runsignup.com/Race/LA/Lafayette/CajunCountryRun12Marathon10k5k2018",
+      "lastDay": "2026-12-19",
+      "decision": "published",
+      "decidedOn": "2026-11-23",
+      "issue": 4
+    },
+    {
+      "id": "cb7776a5de",
+      "type": "event",
+      "title": "Santa's Hot Chocolate Run — Lake Charles",
+      "url": "https://runsignup.com/Race/LA/LakeCharles/SantasHotChocolateRun",
+      "lastDay": "2026-12-05",
+      "decision": "published",
+      "decidedOn": "2026-11-23",
+      "issue": 4
+    },
+    {
+      "id": "06322f46aa",
+      "type": "event",
+      "title": "Dasher Dancer Prancer 5K",
+      "url": "https://runsignup.com/Race/LA/Carencro/DASHERDANCERPRANCER5K",
+      "lastDay": "2026-12-05",
+      "decision": "published",
+      "decidedOn": "2026-11-23",
+      "issue": 4
+    },
+    {
+      "id": "5c81d55e47",
+      "type": "event",
+      "title": "Reindeer Run — Baton Rouge",
+      "url": "https://runsignup.com/Race/LA/BatonRouge/ReindeerRunBatonRouge",
+      "lastDay": "2026-12-05",
+      "decision": "published",
+      "decidedOn": "2026-11-23",
+      "issue": 4
+    },
+    {
+      "id": "2fc547f243",
+      "type": "event",
+      "title": "Monroe Jingle Bell Run",
+      "url": "https://runsignup.com/Race/LA/Monroe/MonroeJingleBellRun",
+      "lastDay": "2026-12-19",
+      "decision": "published",
+      "decidedOn": "2026-11-23",
+      "issue": 4
+    }
+  ]
 }

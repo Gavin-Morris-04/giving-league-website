@@ -1,6 +1,335 @@
 {
   "_comment": "Listings found by the morning Claude job and approved with a ✅ on a review issue. Written by scripts/review/cli.ts — don't edit by hand while a review is open.",
   "organizations": [],
-  "opportunities": [],
-  "events": []
+  "opportunities": [
+    {
+      "reviewId": "1b0a108fae",
+      "approvedOn": "2026-11-23",
+      "reviewIssue": 4,
+      "listing": {
+        "slug": "central-wetlands-tree-planting-in-chalmette-2026",
+        "orgSlug": "crcl",
+        "kind": "event",
+        "title": "Central Wetlands tree planting in Chalmette",
+        "summary": "Plant bald cypress and water tupelo trees with the Coalition to Restore Coastal Louisiana in the Central Wetlands near Chalmette.",
+        "description": "The Coalition to Restore Coastal Louisiana and its partners are replanting a bottomland hardwood forest in the Central Wetlands between New Orleans and St. Bernard Parish. Volunteers spend the day planting bald cypress and water tupelo trees, with no boats used. CRCL provides water, snacks, lunch, gloves, bug spray, sunscreen and tools, and loans boots first come, first served. Every volunteer must register on CRCL's event page.",
+        "cause": "environment",
+        "cityKey": "new-orleans",
+        "serviceArea": "Greater New Orleans",
+        "location": "Central Wetlands, Paris Rd., Chalmette",
+        "timeCommitment": "One day, 9 AM–3 PM",
+        "requirements": [
+          "Register on CRCL's event page in advance",
+          "Minimum age 14; volunteers 17 and younger must be registered by a parent or guardian and accompanied by an adult",
+          "A parent or guardian signs the release and minor sections for anyone under 18",
+          "Bring a reusable water bottle, boots and clothes that can get wet and muddy"
+        ],
+        "minimumAge": 14,
+        "eligibility": {
+          "minimumAge": 14,
+          "minors": "with_adult",
+          "guardianPermission": "required",
+          "schoolGroups": "unverified",
+          "note": "CRCL's page: minimum age 14; ages 17 and under must have a parent or guardian complete registration and must be accompanied by an adult.",
+          "days": "weekdays"
+        },
+        "groupEligibility": "individuals",
+        "frequency": "one_time",
+        "format": "in_person",
+        "signupUrl": "https://connect.crcl.org/civicrm/event/info?reset=1&id=1011",
+        "infoUrl": "https://connect.crcl.org/civicrm/event/info?reset=1&id=1011",
+        "startDate": "2026-12-04",
+        "endDate": "2026-12-04",
+        "status": "active",
+        "lastVerified": "2026-11-23",
+        "provenance": "verified"
+      }
+    },
+    {
+      "reviewId": "dfbdd7bb41",
+      "approvedOn": "2026-11-23",
+      "reviewIssue": 4,
+      "listing": {
+        "slug": "maurepas-swamp-tree-planting-at-port-manchac-2026",
+        "orgSlug": "crcl",
+        "kind": "event",
+        "title": "Maurepas swamp tree planting at Port Manchac",
+        "summary": "Take a short boat ride from Port Manchac and plant bald cypress trees in the Maurepas swamp with the Coalition to Restore Coastal Louisiana.",
+        "description": "The Coalition to Restore Coastal Louisiana is planting about 4,500 bald cypress trees in the Maurepas swamp to strengthen it against storms and provide wildlife habitat. Volunteers meet at Port Manchac and take a boat ride of about 20 minutes to the planting site. Volunteers wear CRCL-provided life jackets and follow the boat captains' directions. Every volunteer must register on CRCL's event page.",
+        "cause": "environment",
+        "cityKey": "hammond",
+        "serviceArea": "Hammond and Tangipahoa Parish",
+        "location": "Port Manchac, by boat to the Maurepas swamp",
+        "timeCommitment": "One day, 9 AM–3 PM",
+        "requirements": [
+          "Register on CRCL's event page in advance",
+          "Minimum age 16; volunteers 17 and younger must be registered by a parent or guardian and accompanied by an adult",
+          "Everyone signs CRCL's release and waiver",
+          "Wear the life jacket CRCL provides on the boat ride"
+        ],
+        "minimumAge": 16,
+        "eligibility": {
+          "minimumAge": 16,
+          "minors": "with_adult",
+          "guardianPermission": "required",
+          "schoolGroups": "unverified",
+          "note": "CRCL's page: minimum age 16; ages 17 and under must have a parent or guardian complete registration and must be accompanied by an adult.",
+          "days": "weekdays"
+        },
+        "groupEligibility": "individuals",
+        "frequency": "one_time",
+        "format": "in_person",
+        "signupUrl": "https://connect.crcl.org/civicrm/event/info?reset=1&id=1013",
+        "infoUrl": "https://connect.crcl.org/civicrm/event/info?reset=1&id=1013",
+        "startDate": "2026-12-18",
+        "endDate": "2026-12-18",
+        "status": "active",
+        "lastVerified": "2026-11-23",
+        "provenance": "verified"
+      }
+    },
+    {
+      "reviewId": "b26baad52e",
+      "approvedOn": "2026-11-23",
+      "reviewIssue": 4,
+      "listing": {
+        "slug": "atchafalaya-basin-tree-planting-near-berwick-2027",
+        "orgSlug": "crcl",
+        "kind": "event",
+        "title": "Atchafalaya Basin tree planting near Berwick",
+        "summary": "Plant oaks and hackberry on a dredge-spoil island in the Atchafalaya Basin with the Coalition to Restore Coastal Louisiana.",
+        "description": "The Coalition to Restore Coastal Louisiana is planting 800 trees, including live oak, hackberry, Nuttall oak and overcup oak, on dredge spoil in the Atchafalaya Basin. Volunteers leave from Berwick in St. Mary Parish on a boat ride of about 50 minutes, wearing CRCL-provided life jackets. Every volunteer must register on CRCL's event page.",
+        "cause": "environment",
+        "cityKey": "houma",
+        "serviceArea": "Bayou region (St. Mary Parish)",
+        "location": "Berwick, St. Mary Parish, by boat to the Atchafalaya Basin",
+        "timeCommitment": "One day, 9 AM–3 PM",
+        "requirements": [
+          "Register on CRCL's event page in advance",
+          "Minimum age 16; volunteers 17 and younger must be registered by a parent or guardian and accompanied by an adult",
+          "A parent or guardian signs the minor's agreement, and everyone signs the release and waiver",
+          "Wear the life jacket CRCL provides on the boat ride"
+        ],
+        "minimumAge": 16,
+        "eligibility": {
+          "minimumAge": 16,
+          "minors": "with_adult",
+          "guardianPermission": "required",
+          "schoolGroups": "unverified",
+          "note": "CRCL's page: minimum age 16; ages 17 and under must have a parent or guardian complete registration and must be accompanied by an adult.",
+          "days": "weekdays"
+        },
+        "groupEligibility": "individuals",
+        "frequency": "one_time",
+        "format": "in_person",
+        "signupUrl": "https://connect.crcl.org/civicrm/event/info?reset=1&id=1032",
+        "infoUrl": "https://connect.crcl.org/civicrm/event/info?reset=1&id=1032",
+        "startDate": "2027-01-15",
+        "endDate": "2027-01-15",
+        "status": "active",
+        "lastVerified": "2026-11-23",
+        "provenance": "verified"
+      }
+    }
+  ],
+  "events": [
+    {
+      "reviewId": "e95bbddf82",
+      "approvedOn": "2026-11-23",
+      "reviewIssue": 4,
+      "listing": {
+        "slug": "cajun-country-run-2026",
+        "name": "Cajun Country Run",
+        "host": "T.R.A.I.L.",
+        "hostUrl": "https://latrail.org",
+        "summary": "A half marathon, 10K, 5K and one-mile fun run at Acadiana Park, with proceeds supporting T.R.A.I.L.'s work at the park and its Nature Station.",
+        "description": "The Cajun Country Run offers road and trail 10K and 5K races, a half marathon and a one-mile fun run at Acadiana Park in Lafayette. Race proceeds go to T.R.A.I.L. for its work at Acadiana Park and Nature Station. Runners register online, and most prices go up after November 29.",
+        "type": "walk_run",
+        "cause": "environment",
+        "cityKey": "lafayette",
+        "location": "Acadiana Park, Lafayette",
+        "recurrence": "annual",
+        "typicalMonths": [
+          12
+        ],
+        "typicalTiming": "Held in December",
+        "confirmed": {
+          "startDate": "2026-12-19",
+          "time": "7:30 AM (5K at 8:20 AM)",
+          "source": "runsignup.com Cajun Country Run (“Sat December 19, 2026”)"
+        },
+        "participation": [
+          "participate"
+        ],
+        "cost": "paid",
+        "audience": {
+          "highSchool": "yes",
+          "college": "yes",
+          "note": "The half marathon, 10K and 5K are open to ages 1–100. The page doesn't mention parent consent."
+        },
+        "registrationUrl": "https://runsignup.com/Race/Register/?raceId=54469",
+        "infoUrl": "https://runscore.runsignup.com/Race/LA/Lafayette/CajunCountryRun12Marathon10k5k2018",
+        "lastVerified": "2026-11-23",
+        "provenance": "verified"
+      }
+    },
+    {
+      "reviewId": "cb7776a5de",
+      "approvedOn": "2026-11-23",
+      "reviewIssue": 4,
+      "listing": {
+        "slug": "santa-s-hot-chocolate-run-lake-charles-2026",
+        "name": "Santa's Hot Chocolate Run — Lake Charles",
+        "host": "Literacy Council of Southwest Louisiana",
+        "hostUrl": "https://runsignup.com/Race/LA/LakeCharles/SantasHotChocolateRun",
+        "summary": "A timed holiday 5K in Lake Charles that raises money for the Literacy Council of Southwest Louisiana.",
+        "description": "The Literacy Council of Southwest Louisiana holds a timed 5K starting at the Central School Arts & Humanities Center in Lake Charles. Students from elementary through high school pay a lower entry fee. Runners register online or at race-day check-in from 7 to 7:45 AM.",
+        "type": "walk_run",
+        "cause": "community",
+        "cityKey": "lake-charles",
+        "location": "Central School Arts & Humanities Center, Lake Charles",
+        "recurrence": "annual",
+        "typicalMonths": [
+          12
+        ],
+        "typicalTiming": "Held in early December",
+        "confirmed": {
+          "startDate": "2026-12-05",
+          "time": "8:00 AM",
+          "source": "runsignup.com Santa's Hot Chocolate Run (“December 5, 2026”)"
+        },
+        "participation": [
+          "participate"
+        ],
+        "cost": "paid",
+        "audience": {
+          "highSchool": "yes",
+          "college": "yes",
+          "note": "Student pricing ($20–$25) applies to ages 5–18. The page doesn't mention parent consent."
+        },
+        "registrationUrl": "https://runsignup.com/Race/Register/?raceId=152948",
+        "infoUrl": "https://runsignup.com/Race/LA/LakeCharles/SantasHotChocolateRun",
+        "lastVerified": "2026-11-23",
+        "provenance": "verified"
+      }
+    },
+    {
+      "reviewId": "06322f46aa",
+      "approvedOn": "2026-11-23",
+      "reviewIssue": 4,
+      "listing": {
+        "slug": "dasher-dancer-prancer-5k-2026",
+        "name": "Dasher Dancer Prancer 5K",
+        "host": "Acadiana Fitness",
+        "hostUrl": "https://runsignup.com/Race/LA/Carencro/DASHERDANCERPRANCER5K",
+        "summary": "A holiday 5K in Carencro whose profits go to St. Jude Children's Research Hospital.",
+        "description": "Acadiana Fitness holds this 5K at the Carencro Community Center, with a virtual option. All profits go to St. Jude Children's Research Hospital. Runners register online by December 1 or on race morning.",
+        "type": "walk_run",
+        "cause": "health",
+        "cityKey": "lafayette",
+        "location": "Carencro Community Center, N. University Ave., Carencro",
+        "recurrence": "annual",
+        "typicalMonths": [
+          12
+        ],
+        "typicalTiming": "Held in early December",
+        "confirmed": {
+          "startDate": "2026-12-05",
+          "time": "8:00 AM",
+          "source": "runsignup.com Dasher Dancer Prancer 5K (“Sat December 5 2026”)"
+        },
+        "participation": [
+          "participate"
+        ],
+        "cost": "paid",
+        "audience": {
+          "highSchool": "unverified",
+          "college": "yes"
+        },
+        "registrationUrl": "https://runsignup.com/Race/Register/?raceId=121007",
+        "infoUrl": "https://runsignup.com/Race/LA/Carencro/DASHERDANCERPRANCER5K",
+        "lastVerified": "2026-11-23",
+        "provenance": "verified"
+      }
+    },
+    {
+      "reviewId": "5c81d55e47",
+      "approvedOn": "2026-11-23",
+      "reviewIssue": 4,
+      "listing": {
+        "slug": "reindeer-run-baton-rouge-2026",
+        "name": "Reindeer Run — Baton Rouge",
+        "host": "Arts Council of Greater Baton Rouge",
+        "hostUrl": "https://artsbr.org",
+        "summary": "An evening 5K and one-mile fun run downtown, with all proceeds going to the Arts Council of Greater Baton Rouge.",
+        "description": "The Reindeer Run is an evening 5K run/walk and one-mile fun run starting at Third Street and North Boulevard in downtown Baton Rouge. All proceeds go to the Arts Council of Greater Baton Rouge. Teams of 10 or more get a discount.",
+        "type": "walk_run",
+        "cause": "community",
+        "cityKey": "baton-rouge",
+        "location": "Downtown Baton Rouge, Third St. and North Blvd.",
+        "recurrence": "annual",
+        "typicalMonths": [
+          12
+        ],
+        "typicalTiming": "Held in early December",
+        "confirmed": {
+          "startDate": "2026-12-05",
+          "time": "5:45 PM (5K at 6:15 PM)",
+          "source": "runsignup.com Reindeer Run (“December 5, 2026”)"
+        },
+        "participation": [
+          "participate"
+        ],
+        "cost": "paid",
+        "audience": {
+          "highSchool": "unverified",
+          "college": "yes",
+          "note": "The fun run is open to ages 1–100. The 5K page doesn't list an age rule."
+        },
+        "registrationUrl": "https://runsignup.com/Race/Register/?raceId=216601",
+        "infoUrl": "https://runsignup.com/Race/LA/BatonRouge/ReindeerRunBatonRouge",
+        "lastVerified": "2026-11-23",
+        "provenance": "verified"
+      }
+    },
+    {
+      "reviewId": "2fc547f243",
+      "approvedOn": "2026-11-23",
+      "reviewIssue": 4,
+      "listing": {
+        "slug": "monroe-jingle-bell-run-2026",
+        "name": "Monroe Jingle Bell Run",
+        "host": "Louisiana Purchase Council (Scouting America)",
+        "hostUrl": "https://runsignup.com/Race/LA/Monroe/MonroeJingleBellRun",
+        "summary": "A holiday 5K and half marathon at Forsythe Park raising money for Scouting programs in northeast and central Louisiana.",
+        "description": "The Monroe Jingle Bell Run offers a 5K and a half marathon at Forsythe Park, plus virtual versions. Proceeds support Scouts in northeast and central Louisiana, including programs for at-risk youth and camp scholarships. In-person prices go up after December 18.",
+        "type": "walk_run",
+        "cause": "youth",
+        "cityKey": "monroe",
+        "location": "Forsythe Park, Monroe",
+        "recurrence": "annual",
+        "typicalMonths": [
+          12
+        ],
+        "typicalTiming": "Held in December",
+        "confirmed": {
+          "startDate": "2026-12-19",
+          "time": "8:00 AM (5K at 8:30 AM)",
+          "source": "runsignup.com Monroe Jingle Bell Run (“Sat December 19 2026”)"
+        },
+        "participation": [
+          "participate"
+        ],
+        "cost": "paid",
+        "audience": {
+          "highSchool": "unverified",
+          "college": "yes"
+        },
+        "registrationUrl": "https://runsignup.com/Race/Register/?raceId=67366",
+        "infoUrl": "https://runsignup.com/Race/LA/Monroe/MonroeJingleBellRun",
+        "lastVerified": "2026-11-23",
+        "provenance": "verified"
+      }
+    }
+  ]
 }
