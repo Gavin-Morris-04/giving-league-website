@@ -35,7 +35,10 @@ jobs:
         if: github.event.action == 'edited'
         run: sleep 30
 
+      # The newest main, not the commit from when the box was ticked: an earlier run may have published since.
       - uses: actions/checkout@v7
+        with:
+          ref: main
 
       - uses: actions/setup-node@v7
         with:
@@ -78,8 +81,9 @@ jobs:
 
       - name: Update the status comment
         if: steps.apply.outputs.changed == 'true' || steps.apply.outputs.conflicts != '0'
+        continue-on-error: true # just a note for you; publishing has already happened by this step
         run: |
-          id=$(gh api "repos/$REPO/issues/$ISSUE/comments" --paginate \
+          id=$(gh api "repos/$REPO/issues/$ISSUE/comments?per_page=100" \
                  --jq '[.[] | select(.user.login == "github-actions[bot]" and (.body | contains("<!-- review-status -->")))][0].id // empty')
           if [ -n "$id" ]; then
             gh api -X PATCH "repos/$REPO/issues/comments/$id" -F body=@discovery/.cache/status.md > /dev/null
