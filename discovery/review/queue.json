@@ -1,4 +1,48 @@
 {
   "_comment": "Listings waiting for a ✅ or ❌ on the open review issue. Written by scripts/review/cli.ts.",
-  "items": []
+  "items": [
+    {
+      "type": "event",
+      "sourceUrl": "https://runsignup.com/Race/LA/Zachary/ZacharyCharityLeagueChasingSanta5K",
+      "checked": "Date (December 5, 2026), 8:30 AM 5K start, Zachary High School location and registration link are on the RunSignup page; age rules aren't stated and the page shows two different price lists.",
+      "listing": {
+        "name": "Chasing Santa 5K — Zachary",
+        "host": "Zachary Charity League",
+        "hostUrl": "https://runsignup.com/Race/LA/Zachary/ZacharyCharityLeagueChasingSanta5K",
+        "summary": "A family-friendly holiday 5K and half-mile kids run in Zachary supporting the Zachary Charity League.",
+        "description": "The Zachary Charity League's Chasing Santa 5K starts and ends at Zachary High School, with a half-mile kids run before it. The race page says proceeds go toward scholarships, teacher grants and Snack Packs for Kids. Register online.",
+        "type": "walk_run",
+        "cause": "youth",
+        "cityKey": "baton-rouge",
+        "location": "Zachary High School, Zachary",
+        "recurrence": "annual",
+        "typicalMonths": [
+          12
+        ],
+        "typicalTiming": "Held in early December",
+        "confirmed": {
+          "startDate": "2026-12-05",
+          "time": "8:30 AM",
+          "source": "runsignup.com/Race/LA/Zachary/ZacharyCharityLeagueChasingSanta5K (“December 5, 2026”, 5K at 8:30 AM)"
+        },
+        "participation": [
+          "participate",
+          "fundraise"
+        ],
+        "cost": "paid",
+        "audience": {
+          "highSchool": "unverified",
+          "college": "unverified",
+          "note": "The page calls the race family friendly but doesn't state age rules."
+        },
+        "registrationUrl": "https://runsignup.com/Race/Register/?raceId=154932",
+        "infoUrl": "https://runsignup.com/Race/LA/Zachary/ZacharyCharityLeagueChasingSanta5K"
+      },
+      "id": "44d4728130",
+      "slug": "chasing-santa-5k-zachary-2026",
+      "foundOn": "2026-11-24",
+      "issue": 5,
+      "state": "pending"
+    }
+  ]
 }
