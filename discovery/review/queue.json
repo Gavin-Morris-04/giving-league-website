@@ -41,7 +41,49 @@
       "id": "44d4728130",
       "slug": "chasing-santa-5k-zachary-2026",
       "foundOn": "2026-11-24",
-      "issue": 5,
+      "issue": 6,
+      "state": "pending"
+    },
+    {
+      "type": "event",
+      "sourceUrl": "https://runsignup.com/Race/Info/LA/Hammond/RR2022",
+      "checked": "Date (December 5, 2026), Cate Square Park start/finish, beneficiary and registration link are on the RunSignup race page; start time, prices and age rules aren't stated.",
+      "listing": {
+        "name": "Reindeer Run — Hammond",
+        "host": "Restoration House Pregnancy Resource Center",
+        "hostUrl": "https://runsignup.com/Race/Info/LA/Hammond/RR2022",
+        "summary": "A holiday 5K and one-mile fun run in Hammond that raises money for Restoration House Pregnancy Resource Center.",
+        "description": "The Hammond Reindeer Run is a chip-timed 5K and 1-Mile Fun Run that starts and finishes at Cate Square Park. The course goes through the historic district and out and back through Southeastern Louisiana University. The race page says proceeds support Restoration House Pregnancy Resource Center, and that registration closes when the medal supply is filled.",
+        "type": "walk_run",
+        "cause": "health",
+        "cityKey": "hammond",
+        "location": "Cate Square Park, W. Charles St., Hammond",
+        "recurrence": "annual",
+        "typicalMonths": [
+          12
+        ],
+        "typicalTiming": "Held in early December",
+        "confirmed": {
+          "startDate": "2026-12-05",
+          "source": "runsignup.com/Race/Info/LA/Hammond/RR2022 (“December 5, 2026”)"
+        },
+        "participation": [
+          "participate",
+          "fundraise"
+        ],
+        "cost": "unverified",
+        "audience": {
+          "highSchool": "unverified",
+          "college": "unverified",
+          "note": "The race page doesn't state age rules or divisions."
+        },
+        "registrationUrl": "https://runsignup.com/Race/Register/?raceId=137595",
+        "infoUrl": "https://runsignup.com/Race/Info/LA/Hammond/RR2022"
+      },
+      "id": "a8c4df78d2",
+      "slug": "reindeer-run-hammond-2026",
+      "foundOn": "2026-11-25",
+      "issue": 6,
       "state": "pending"
     }
   ]
