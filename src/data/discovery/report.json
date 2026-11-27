@@ -1,7 +1,23 @@
 {
-  "generatedAt": "2026-11-06T22:50:22+00:00",
-  "generatedOn": "2026-11-06",
+  "generatedAt": "2026-11-27T19:51:22+00:00",
+  "generatedOn": "2026-11-27",
   "listings": {
+    "event:cajun-country-run-2026": {
+      "url": "https://runsignup.com/Race/Register/?raceId=54469",
+      "status": "ok",
+      "code": 200,
+      "consecutive_failures": 0,
+      "flags": [],
+      "reviewed_flags": 0
+    },
+    "event:dasher-dancer-prancer-5k-2026": {
+      "url": "https://runsignup.com/Race/Register/?raceId=121007",
+      "status": "ok",
+      "code": 200,
+      "consecutive_failures": 0,
+      "flags": [],
+      "reviewed_flags": 0
+    },
     "event:habitat-baton-rouge-women-build": {
       "url": "https://habitatbrla.org/women-build/",
       "status": "ok",
@@ -18,12 +34,50 @@
       "flags": [],
       "reviewed_flags": 1
     },
+    "event:monroe-jingle-bell-run-2026": {
+      "url": "https://runsignup.com/Race/Register/?raceId=67366",
+      "status": "ok",
+      "code": 200,
+      "consecutive_failures": 0,
+      "flags": [],
+      "reviewed_flags": 0
+    },
     "event:no-such-thing-as-impossible-bike-ride": {
       "url": "https://p2p.onecause.com/nosuchthingasimpossible",
       "status": "ok",
       "code": 200,
       "consecutive_failures": 0,
       "flags": [],
+      "reviewed_flags": 0
+    },
+    "event:reindeer-run-baton-rouge-2026": {
+      "url": "https://runsignup.com/Race/Register/?raceId=216601",
+      "status": "ok",
+      "code": 200,
+      "consecutive_failures": 0,
+      "flags": [
+        {
+          "type": "age_rule_differs",
+          "found_minimum_age": 18,
+          "recorded_minimum_age": null,
+          "evidence": "the no refund policy. By checking this box, I agree to the waiver and that I am 18 or older, or that I have the authority to register these participants and agree to the w"
+        }
+      ],
+      "reviewed_flags": 0
+    },
+    "event:santa-s-hot-chocolate-run-lake-charles-2026": {
+      "url": "https://runsignup.com/Race/Register/?raceId=152948",
+      "status": "ok",
+      "code": 200,
+      "consecutive_failures": 0,
+      "flags": [
+        {
+          "type": "age_rule_differs",
+          "found_minimum_age": 5,
+          "recorded_minimum_age": null,
+          "evidence": "land ZH - Zuid-Holland Choose Your Event * 5K Santa's Hot Chocolate Run Open to ages 5+. $40.00 $35.00 + $3.10 SignUp Fee ($25: Ages 5 - 18) Special Pricing (Group Pri"
+        }
+      ],
       "reviewed_flags": 0
     },
     "event:st-jude-walk-baton-rouge": {
@@ -82,6 +136,21 @@
       "flags": [],
       "reviewed_flags": 0
     },
+    "opportunity:atchafalaya-basin-tree-planting-near-berwick-2027": {
+      "url": "https://connect.crcl.org/civicrm/event/info?reset=1&id=1032",
+      "status": "ok",
+      "code": 200,
+      "consecutive_failures": 0,
+      "flags": [
+        {
+          "type": "age_rule_differs",
+          "found_minimum_age": 18,
+          "recorded_minimum_age": 16,
+          "evidence": ""
+        }
+      ],
+      "reviewed_flags": 0
+    },
     "opportunity:audubon-volunteer-program": {
       "url": "https://audubonnatureinstitute.org/volunteer",
       "status": "ok",
@@ -106,6 +175,21 @@
       "flags": [],
       "reviewed_flags": 0
     },
+    "opportunity:central-wetlands-tree-planting-in-chalmette-2026": {
+      "url": "https://connect.crcl.org/civicrm/event/info?reset=1&id=1011",
+      "status": "ok",
+      "code": 200,
+      "consecutive_failures": 0,
+      "flags": [
+        {
+          "type": "age_rule_differs",
+          "found_minimum_age": 18,
+          "recorded_minimum_age": 14,
+          "evidence": ""
+        }
+      ],
+      "reviewed_flags": 0
+    },
     "opportunity:companion-animal-alliance-shelter-volunteer": {
       "url": "https://app.betterimpact.com/Application?ApplicationFormNumber=1&OrganizationGuid=596adf8d-c9b3-45ea-a1bf-ea83fe6748a5",
       "status": "ok",
@@ -119,7 +203,12 @@
       "status": "ok",
       "code": 200,
       "consecutive_failures": 0,
-      "flags": [],
+      "flags": [
+        {
+          "type": "possible_cancellation",
+          "evidence": "cember 4th, 2026 9:00 AM through 3:00 PM Paris Rd Chalmette, LA 70129 United States Volunteer Event CANCELLED! CWRC Tree Planting 12.5.26 December 5th, 2026 9:00 AM through 3:00 PM Paris Rd Chalmette, LA 70129"
+        }
+      ],
       "reviewed_flags": 0
     },
     "opportunity:ebr-council-on-aging-volunteer": {
@@ -200,6 +289,21 @@
       "code": 200,
       "consecutive_failures": 0,
       "flags": [],
+      "reviewed_flags": 0
+    },
+    "opportunity:maurepas-swamp-tree-planting-at-port-manchac-2026": {
+      "url": "https://connect.crcl.org/civicrm/event/info?reset=1&id=1013",
+      "status": "ok",
+      "code": 200,
+      "consecutive_failures": 0,
+      "flags": [
+        {
+          "type": "age_rule_differs",
+          "found_minimum_age": 18,
+          "recorded_minimum_age": 16,
+          "evidence": ""
+        }
+      ],
       "reviewed_flags": 0
     },
     "opportunity:ochsner-hospital-volunteer": {
@@ -293,226 +397,6 @@
   },
   "candidates": [
     {
-      "id": "46980019a04b",
-      "source": "crcl-events",
-      "org_slug": "crcl",
-      "kind": "event",
-      "title": "CWRC Tree Planting 11.7.26",
-      "url": "https://connect.crcl.org/civicrm/event/info?reset=1&id=1006",
-      "start": "2026-11-07",
-      "end": "2026-11-07",
-      "city_key": "new-orleans",
-      "city_matched_on": "Chalmette",
-      "age_rules": {
-        "ages": [],
-        "minimum_age": null,
-        "adults_only": false,
-        "guardian_mentioned": true,
-        "snippet": ""
-      },
-      "high_school": "needs_review",
-      "cancelled": false,
-      "review": "required"
-    },
-    {
-      "id": "5a87810dbdf5",
-      "source": "crcl-events",
-      "org_slug": "crcl",
-      "kind": "event",
-      "title": "CRCLecture - Standing Through the Storms: The History and Preservation of the Sabine Pass Lighthouse",
-      "url": "https://connect.crcl.org/civicrm/event/info?reset=1&id=1029",
-      "start": "2026-11-10",
-      "end": "2026-11-10",
-      "city_key": "lake-charles",
-      "city_matched_on": "Lake Charles",
-      "age_rules": {
-        "ages": [],
-        "minimum_age": null,
-        "adults_only": false,
-        "guardian_mentioned": false,
-        "snippet": ""
-      },
-      "high_school": "needs_review",
-      "cancelled": false,
-      "review": "required"
-    },
-    {
-      "id": "d85331469ed8",
-      "source": "crcl-events",
-      "org_slug": "crcl",
-      "kind": "event",
-      "title": "CWRC Tree Planting 11.21.26",
-      "url": "https://connect.crcl.org/civicrm/event/info?reset=1&id=1010",
-      "start": "2026-11-21",
-      "end": "2026-11-21",
-      "city_key": "new-orleans",
-      "city_matched_on": "Chalmette",
-      "age_rules": {
-        "ages": [],
-        "minimum_age": null,
-        "adults_only": false,
-        "guardian_mentioned": true,
-        "snippet": ""
-      },
-      "high_school": "needs_review",
-      "cancelled": false,
-      "review": "required"
-    },
-    {
-      "id": "47c06d5b703e",
-      "source": "crcl-events",
-      "org_slug": "crcl",
-      "kind": "event",
-      "title": "CWRC Tree Planting 12.4.26",
-      "url": "https://connect.crcl.org/civicrm/event/info?reset=1&id=1011",
-      "start": "2026-12-04",
-      "end": "2026-12-04",
-      "city_key": "new-orleans",
-      "city_matched_on": "Chalmette",
-      "age_rules": {
-        "ages": [],
-        "minimum_age": null,
-        "adults_only": false,
-        "guardian_mentioned": true,
-        "snippet": ""
-      },
-      "high_school": "needs_review",
-      "cancelled": false,
-      "review": "required"
-    },
-    {
-      "id": "42f7fabdaf11",
-      "source": "crcl-events",
-      "org_slug": "crcl",
-      "kind": "event",
-      "title": "CWRC Tree Planting 12.5.26",
-      "url": "https://connect.crcl.org/civicrm/event/info?reset=1&id=1012",
-      "start": "2026-12-05",
-      "end": "2026-12-05",
-      "city_key": "new-orleans",
-      "city_matched_on": "Chalmette",
-      "age_rules": {
-        "ages": [],
-        "minimum_age": null,
-        "adults_only": false,
-        "guardian_mentioned": true,
-        "snippet": ""
-      },
-      "high_school": "needs_review",
-      "cancelled": false,
-      "review": "required"
-    },
-    {
-      "id": "424b5cb279d4",
-      "source": "crcl-events",
-      "org_slug": "crcl",
-      "kind": "event",
-      "title": "Maurepas Tree Planting 12.18.26",
-      "url": "https://connect.crcl.org/civicrm/event/info?reset=1&id=1013",
-      "start": "2026-12-18",
-      "end": "2026-12-18",
-      "city_key": "new-orleans",
-      "city_matched_on": null,
-      "age_rules": {
-        "ages": [],
-        "minimum_age": null,
-        "adults_only": false,
-        "guardian_mentioned": true,
-        "snippet": ""
-      },
-      "high_school": "needs_review",
-      "cancelled": false,
-      "review": "required"
-    },
-    {
-      "id": "40d5bf3b3321",
-      "source": "crcl-events",
-      "org_slug": "crcl",
-      "kind": "event",
-      "title": "Maurepas Tree Planting 12.19.26",
-      "url": "https://connect.crcl.org/civicrm/event/info?reset=1&id=1015",
-      "start": "2026-12-19",
-      "end": "2026-12-19",
-      "city_key": "new-orleans",
-      "city_matched_on": null,
-      "age_rules": {
-        "ages": [],
-        "minimum_age": null,
-        "adults_only": false,
-        "guardian_mentioned": true,
-        "snippet": ""
-      },
-      "high_school": "needs_review",
-      "cancelled": false,
-      "review": "required"
-    },
-    {
-      "id": "85f031f3a56f",
-      "source": "crcl-events",
-      "org_slug": "crcl",
-      "kind": "event",
-      "title": "Atchafalaya Tree Planting 1.14.27",
-      "url": "https://connect.crcl.org/civicrm/event/info?reset=1&id=1031",
-      "start": "2027-01-14",
-      "end": "2027-01-14",
-      "city_key": "new-orleans",
-      "city_matched_on": null,
-      "age_rules": {
-        "ages": [],
-        "minimum_age": null,
-        "adults_only": false,
-        "guardian_mentioned": true,
-        "snippet": ""
-      },
-      "high_school": "needs_review",
-      "cancelled": false,
-      "review": "required"
-    },
-    {
-      "id": "d57a800dff05",
-      "source": "crcl-events",
-      "org_slug": "crcl",
-      "kind": "event",
-      "title": "Atchafalaya Tree Planting 1.15.27",
-      "url": "https://connect.crcl.org/civicrm/event/info?reset=1&id=1032",
-      "start": "2027-01-15",
-      "end": "2027-01-15",
-      "city_key": "new-orleans",
-      "city_matched_on": null,
-      "age_rules": {
-        "ages": [],
-        "minimum_age": null,
-        "adults_only": false,
-        "guardian_mentioned": true,
-        "snippet": ""
-      },
-      "high_school": "needs_review",
-      "cancelled": false,
-      "review": "required"
-    },
-    {
-      "id": "59af14cd3400",
-      "source": "crcl-events",
-      "org_slug": "crcl",
-      "kind": "event",
-      "title": "State of the Coast Conference",
-      "url": "https://connect.crcl.org/civicrm/event/info?reset=1&id=982",
-      "start": "2027-05-11",
-      "end": "2027-05-13",
-      "city_key": "new-orleans",
-      "city_matched_on": "New Orleans",
-      "age_rules": {
-        "ages": [],
-        "minimum_age": null,
-        "adults_only": false,
-        "guardian_mentioned": false,
-        "snippet": ""
-      },
-      "high_school": "needs_review",
-      "cancelled": false,
-      "review": "required"
-    },
-    {
       "id": "0d26e4f27609",
       "source": "handson-nola-needs",
       "org_slug": "handson-new-orleans",
@@ -559,28 +443,6 @@
       "review": "required"
     },
     {
-      "id": "1b20f228a891",
-      "source": "handson-nola-needs",
-      "org_slug": "handson-new-orleans",
-      "kind": "opportunity",
-      "title": "'Daily Garden Support '",
-      "url": "http://volunteer.handsonneworleans.org/need/detail/daily-garden-support-/?need_id=1272205",
-      "start": null,
-      "end": null,
-      "city_key": "new-orleans",
-      "city_matched_on": null,
-      "age_rules": {
-        "ages": [],
-        "minimum_age": null,
-        "adults_only": false,
-        "guardian_mentioned": false,
-        "snippet": ""
-      },
-      "high_school": "needs_review",
-      "cancelled": false,
-      "review": "required"
-    },
-    {
       "id": "09f1cb52e99e",
       "source": "handson-nola-needs",
       "org_slug": "handson-new-orleans",
@@ -603,60 +465,106 @@
       "review": "required"
     },
     {
-      "id": "6a9fa8264d69",
-      "source": "handson-nola-needs",
-      "org_slug": "handson-new-orleans",
+      "id": "6c2385ebd8cb",
+      "source": "svdp-br-needs",
+      "org_slug": "svdp-baton-rouge",
       "kind": "opportunity",
-      "title": "'Event Support: Art Supply Giveaway'",
-      "url": "http://volunteer.handsonneworleans.org/need/detail/event-support-art-supply-giveaway/?need_id=1314185",
+      "title": "'Delivery Day Heroes '",
+      "url": "http://svdpbr.galaxydigital.com/need/detail/delivery-day-heroes-/?need_id=1263489",
       "start": null,
       "end": null,
-      "city_key": "new-orleans",
-      "city_matched_on": null,
+      "city_key": "baton-rouge",
+      "city_matched_on": "Baton Rouge",
       "age_rules": {
-        "ages": [],
-        "minimum_age": null,
+        "ages": [
+          14
+        ],
+        "minimum_age": 14,
         "adults_only": false,
         "guardian_mentioned": false,
-        "snippet": ""
+        "snippet": "roes ' ' WE NO LONGER ACCEPT COURT APPOINTED VOLUNTEERISM. Please note that all volunteers must be at least 14 years of age to participate. Overview: Looking for a meaningful way to stay active and make"
       },
-      "high_school": "needs_review",
+      "high_school": "eligible_if_confirmed",
       "cancelled": false,
       "review": "required"
     },
     {
-      "id": "759b668b5a0d",
+      "id": "b4631a0718cb",
       "source": "handson-nola-needs",
       "org_slug": "handson-new-orleans",
       "kind": "opportunity",
-      "title": "'HandsOn Day of Service at Van McMurray Playground'",
-      "url": "http://volunteer.handsonneworleans.org/need/detail/handson-day-of-service-at-van-mcmurray-playground/?need_id=1324890",
+      "title": "'Event Support: Computer Science Meetup Fair'",
+      "url": "http://volunteer.handsonneworleans.org/need/detail/event-support-computer-science-meetup-fair/?need_id=1347111",
+      "start": null,
+      "end": null,
+      "city_key": "new-orleans",
+      "city_matched_on": "Metairie",
+      "age_rules": {
+        "ages": [],
+        "minimum_age": null,
+        "adults_only": true,
+        "guardian_mentioned": false,
+        "snippet": ""
+      },
+      "high_school": "not_eligible",
+      "cancelled": false,
+      "review": "required"
+    },
+    {
+      "id": "d358c41e06c3",
+      "source": "handson-nola-needs",
+      "org_slug": "handson-new-orleans",
+      "kind": "opportunity",
+      "title": "'Event Support: Earth Day Meet-up Fair'",
+      "url": "http://volunteer.handsonneworleans.org/need/detail/event-support-earth-day-meet-up-fair/?need_id=1347210",
+      "start": null,
+      "end": null,
+      "city_key": "new-orleans",
+      "city_matched_on": "Metairie",
+      "age_rules": {
+        "ages": [],
+        "minimum_age": null,
+        "adults_only": true,
+        "guardian_mentioned": false,
+        "snippet": ""
+      },
+      "high_school": "not_eligible",
+      "cancelled": false,
+      "review": "required"
+    },
+    {
+      "id": "fe64d941476d",
+      "source": "handson-nola-needs",
+      "org_slug": "handson-new-orleans",
+      "kind": "opportunity",
+      "title": "'Event Support: February Meetup Fair'",
+      "url": "http://volunteer.handsonneworleans.org/need/detail/event-support-february-meetup-fair/?need_id=1347206",
+      "start": null,
+      "end": null,
+      "city_key": "new-orleans",
+      "city_matched_on": "Metairie",
+      "age_rules": {
+        "ages": [],
+        "minimum_age": null,
+        "adults_only": true,
+        "guardian_mentioned": false,
+        "snippet": ""
+      },
+      "high_school": "not_eligible",
+      "cancelled": false,
+      "review": "required"
+    },
+    {
+      "id": "1a39d99b86f6",
+      "source": "handson-nola-needs",
+      "org_slug": "handson-new-orleans",
+      "kind": "opportunity",
+      "title": "'HandsOn Winter Gift Giveaway'",
+      "url": "http://volunteer.handsonneworleans.org/need/detail/handson-winter-gift-giveaway/?need_id=1314782",
       "start": null,
       "end": null,
       "city_key": "new-orleans",
       "city_matched_on": "New Orleans",
-      "age_rules": {
-        "ages": [],
-        "minimum_age": null,
-        "adults_only": false,
-        "guardian_mentioned": false,
-        "snippet": ""
-      },
-      "high_school": "needs_review",
-      "cancelled": false,
-      "review": "required"
-    },
-    {
-      "id": "916b9880dad1",
-      "source": "handson-nola-needs",
-      "org_slug": "handson-new-orleans",
-      "kind": "opportunity",
-      "title": "'HandsOn Family Volunteer Day at John Ehret High School'",
-      "url": "http://volunteer.handsonneworleans.org/need/detail/handson-family-volunteer-day-at-john-ehret-high-school/?need_id=1314766",
-      "start": null,
-      "end": null,
-      "city_key": "new-orleans",
-      "city_matched_on": null,
       "age_rules": {
         "ages": [],
         "minimum_age": null,
@@ -691,16 +599,16 @@
       "review": "required"
     },
     {
-      "id": "106c7b07ad20",
+      "id": "66767791f61e",
       "source": "handson-nola-needs",
       "org_slug": "handson-new-orleans",
       "kind": "opportunity",
-      "title": "'Mentor Teen Leaders'",
-      "url": "http://volunteer.handsonneworleans.org/need/detail/mentor-teen-leaders/?need_id=1292809",
+      "title": "'Lower 9th Ward home rebuild program (copy)'",
+      "url": "http://volunteer.handsonneworleans.org/need/detail/lower-9th-ward-home-rebuild-program-copy/?need_id=1342592",
       "start": null,
       "end": null,
       "city_key": "new-orleans",
-      "city_matched_on": null,
+      "city_matched_on": "New Orleans",
       "age_rules": {
         "ages": [],
         "minimum_age": null,
@@ -713,16 +621,16 @@
       "review": "required"
     },
     {
-      "id": "63351ed141e4",
+      "id": "106c7b07ad20",
       "source": "handson-nola-needs",
       "org_slug": "handson-new-orleans",
       "kind": "opportunity",
-      "title": "'Mindful Social Media Steward '",
-      "url": "http://volunteer.handsonneworleans.org/need/detail/mindful-social-media-steward-/?need_id=1272207",
+      "title": "'Mentor Teen Leaders'",
+      "url": "http://volunteer.handsonneworleans.org/need/detail/mentor-teen-leaders/?need_id=1292809",
       "start": null,
       "end": null,
       "city_key": "new-orleans",
-      "city_matched_on": "New Orleans",
+      "city_matched_on": null,
       "age_rules": {
         "ages": [],
         "minimum_age": null,
@@ -757,24 +665,25 @@
       "review": "required"
     },
     {
-      "id": "53e4f96f5fc2",
+      "id": "6984291be60e",
       "source": "svdp-br-needs",
       "org_slug": "svdp-baton-rouge",
       "kind": "opportunity",
-      "title": "'Neighbors Helping Neighbors Drive Through Donation Volunteer'",
-      "url": "http://svdpbr.galaxydigital.com/need/detail/neighbors-helping-neighbors-drive-through-donation-volunteer/?need_id=1334326",
+      "title": "'Santa's Helpers: St. George Fire Department Parade '",
+      "url": "http://svdpbr.galaxydigital.com/need/detail/santas-helpers-st.-george-fire-department-parade-/?need_id=1347433",
       "start": null,
       "end": null,
       "city_key": "baton-rouge",
       "city_matched_on": "Baton Rouge",
       "age_rules": {
         "ages": [
-          14
+          14,
+          18
         ],
         "minimum_age": 14,
         "adults_only": false,
         "guardian_mentioned": false,
-        "snippet": "nteer' ' WE NO LONGER ACCEPT COURT APPOINTED VOLUNTEERISM. Please note that all volunteers must be at least 14 years of age to participate. Overview: Help bring hope to the table! St. Vincent de Paul of"
+        "snippet": "rade ' ' WE NO LONGER ACCEPT COURT APPOINTED VOLUNTEERISM. Please note that all volunteers must be at least 18 years of age to participate. Overview Have you ever wanted to be one of Santa's Helpers?! Ma"
       },
       "high_school": "eligible_if_confirmed",
       "cancelled": false,
@@ -803,30 +712,6 @@
       "review": "required"
     },
     {
-      "id": "9948134b7a7b",
-      "source": "svdp-br-needs",
-      "org_slug": "svdp-baton-rouge",
-      "kind": "opportunity",
-      "title": "'Thanksgiving Prep Dressing- River Center'",
-      "url": "http://svdpbr.galaxydigital.com/need/detail/thanksgiving-prep-dressing-river-center/?need_id=1337624",
-      "start": null,
-      "end": null,
-      "city_key": "baton-rouge",
-      "city_matched_on": "Baton Rouge",
-      "age_rules": {
-        "ages": [
-          18
-        ],
-        "minimum_age": 18,
-        "adults_only": false,
-        "guardian_mentioned": false,
-        "snippet": "enter' ' WE NO LONGER ACCEPT COURT APPOINTED VOLUNTEERISM. Please note that all volunteers must be at least 18 years of age to participate in this program. Overview What's Thanksgiving without the dressi"
-      },
-      "high_school": "not_eligible",
-      "cancelled": false,
-      "review": "required"
-    },
-    {
       "id": "e62547c10d03",
       "source": "handson-nola-needs",
       "org_slug": "handson-new-orleans",
@@ -849,24 +734,26 @@
       "review": "required"
     },
     {
-      "id": "2c8ffcd1bd76",
+      "id": "4b4e1721f2cc",
       "source": "handson-nola-needs",
       "org_slug": "handson-new-orleans",
       "kind": "opportunity",
-      "title": "'United Way HandsOn Volunteer Center proudly serving with Ochsner at Rainbow Child Care Center'",
-      "url": "http://volunteer.handsonneworleans.org/need/detail/united-way-handson-volunteer-center-proudly-serving-with-ochsner-at-rainbow-child-care-center/?need_id=1314154",
+      "title": "'Volunteer Tutor — After-School Reading & Math (Recurring Shifts)'",
+      "url": "http://volunteer.handsonneworleans.org/need/detail/volunteer-tutor-after-school-reading-math-recurring-shifts/?need_id=1339856",
       "start": null,
       "end": null,
       "city_key": "new-orleans",
-      "city_matched_on": "Slidell",
+      "city_matched_on": "New Orleans",
       "age_rules": {
-        "ages": [],
-        "minimum_age": null,
+        "ages": [
+          18
+        ],
+        "minimum_age": 18,
         "adults_only": false,
         "guardian_mentioned": false,
-        "snippet": ""
+        "snippet": "e session tutor - Arrive reliably for your chosen weekly shift(s) Requirements: Age 18+, college degree, experience working with children, background check required. '"
       },
-      "high_school": "needs_review",
+      "high_school": "not_eligible",
       "cancelled": false,
       "review": "required"
     },
@@ -918,10 +805,10 @@
   "sources": [
     {
       "id": "crcl-events",
-      "status": "ok",
-      "code": 200,
-      "items_seen": 10,
-      "candidates": 10
+      "status": "unreachable",
+      "code": null,
+      "items_seen": 0,
+      "candidates": 0
     },
     {
       "id": "handson-nola-needs",
