@@ -41,7 +41,7 @@
       "id": "44d4728130",
       "slug": "chasing-santa-5k-zachary-2026",
       "foundOn": "2026-11-24",
-      "issue": 6,
+      "issue": 7,
       "state": "pending"
     },
     {
@@ -83,7 +83,97 @@
       "id": "a8c4df78d2",
       "slug": "reindeer-run-hammond-2026",
       "foundOn": "2026-11-25",
-      "issue": 6,
+      "issue": 7,
+      "state": "pending"
+    },
+    {
+      "type": "opportunity",
+      "sourceUrl": "https://connect.crcl.org/civicrm/event/info?reset=1&id=1015",
+      "checked": "Date (Saturday, December 19, 2026), 9 AM–3 PM, Port Manchac, minimum age 16, the parent/guardian registration rule for ages 17 and under, and the registration form are on CRCL's event page. It is a different date from the Dec. 18 planting already published.",
+      "listing": {
+        "orgSlug": "crcl",
+        "kind": "event",
+        "title": "Maurepas swamp tree planting at Port Manchac (Dec. 19)",
+        "summary": "Take a short boat ride from Port Manchac and plant bald cypress trees in the Maurepas swamp with the Coalition to Restore Coastal Louisiana.",
+        "description": "The Coalition to Restore Coastal Louisiana is planting about 4,500 bald cypress trees in the Maurepas swamp. Volunteers take a boat ride of about 20 minutes to the planting site, wear CRCL-provided life jackets and follow the boat captains' directions. Every volunteer must register on CRCL's event page.",
+        "cause": "environment",
+        "cityKey": "hammond",
+        "serviceArea": "Hammond and Tangipahoa Parish",
+        "location": "Port Manchac, by boat to the Maurepas swamp",
+        "timeCommitment": "One day, 9 AM–3 PM",
+        "requirements": [
+          "Register on CRCL's event page in advance",
+          "Minimum age 16; volunteers 17 and younger must be registered by a parent or guardian and accompanied by an adult",
+          "Everyone signs CRCL's release and waiver",
+          "Wear the life jacket CRCL provides on the boat ride"
+        ],
+        "minimumAge": 16,
+        "eligibility": {
+          "minimumAge": 16,
+          "minors": "with_adult",
+          "guardianPermission": "required",
+          "schoolGroups": "unverified",
+          "note": "CRCL's page: minimum age 16; ages 17 and under must have a parent or guardian complete registration and must be accompanied by an adult.",
+          "days": "weekends"
+        },
+        "groupEligibility": "individuals",
+        "frequency": "one_time",
+        "format": "in_person",
+        "signupUrl": "https://connect.crcl.org/civicrm/event/info?reset=1&id=1015",
+        "infoUrl": "https://connect.crcl.org/civicrm/event/info?reset=1&id=1015",
+        "startDate": "2026-12-19",
+        "endDate": "2026-12-19",
+        "status": "active"
+      },
+      "id": "6e142f73b5",
+      "slug": "maurepas-swamp-tree-planting-at-port-manchac-dec-19-2026",
+      "foundOn": "2026-11-27",
+      "issue": 7,
+      "state": "pending"
+    },
+    {
+      "type": "opportunity",
+      "sourceUrl": "https://connect.crcl.org/civicrm/event/info?reset=1&id=1031",
+      "checked": "Date (Saturday, January 16, 2027), 9 AM–3 PM, Berwick location, minimum age 16, the parent/guardian registration rule for ages 17 and under, and the registration form are on CRCL's event page. It is a different date from the Jan. 15 planting already published.",
+      "listing": {
+        "orgSlug": "crcl",
+        "kind": "event",
+        "title": "Atchafalaya Basin tree planting near Berwick (Jan. 16)",
+        "summary": "Plant oaks and hackberry on a dredge-spoil island in the Atchafalaya Basin with the Coalition to Restore Coastal Louisiana.",
+        "description": "The Coalition to Restore Coastal Louisiana is planting 800 trees over two weekends, including live oak, hackberry, Nuttall oak and overcup oak, on dredge spoil in the Atchafalaya Basin. Volunteers take a boat ride of about 50 minutes from Berwick, wearing CRCL-provided life jackets. Every volunteer must register on CRCL's event page.",
+        "cause": "environment",
+        "cityKey": "houma",
+        "serviceArea": "Bayou region (St. Mary Parish)",
+        "location": "Berwick, St. Mary Parish, by boat to the Atchafalaya Basin",
+        "timeCommitment": "One day, 9 AM–3 PM",
+        "requirements": [
+          "Register on CRCL's event page in advance",
+          "Minimum age 16; volunteers 17 and younger must be registered by a parent or guardian and accompanied by an adult",
+          "Everyone signs CRCL's release and waiver",
+          "Wear the life jacket CRCL provides on the boat ride"
+        ],
+        "minimumAge": 16,
+        "eligibility": {
+          "minimumAge": 16,
+          "minors": "with_adult",
+          "guardianPermission": "required",
+          "schoolGroups": "unverified",
+          "note": "CRCL's page: minimum age 16; ages 17 and under must have a parent or guardian complete registration and must be accompanied by an adult.",
+          "days": "weekends"
+        },
+        "groupEligibility": "individuals",
+        "frequency": "one_time",
+        "format": "in_person",
+        "signupUrl": "https://connect.crcl.org/civicrm/event/info?reset=1&id=1031",
+        "infoUrl": "https://connect.crcl.org/civicrm/event/info?reset=1&id=1031",
+        "startDate": "2027-01-16",
+        "endDate": "2027-01-16",
+        "status": "active"
+      },
+      "id": "86c0c15c65",
+      "slug": "atchafalaya-basin-tree-planting-near-berwick-jan-16-2027",
+      "foundOn": "2026-11-27",
+      "issue": 7,
       "state": "pending"
     }
   ]
